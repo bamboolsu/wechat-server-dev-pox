@@ -1,26 +1,26 @@
-package org.leo.course.util;
+ï»¿package org.leo.course.util;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import javax.net.ssl.X509TrustManager;
 
 /**
- * ĞÅÈÎ¹ÜÀíÆ÷
+ * ä¿¡ä»»ç®¡ç†å™¨
  * 
  * @author leo
  * @date 2015-04-10
  */
 public class MyX509TrustManager implements X509TrustManager {
 
-	// ¼ì²é¿Í»§¶ËÖ¤Êé
+	// æ£€æŸ¥å®¢æˆ·ç«¯è¯ä¹¦
 	public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
 	}
 
-	// ¼ì²é·şÎñÆ÷¶ËÖ¤Êé
+	// æ£€æŸ¥æœåŠ¡å™¨ç«¯è¯ä¹¦
 	public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
 	}
 
-	// ·µ»ØÊÜĞÅÈÎµÄX509Ö¤ÊéÊı×é
+	// è¿”å›å—ä¿¡ä»»çš„X509è¯ä¹¦æ•°ç»„
 	public X509Certificate[] getAcceptedIssuers() {
 		return null;
 	}

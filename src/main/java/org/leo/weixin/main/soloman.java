@@ -1,4 +1,4 @@
-﻿package org.leo.weixin.main;
+package org.leo.weixin.main;
 
 import org.leo.course.menu.Button;
 import org.leo.course.menu.ClickButton;
@@ -17,8 +17,8 @@ import org.slf4j.LoggerFactory;
  * @author leo
  * @date 2015-10-17
  */
-public class MenuManager {
-	private static Logger log = LoggerFactory.getLogger(MenuManager.class);
+public class soloman {
+	private static Logger log = LoggerFactory.getLogger(soloman.class);
 
 	/**
 	 * 定义菜单结构

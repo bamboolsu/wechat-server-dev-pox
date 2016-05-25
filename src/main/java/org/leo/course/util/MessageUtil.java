@@ -1,4 +1,4 @@
-package org.leo.course.util;
+ï»¿package org.leo.course.util;
 
 import java.io.InputStream;
 import java.io.Writer;
@@ -23,54 +23,54 @@ import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.XppDriver;
 
 /**
- * ÏûÏ¢´¦Àí¹¤¾ßÀà
+ * æ¶ˆæ¯å¤„ç†å·¥å…·ç±»
  * 
  * @author leo
  * @date 2015-09-15
  */
 public class MessageUtil {
-	// ÇëÇóÏûÏ¢ÀàĞÍ£ºÎÄ±¾
+	// è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šæ–‡æœ¬
 	public static final String REQ_MESSAGE_TYPE_TEXT = "text";
-	// ÇëÇóÏûÏ¢ÀàĞÍ£ºÍ¼Æ¬
+	// è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šå›¾ç‰‡
 	public static final String REQ_MESSAGE_TYPE_IMAGE = "image";
-	// ÇëÇóÏûÏ¢ÀàĞÍ£ºÓïÒô
+	// è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šè¯­éŸ³
 	public static final String REQ_MESSAGE_TYPE_VOICE = "voice";
-	// ÇëÇóÏûÏ¢ÀàĞÍ£ºÊÓÆµ
+	// è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šè§†é¢‘
 	public static final String REQ_MESSAGE_TYPE_VIDEO = "video";
-	// ÇëÇóÏûÏ¢ÀàĞÍ£ºµØÀíÎ»ÖÃ
+	// è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šåœ°ç†ä½ç½®
 	public static final String REQ_MESSAGE_TYPE_LOCATION = "location";
-	// ÇëÇóÏûÏ¢ÀàĞÍ£ºÁ´½Ó
+	// è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šé“¾æ¥
 	public static final String REQ_MESSAGE_TYPE_LINK = "link";
 
-	// ÇëÇóÏûÏ¢ÀàĞÍ£ºÊÂ¼şÍÆËÍ
+	// è¯·æ±‚æ¶ˆæ¯ç±»å‹ï¼šäº‹ä»¶æ¨é€
 	public static final String REQ_MESSAGE_TYPE_EVENT = "event";
 
-	// ÊÂ¼şÀàĞÍ£ºsubscribe(¶©ÔÄ)
+	// äº‹ä»¶ç±»å‹ï¼šsubscribe(è®¢é˜…)
 	public static final String EVENT_TYPE_SUBSCRIBE = "subscribe";
-	// ÊÂ¼şÀàĞÍ£ºunsubscribe(È¡Ïû¶©ÔÄ)
+	// äº‹ä»¶ç±»å‹ï¼šunsubscribe(å–æ¶ˆè®¢é˜…)
 	public static final String EVENT_TYPE_UNSUBSCRIBE = "unsubscribe";
-	// ÊÂ¼şÀàĞÍ£ºscan(ÓÃ»§ÒÑ¹Ø×¢Ê±µÄÉ¨Ãè´ø²ÎÊı¶şÎ¬Âë)
+	// äº‹ä»¶ç±»å‹ï¼šscan(ç”¨æˆ·å·²å…³æ³¨æ—¶çš„æ‰«æå¸¦å‚æ•°äºŒç»´ç )
 	public static final String EVENT_TYPE_SCAN = "SCAN";
-	// ÊÂ¼şÀàĞÍ£ºLOCATION(ÉÏ±¨µØÀíÎ»ÖÃ)
+	// äº‹ä»¶ç±»å‹ï¼šLOCATION(ä¸ŠæŠ¥åœ°ç†ä½ç½®)
 	public static final String EVENT_TYPE_LOCATION = "LOCATION";
-	// ÊÂ¼şÀàĞÍ£ºCLICK(×Ô¶¨Òå²Ëµ¥)
+	// äº‹ä»¶ç±»å‹ï¼šCLICK(è‡ªå®šä¹‰èœå•)
 	public static final String EVENT_TYPE_CLICK = "CLICK";
 
-	// ÏìÓ¦ÏûÏ¢ÀàĞÍ£ºÎÄ±¾
+	// å“åº”æ¶ˆæ¯ç±»å‹ï¼šæ–‡æœ¬
 	public static final String RESP_MESSAGE_TYPE_TEXT = "text";
-	// ÏìÓ¦ÏûÏ¢ÀàĞÍ£ºÍ¼Æ¬
+	// å“åº”æ¶ˆæ¯ç±»å‹ï¼šå›¾ç‰‡
 	public static final String RESP_MESSAGE_TYPE_IMAGE = "image";
-	// ÏìÓ¦ÏûÏ¢ÀàĞÍ£ºÓïÒô
+	// å“åº”æ¶ˆæ¯ç±»å‹ï¼šè¯­éŸ³
 	public static final String RESP_MESSAGE_TYPE_VOICE = "voice";
-	// ÏìÓ¦ÏûÏ¢ÀàĞÍ£ºÊÓÆµ
+	// å“åº”æ¶ˆæ¯ç±»å‹ï¼šè§†é¢‘
 	public static final String RESP_MESSAGE_TYPE_VIDEO = "video";
-	// ÏìÓ¦ÏûÏ¢ÀàĞÍ£ºÒôÀÖ
+	// å“åº”æ¶ˆæ¯ç±»å‹ï¼šéŸ³ä¹
 	public static final String RESP_MESSAGE_TYPE_MUSIC = "music";
-	// ÏìÓ¦ÏûÏ¢ÀàĞÍ£ºÍ¼ÎÄ
+	// å“åº”æ¶ˆæ¯ç±»å‹ï¼šå›¾æ–‡
 	public static final String RESP_MESSAGE_TYPE_NEWS = "news";
 
 	/**
-	 * ½âÎöÎ¢ĞÅ·¢À´µÄÇëÇó£¨XML£©
+	 * è§£æå¾®ä¿¡å‘æ¥çš„è¯·æ±‚ï¼ˆXMLï¼‰
 	 * 
 	 * @param request
 	 * @return Map<String, String>
@@ -78,24 +78,24 @@ public class MessageUtil {
 	 */
 	@SuppressWarnings("unchecked")
 	public static Map<String, String> parseXml(HttpServletRequest request) throws Exception {
-		// ½«½âÎö½á¹û´æ´¢ÔÚHashMapÖĞ
+		// å°†è§£æç»“æœå­˜å‚¨åœ¨HashMapä¸­
 		Map<String, String> map = new HashMap<String, String>();
 
-		// ´ÓrequestÖĞÈ¡µÃÊäÈëÁ÷
+		// ä»requestä¸­å–å¾—è¾“å…¥æµ
 		InputStream inputStream = request.getInputStream();
-		// ¶ÁÈ¡ÊäÈëÁ÷
+		// è¯»å–è¾“å…¥æµ
 		SAXReader reader = new SAXReader();
 		Document document = reader.read(inputStream);
-		// µÃµ½xml¸ùÔªËØ
+		// å¾—åˆ°xmlæ ¹å…ƒç´ 
 		Element root = document.getRootElement();
-		// µÃµ½¸ùÔªËØµÄËùÓĞ×Ó½Úµã
+		// å¾—åˆ°æ ¹å…ƒç´ çš„æ‰€æœ‰å­èŠ‚ç‚¹
 		List<Element> elementList = root.elements();
 
-		// ±éÀúËùÓĞ×Ó½Úµã
+		// éå†æ‰€æœ‰å­èŠ‚ç‚¹
 		for (Element e : elementList)
 			map.put(e.getName(), e.getText());
 
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		inputStream.close();
 		inputStream = null;
 
@@ -103,12 +103,12 @@ public class MessageUtil {
 	}
 
 	/**
-	 * À©Õ¹xstreamÊ¹ÆäÖ§³ÖCDATA
+	 * æ‰©å±•xstreamä½¿å…¶æ”¯æŒCDATA
 	 */
 	private static XStream xstream = new XStream(new XppDriver() {
 		public HierarchicalStreamWriter createWriter(Writer out) {
 			return new PrettyPrintWriter(out) {
-				// ¶ÔËùÓĞxml½ÚµãµÄ×ª»»¶¼Ôö¼ÓCDATA±ê¼Ç
+				// å¯¹æ‰€æœ‰xmlèŠ‚ç‚¹çš„è½¬æ¢éƒ½å¢åŠ CDATAæ ‡è®°
 				boolean cdata = true;
 
 				@SuppressWarnings("unchecked")
@@ -130,9 +130,9 @@ public class MessageUtil {
 	});
 
 	/**
-	 * ÎÄ±¾ÏûÏ¢¶ÔÏó×ª»»³Éxml
+	 * æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml
 	 * 
-	 * @param textMessage ÎÄ±¾ÏûÏ¢¶ÔÏó
+	 * @param textMessage æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡
 	 * @return xml
 	 */
 	public static String messageToXml(TextMessage textMessage) {
@@ -141,9 +141,9 @@ public class MessageUtil {
 	}
 
 	/**
-	 * Í¼Æ¬ÏûÏ¢¶ÔÏó×ª»»³Éxml
+	 * å›¾ç‰‡æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml
 	 * 
-	 * @param imageMessage Í¼Æ¬ÏûÏ¢¶ÔÏó
+	 * @param imageMessage å›¾ç‰‡æ¶ˆæ¯å¯¹è±¡
 	 * @return xml
 	 */
 	public static String messageToXml(ImageMessage imageMessage) {
@@ -152,9 +152,9 @@ public class MessageUtil {
 	}
 
 	/**
-	 * ÓïÒôÏûÏ¢¶ÔÏó×ª»»³Éxml
+	 * è¯­éŸ³æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml
 	 * 
-	 * @param voiceMessage ÓïÒôÏûÏ¢¶ÔÏó
+	 * @param voiceMessage è¯­éŸ³æ¶ˆæ¯å¯¹è±¡
 	 * @return xml
 	 */
 	public static String messageToXml(VoiceMessage voiceMessage) {
@@ -163,9 +163,9 @@ public class MessageUtil {
 	}
 
 	/**
-	 * ÊÓÆµÏûÏ¢¶ÔÏó×ª»»³Éxml
+	 * è§†é¢‘æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml
 	 * 
-	 * @param videoMessage ÊÓÆµÏûÏ¢¶ÔÏó
+	 * @param videoMessage è§†é¢‘æ¶ˆæ¯å¯¹è±¡
 	 * @return xml
 	 */
 	public static String messageToXml(VideoMessage videoMessage) {
@@ -174,9 +174,9 @@ public class MessageUtil {
 	}
 
 	/**
-	 * ÒôÀÖÏûÏ¢¶ÔÏó×ª»»³Éxml
+	 * éŸ³ä¹æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml
 	 * 
-	 * @param musicMessage ÒôÀÖÏûÏ¢¶ÔÏó
+	 * @param musicMessage éŸ³ä¹æ¶ˆæ¯å¯¹è±¡
 	 * @return xml
 	 */
 	public static String messageToXml(MusicMessage musicMessage) {
@@ -185,9 +185,9 @@ public class MessageUtil {
 	}
 
 	/**
-	 * Í¼ÎÄÏûÏ¢¶ÔÏó×ª»»³Éxml
+	 * å›¾æ–‡æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml
 	 * 
-	 * @param newsMessage Í¼ÎÄÏûÏ¢¶ÔÏó
+	 * @param newsMessage å›¾æ–‡æ¶ˆæ¯å¯¹è±¡
 	 * @return xml
 	 */
 	public static String messageToXml(NewsMessage newsMessage) {

@@ -1,7 +1,7 @@
-package org.leo.course.menu;
+﻿package org.leo.course.menu;
 
 /**
- * click���͵İ�ť
+ * click类型的按钮
  * 
  * @author leo
  * @date 2015-10-14

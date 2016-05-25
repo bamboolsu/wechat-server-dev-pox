@@ -1,0 +1,179 @@
+﻿package org.leo.util;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.OutputStream;
+
+import javax.imageio.ImageIO;
+
+import com.swetake.util.Qrcode;
+
+public class QRCode {
+	/**
+	 * 鐢熸垚浜岀淮镰?QRCode)锲剧墖
+	 * 
+	 * @param content
+	 *            瀛桦偍鍐呭
+	 * @param imgPath
+	 *            锲剧墖璺缎
+	 */
+	public void encoderQRCode(String content, String imgPath) {
+		this.encoderQRCode(content, imgPath, "png", 7);
+	}
+
+	/**
+	 * 鐢熸垚浜岀淮镰?QRCode)锲剧墖
+	 * 
+	 * @param content
+	 *            瀛桦偍鍐呭
+	 * @param output
+	 *            杈揿嚭娴?
+	 */
+	public void encoderQRCode(String content, OutputStream output) {
+		this.encoderQRCode(content, output, "png", 7);
+	}
+
+	/**
+	 * 鐢熸垚浜岀淮镰?QRCode)锲剧墖
+	 * 
+	 * @param content
+	 *            瀛桦偍鍐呭
+	 * @param imgPath
+	 *            锲剧墖璺缎
+	 * @param imgType
+	 *            锲剧墖绫诲瀷
+	 */
+	public void encoderQRCode(String content, String imgPath, String imgType) {
+		this.encoderQRCode(content, imgPath, imgType,20);
+	}
+
+	/**
+	 * 鐢熸垚浜岀淮镰?QRCode)锲剧墖
+	 * 
+	 * @param content
+	 *            瀛桦偍鍐呭
+	 * @param output
+	 *            杈揿嚭娴?
+	 * @param imgType
+	 *            锲剧墖绫诲瀷
+	 */
+	public void encoderQRCode(String content, OutputStream output,
+			String imgType) {
+		this.encoderQRCode(content, output, imgType, 7);
+	}
+
+	/**
+	 * 鐢熸垚浜岀淮镰?QRCode)锲剧墖
+	 * 
+	 * @param content
+	 *            瀛桦偍鍐呭
+	 * @param imgPath
+	 *            锲剧墖璺缎
+	 * @param imgType
+	 *            锲剧墖绫诲瀷
+	 * @param size
+	 *            浜岀淮镰佸昂瀵?
+	 */
+	public void encoderQRCode(String content, String imgPath, String imgType,
+			int size) {
+		try {
+			BufferedImage bufImg = this.qRCodeCommon(content, imgType, size);
+
+			File imgFile = new File(imgPath);
+			// 鐢熸垚浜岀淮镰丵RCode锲剧墖
+			ImageIO.write(bufImg, imgType, imgFile);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 鐢熸垚浜岀淮镰?QRCode)锲剧墖
+	 * 
+	 * @param content
+	 *            瀛桦偍鍐呭
+	 * @param output
+	 *            杈揿嚭娴?
+	 * @param imgType
+	 *            锲剧墖绫诲瀷
+	 * @param size
+	 *            浜岀淮镰佸昂瀵?
+	 */
+	public void encoderQRCode(String content, OutputStream output,
+			String imgType, int size) {
+		try {
+			BufferedImage bufImg = this.qRCodeCommon(content, imgType, size);
+			// 鐢熸垚浜岀淮镰丵RCode锲剧墖
+			ImageIO.write(bufImg, imgType, output);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 鐢熸垚浜岀淮镰?QRCode)锲剧墖镄勫叕鍏辨柟娉?
+	 * 
+	 * @param content
+	 *            瀛桦偍鍐呭
+	 * @param imgType
+	 *            锲剧墖绫诲瀷
+	 * @param size
+	 *            浜岀淮镰佸昂瀵?
+	 * @return
+	 */
+	private BufferedImage qRCodeCommon(String content, String imgType, int size) {
+		BufferedImage bufImg = null;
+		try {
+			Qrcode qrcodeHandler = new Qrcode();
+			// 璁剧疆浜岀淮镰佹帓阌欑巼锛屽彲阃茔(7%)銆丮(15%)銆丵(25%)銆丠(30%)锛屾帓阌欑巼瓒婇佩鍙瓨鍌ㄧ殑淇℃伅瓒婂皯锛屼絾瀵逛簩缁寸爜娓呮榈搴︾殑瑕佹眰瓒婂皬
+			qrcodeHandler.setQrcodeErrorCorrect('M');
+			qrcodeHandler.setQrcodeEncodeMode('B');
+			// 璁剧疆璁剧疆浜岀淮镰佸昂瀵革紝鍙栧€艰寖锲?-40锛屽€艰秺澶у昂瀵歌秺澶э紝鍙瓨鍌ㄧ殑淇℃伅瓒婂ぇ
+			qrcodeHandler.setQrcodeVersion(size);
+			// 銮峰缑鍐呭镄勫瓧鑺傛暟缁勶紝璁剧疆缂栫爜镙煎纺
+			byte[] contentBytes = content.getBytes("utf-8");
+			// 锲剧墖灏哄
+			int imgSize = 67 + 12 * (size - 1);
+			bufImg = new BufferedImage(imgSize, imgSize,
+					BufferedImage.TYPE_INT_RGB);
+			Graphics2D gs = bufImg.createGraphics();
+			// 璁剧疆鑳屾櫙棰滆壊
+			gs.setBackground(Color.WHITE);
+			gs.clearRect(0, 0, imgSize, imgSize);
+
+			// 璁惧畾锲惧儚棰滆壊> BLACK
+			gs.setColor(Color.BLACK);
+			// 璁剧疆锅忕Щ閲忥紝涓嶈缃彲鑳藉镊磋В鏋愬嚭阌?
+			int pixoff = 2;
+			// 杈揿嚭鍐呭> 浜岀淮镰?
+			if (contentBytes.length > 0 && contentBytes.length < 800) {
+				boolean[][] codeOut = qrcodeHandler.calQrcode(contentBytes);
+				for (int i = 0; i < codeOut.length; i++) {
+					for (int j = 0; j < codeOut.length; j++) {
+						if (codeOut[j][i]) {
+							gs.fillRect(j * 3 + pixoff, i * 3 + pixoff, 3, 3);
+						}
+					}
+				}
+			} else {
+				throw new Exception("QRCode content bytes length = "
+						+ contentBytes.length + " not in [0, 800].");
+			}
+			gs.dispose();
+			bufImg.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bufImg;
+	}
+
+	public static void main(String[] args) {
+		String imgPath = "d:/1.png";
+		String encoderContent = "weixin://wxpay/bizpayurl?sign=4F77B0E7BCD4996729808B7AA79145BA&appid=wx52d56e1edce27e10&mch_id=1236178602&product_id=888888&time_stamp=1454121732&nonce_str=tcwtudlzaqnk2tpuvujaq2tzlwoszzsi";
+		QRCode handler = new QRCode();
+		handler.encoderQRCode(encoderContent, imgPath, "png");
+		System.out.println("========encoder success");
+	}
+}

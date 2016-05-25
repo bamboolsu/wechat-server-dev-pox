@@ -1,4 +1,4 @@
-package org.leo.course.util;
+ï»¿package org.leo.course.util;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -31,7 +31,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ¸ß¼¶½Ó¿Ú¹¤¾ßÀà
+ * é«˜çº§æ¥å£å·¥å…·ç±»
  * 
  * @author leo
  * @date 2015-11-9
@@ -40,24 +40,24 @@ public class AdvancedUtil {
 	private static Logger log = LoggerFactory.getLogger(AdvancedUtil.class);
 
 	/**
-	 * ×é×°ÎÄ±¾¿Í·şÏûÏ¢
+	 * ç»„è£…æ–‡æœ¬å®¢æœæ¶ˆæ¯
 	 * 
-	 * @param openId ÏûÏ¢·¢ËÍ¶ÔÏó
-	 * @param content ÎÄ±¾ÏûÏ¢ÄÚÈİ
+	 * @param openId æ¶ˆæ¯å‘é€å¯¹è±¡
+	 * @param content æ–‡æœ¬æ¶ˆæ¯å†…å®¹
 	 * @return
 	 */
 	public static String makeTextCustomMessage(String openId, String content) {
-		// ¶ÔÏûÏ¢ÄÚÈİÖĞµÄË«ÒıºÅ½øĞĞ×ªÒå
+		// å¯¹æ¶ˆæ¯å†…å®¹ä¸­çš„åŒå¼•å·è¿›è¡Œè½¬ä¹‰
 		content = content.replace("\"", "\\\"");
 		String jsonMsg = "{\"touser\":\"%s\",\"msgtype\":\"text\",\"text\":{\"content\":\"%s\"}}";
 		return String.format(jsonMsg, openId, content);
 	}
 
 	/**
-	 * ×é×°Í¼Æ¬¿Í·şÏûÏ¢
+	 * ç»„è£…å›¾ç‰‡å®¢æœæ¶ˆæ¯
 	 * 
-	 * @param openId ÏûÏ¢·¢ËÍ¶ÔÏó
-	 * @param mediaId Ã½ÌåÎÄ¼şid
+	 * @param openId æ¶ˆæ¯å‘é€å¯¹è±¡
+	 * @param mediaId åª’ä½“æ–‡ä»¶id
 	 * @return
 	 */
 	public static String makeImageCustomMessage(String openId, String mediaId) {
@@ -66,10 +66,10 @@ public class AdvancedUtil {
 	}
 
 	/**
-	 * ×é×°ÓïÒô¿Í·şÏûÏ¢
+	 * ç»„è£…è¯­éŸ³å®¢æœæ¶ˆæ¯
 	 * 
-	 * @param openId ÏûÏ¢·¢ËÍ¶ÔÏó
-	 * @param mediaId Ã½ÌåÎÄ¼şid
+	 * @param openId æ¶ˆæ¯å‘é€å¯¹è±¡
+	 * @param mediaId åª’ä½“æ–‡ä»¶id
 	 * @return
 	 */
 	public static String makeVoiceCustomMessage(String openId, String mediaId) {
@@ -78,11 +78,11 @@ public class AdvancedUtil {
 	}
 
 	/**
-	 * ×é×°ÊÓÆµ¿Í·şÏûÏ¢
+	 * ç»„è£…è§†é¢‘å®¢æœæ¶ˆæ¯
 	 * 
-	 * @param openId ÏûÏ¢·¢ËÍ¶ÔÏó
-	 * @param mediaId Ã½ÌåÎÄ¼şid
-	 * @param thumbMediaId ÊÓÆµÏûÏ¢ËõÂÔÍ¼µÄÃ½Ìåid
+	 * @param openId æ¶ˆæ¯å‘é€å¯¹è±¡
+	 * @param mediaId åª’ä½“æ–‡ä»¶id
+	 * @param thumbMediaId è§†é¢‘æ¶ˆæ¯ç¼©ç•¥å›¾çš„åª’ä½“id
 	 * @return
 	 */
 	public static String makeVideoCustomMessage(String openId, String mediaId, String thumbMediaId) {
@@ -91,49 +91,49 @@ public class AdvancedUtil {
 	}
 
 	/**
-	 * ×é×°ÒôÀÖ¿Í·şÏûÏ¢
+	 * ç»„è£…éŸ³ä¹å®¢æœæ¶ˆæ¯
 	 * 
-	 * @param openId ÏûÏ¢·¢ËÍ¶ÔÏó
-	 * @param music ÒôÀÖ¶ÔÏó
+	 * @param openId æ¶ˆæ¯å‘é€å¯¹è±¡
+	 * @param music éŸ³ä¹å¯¹è±¡
 	 * @return
 	 */
 	public static String makeMusicCustomMessage(String openId, Music music) {
 		String jsonMsg = "{\"touser\":\"%s\",\"msgtype\":\"music\",\"music\":%s}";
 		jsonMsg = String.format(jsonMsg, openId, JSONObject.fromObject(music).toString());
-		// ½«jsonMsgÖĞµÄthumbmediaidÌæ»»Îªthumb_media_id
+		// å°†jsonMsgä¸­çš„thumbmediaidæ›¿æ¢ä¸ºthumb_media_id
 		jsonMsg = jsonMsg.replace("thumbmediaid", "thumb_media_id");
 		return jsonMsg;
 	}
 
 	/**
-	 * ×é×°Í¼ÎÄ¿Í·şÏûÏ¢
+	 * ç»„è£…å›¾æ–‡å®¢æœæ¶ˆæ¯
 	 * 
-	 * @param openId ÏûÏ¢·¢ËÍ¶ÔÏó
-	 * @param articleList Í¼ÎÄÏûÏ¢ÁĞ±í
+	 * @param openId æ¶ˆæ¯å‘é€å¯¹è±¡
+	 * @param articleList å›¾æ–‡æ¶ˆæ¯åˆ—è¡¨
 	 * @return
 	 */
 	public static String makeNewsCustomMessage(String openId, List<Article> articleList) {
 		String jsonMsg = "{\"touser\":\"%s\",\"msgtype\":\"news\",\"news\":{\"articles\":%s}}";
 		jsonMsg = String.format(jsonMsg, openId, JSONArray.fromObject(articleList).toString().replaceAll("\"", "\\\""));
-		// ½«jsonMsgÖĞµÄpicUrlÌæ»»Îªpicurl
+		// å°†jsonMsgä¸­çš„picUrlæ›¿æ¢ä¸ºpicurl
 		jsonMsg = jsonMsg.replace("picUrl", "picurl");
 		return jsonMsg;
 	}
 
 	/**
-	 * ·¢ËÍ¿Í·şÏûÏ¢
+	 * å‘é€å®¢æœæ¶ˆæ¯
 	 * 
-	 * @param accessToken ½Ó¿Ú·ÃÎÊÆ¾Ö¤
-	 * @param jsonMsg json¸ñÊ½µÄ¿Í·şÏûÏ¢£¨°üÀ¨touser¡¢msgtypeºÍÏûÏ¢ÄÚÈİ£©
+	 * @param accessToken æ¥å£è®¿é—®å‡­è¯
+	 * @param jsonMsg jsonæ ¼å¼çš„å®¢æœæ¶ˆæ¯ï¼ˆåŒ…æ‹¬touserã€msgtypeå’Œæ¶ˆæ¯å†…å®¹ï¼‰
 	 * @return true | false
 	 */
 	public static boolean sendCustomMessage(String accessToken, String jsonMsg) {
-		log.info("ÏûÏ¢ÄÚÈİ£º{}", jsonMsg);
+		log.info("æ¶ˆæ¯å†…å®¹ï¼š{}", jsonMsg);
 		boolean result = false;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=ACCESS_TOKEN";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken);
-		// ·¢ËÍ¿Í·şÏûÏ¢
+		// å‘é€å®¢æœæ¶ˆæ¯
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "POST", jsonMsg);
 
 		if (null != jsonObject) {
@@ -141,9 +141,9 @@ public class AdvancedUtil {
 			String errorMsg = jsonObject.getString("errmsg");
 			if (0 == errorCode) {
 				result = true;
-				log.info("¿Í·şÏûÏ¢·¢ËÍ³É¹¦ errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.info("å®¢æœæ¶ˆæ¯å‘é€æˆåŠŸ errcode:{} errmsg:{}", errorCode, errorMsg);
 			} else {
-				log.error("¿Í·şÏûÏ¢·¢ËÍÊ§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("å®¢æœæ¶ˆæ¯å‘é€å¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 			}
 		}
 
@@ -151,21 +151,21 @@ public class AdvancedUtil {
 	}
 
 	/**
-	 * »ñÈ¡ÍøÒ³ÊÚÈ¨Æ¾Ö¤
+	 * è·å–ç½‘é¡µæˆæƒå‡­è¯
 	 * 
-	 * @param appId ¹«ÖÚÕËºÅµÄÎ¨Ò»±êÊ¶
-	 * @param appSecret ¹«ÖÚÕËºÅµÄÃÜÔ¿
+	 * @param appId å…¬ä¼—è´¦å·çš„å”¯ä¸€æ ‡è¯†
+	 * @param appSecret å…¬ä¼—è´¦å·çš„å¯†é’¥
 	 * @param code
 	 * @return WeixinAouth2Token
 	 */
 	public static WeixinOauth2Token getOauth2AccessToken(String appId, String appSecret, String code) {
 		WeixinOauth2Token wat = null;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
 		requestUrl = requestUrl.replace("APPID", appId);
 		requestUrl = requestUrl.replace("SECRET", appSecret);
 		requestUrl = requestUrl.replace("CODE", code);
-		// »ñÈ¡ÍøÒ³ÊÚÈ¨Æ¾Ö¤
+		// è·å–ç½‘é¡µæˆæƒå‡­è¯
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "GET", null);
 		if (null != jsonObject) {
 			try {
@@ -179,26 +179,26 @@ public class AdvancedUtil {
 				wat = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("»ñÈ¡ÍøÒ³ÊÚÈ¨Æ¾Ö¤Ê§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("è·å–ç½‘é¡µæˆæƒå‡­è¯å¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 			}
 		}
 		return wat;
 	}
 
 	/**
-	 * Ë¢ĞÂÍøÒ³ÊÚÈ¨Æ¾Ö¤
+	 * åˆ·æ–°ç½‘é¡µæˆæƒå‡­è¯
 	 * 
-	 * @param appId ¹«ÖÚÕËºÅµÄÎ¨Ò»±êÊ¶
+	 * @param appId å…¬ä¼—è´¦å·çš„å”¯ä¸€æ ‡è¯†
 	 * @param refreshToken
 	 * @return WeixinAouth2Token
 	 */
 	public static WeixinOauth2Token refreshOauth2AccessToken(String appId, String refreshToken) {
 		WeixinOauth2Token wat = null;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=APPID&grant_type=refresh_token&refresh_token=REFRESH_TOKEN";
 		requestUrl = requestUrl.replace("APPID", appId);
 		requestUrl = requestUrl.replace("REFRESH_TOKEN", refreshToken);
-		// Ë¢ĞÂÍøÒ³ÊÚÈ¨Æ¾Ö¤
+		// åˆ·æ–°ç½‘é¡µæˆæƒå‡­è¯
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "GET", null);
 		if (null != jsonObject) {
 			try {
@@ -212,73 +212,73 @@ public class AdvancedUtil {
 				wat = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("Ë¢ĞÂÍøÒ³ÊÚÈ¨Æ¾Ö¤Ê§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("åˆ·æ–°ç½‘é¡µæˆæƒå‡­è¯å¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 			}
 		}
 		return wat;
 	}
 
 	/**
-	 * Í¨¹ıÍøÒ³ÊÚÈ¨»ñÈ¡ÓÃ»§ĞÅÏ¢
+	 * é€šè¿‡ç½‘é¡µæˆæƒè·å–ç”¨æˆ·ä¿¡æ¯
 	 * 
-	 * @param accessToken ÍøÒ³ÊÚÈ¨½Ó¿Úµ÷ÓÃÆ¾Ö¤
-	 * @param openId ÓÃ»§±êÊ¶
+	 * @param accessToken ç½‘é¡µæˆæƒæ¥å£è°ƒç”¨å‡­è¯
+	 * @param openId ç”¨æˆ·æ ‡è¯†
 	 * @return SNSUserInfo
 	 */
 	@SuppressWarnings( { "deprecation", "unchecked" })
 	public static SNSUserInfo getSNSUserInfo(String accessToken, String openId) {
 		SNSUserInfo snsUserInfo = null;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken).replace("OPENID", openId);
-		// Í¨¹ıÍøÒ³ÊÚÈ¨»ñÈ¡ÓÃ»§ĞÅÏ¢
+		// é€šè¿‡ç½‘é¡µæˆæƒè·å–ç”¨æˆ·ä¿¡æ¯
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "GET", null);
 
 		if (null != jsonObject) {
 			try {
 				snsUserInfo = new SNSUserInfo();
-				// ÓÃ»§µÄ±êÊ¶
+				// ç”¨æˆ·çš„æ ‡è¯†
 				snsUserInfo.setOpenId(jsonObject.getString("openid"));
-				// êÇ³Æ
+				// æ˜µç§°
 				snsUserInfo.setNickname(jsonObject.getString("nickname"));
-				// ĞÔ±ğ£¨1ÊÇÄĞĞÔ£¬2ÊÇÅ®ĞÔ£¬0ÊÇÎ´Öª£©
+				// æ€§åˆ«ï¼ˆ1æ˜¯ç”·æ€§ï¼Œ2æ˜¯å¥³æ€§ï¼Œ0æ˜¯æœªçŸ¥ï¼‰
 				snsUserInfo.setSex(jsonObject.getInt("sex"));
-				// ÓÃ»§ËùÔÚ¹ú¼Ò
+				// ç”¨æˆ·æ‰€åœ¨å›½å®¶
 				snsUserInfo.setCountry(jsonObject.getString("country"));
-				// ÓÃ»§ËùÔÚÊ¡·İ
+				// ç”¨æˆ·æ‰€åœ¨çœä»½
 				snsUserInfo.setProvince(jsonObject.getString("province"));
-				// ÓÃ»§ËùÔÚ³ÇÊĞ
+				// ç”¨æˆ·æ‰€åœ¨åŸå¸‚
 				snsUserInfo.setCity(jsonObject.getString("city"));
-				// ÓÃ»§Í·Ïñ
+				// ç”¨æˆ·å¤´åƒ
 				snsUserInfo.setHeadImgUrl(jsonObject.getString("headimgurl"));
-				// ÓÃ»§ÌØÈ¨ĞÅÏ¢
+				// ç”¨æˆ·ç‰¹æƒä¿¡æ¯
 				snsUserInfo.setPrivilegeList(JSONArray.toList(jsonObject.getJSONArray("privilege"), List.class));
 			} catch (Exception e) {
 				snsUserInfo = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("»ñÈ¡ÓÃ»§ĞÅÏ¢Ê§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("è·å–ç”¨æˆ·ä¿¡æ¯å¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 			}
 		}
 		return snsUserInfo;
 	}
 
 	/**
-	 * ´´½¨ÁÙÊ±´ø²Î¶şÎ¬Âë
+	 * åˆ›å»ºä¸´æ—¶å¸¦å‚äºŒç»´ç 
 	 * 
-	 * @param accessToken ½Ó¿Ú·ÃÎÊÆ¾Ö¤
-	 * @param expireSeconds ¶şÎ¬ÂëÓĞĞ§Ê±¼ä£¬µ¥Î»ÎªÃë£¬×î´ó²»³¬¹ı1800
-	 * @param sceneId ³¡¾°ID
+	 * @param accessToken æ¥å£è®¿é—®å‡­è¯
+	 * @param expireSeconds äºŒç»´ç æœ‰æ•ˆæ—¶é—´ï¼Œå•ä½ä¸ºç§’ï¼Œæœ€å¤§ä¸è¶…è¿‡1800
+	 * @param sceneId åœºæ™¯ID
 	 * @return WeixinQRCode
 	 */
 	public static WeixinQRCode createTemporaryQRCode(String accessToken, int expireSeconds, int sceneId) {
 		WeixinQRCode weixinQRCode = null;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=ACCESS_TOKEN";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken);
-		// ĞèÒªÌá½»µÄjsonÊı¾İ
+		// éœ€è¦æäº¤çš„jsonæ•°æ®
 		String jsonMsg = "{\"expire_seconds\": %d, \"action_name\": \"QR_SCENE\", \"action_info\": {\"scene\": {\"scene_id\": %d}}}";
-		// ´´½¨ÁÙÊ±´ø²Î¶şÎ¬Âë
+		// åˆ›å»ºä¸´æ—¶å¸¦å‚äºŒç»´ç 
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "POST", String.format(jsonMsg, expireSeconds, sceneId));
 
 		if (null != jsonObject) {
@@ -286,56 +286,56 @@ public class AdvancedUtil {
 				weixinQRCode = new WeixinQRCode();
 				weixinQRCode.setTicket(jsonObject.getString("ticket"));
 				weixinQRCode.setExpireSeconds(jsonObject.getInt("expire_seconds"));
-				log.info("´´½¨ÁÙÊ±´ø²Î¶şÎ¬Âë³É¹¦ ticket:{} expire_seconds:{}", weixinQRCode.getTicket(), weixinQRCode.getExpireSeconds());
+				log.info("åˆ›å»ºä¸´æ—¶å¸¦å‚äºŒç»´ç æˆåŠŸ ticket:{} expire_seconds:{}", weixinQRCode.getTicket(), weixinQRCode.getExpireSeconds());
 			} catch (Exception e) {
 				weixinQRCode = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("´´½¨ÁÙÊ±´ø²Î¶şÎ¬ÂëÊ§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("åˆ›å»ºä¸´æ—¶å¸¦å‚äºŒç»´ç å¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 			}
 		}
 		return weixinQRCode;
 	}
 
 	/**
-	 * ´´½¨ÓÀ¾Ã´ø²Î¶şÎ¬Âë
+	 * åˆ›å»ºæ°¸ä¹…å¸¦å‚äºŒç»´ç 
 	 * 
-	 * @param accessToken ½Ó¿Ú·ÃÎÊÆ¾Ö¤
-	 * @param sceneId ³¡¾°ID
+	 * @param accessToken æ¥å£è®¿é—®å‡­è¯
+	 * @param sceneId åœºæ™¯ID
 	 * @return ticket
 	 */
 	public static String createPermanentQRCode(String accessToken, int sceneId) {
 		String ticket = null;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=ACCESS_TOKEN";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken);
-		// ĞèÒªÌá½»µÄjsonÊı¾İ
+		// éœ€è¦æäº¤çš„jsonæ•°æ®
 		String jsonMsg = "{\"action_name\": \"QR_LIMIT_SCENE\", \"action_info\": {\"scene\": {\"scene_id\": %d}}}";
-		// ´´½¨ÓÀ¾Ã´ø²Î¶şÎ¬Âë
+		// åˆ›å»ºæ°¸ä¹…å¸¦å‚äºŒç»´ç 
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "POST", String.format(jsonMsg, sceneId));
 
 		if (null != jsonObject) {
 			try {
 				ticket = jsonObject.getString("ticket");
-				log.info("´´½¨ÓÀ¾Ã´ø²Î¶şÎ¬Âë³É¹¦ ticket:{}", ticket);
+				log.info("åˆ›å»ºæ°¸ä¹…å¸¦å‚äºŒç»´ç æˆåŠŸ ticket:{}", ticket);
 			} catch (Exception e) {
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("´´½¨ÓÀ¾Ã´ø²Î¶şÎ¬ÂëÊ§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("åˆ›å»ºæ°¸ä¹…å¸¦å‚äºŒç»´ç å¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 			}
 		}
 		return ticket;
 	}
 
 	/**
-	 * ¸ù¾İticket»»È¡¶şÎ¬Âë
+	 * æ ¹æ®ticketæ¢å–äºŒç»´ç 
 	 * 
-	 * @param ticket ¶şÎ¬Âëticket
-	 * @param savePath ±£´æÂ·¾¶
+	 * @param ticket äºŒç»´ç ticket
+	 * @param savePath ä¿å­˜è·¯å¾„
 	 */
 	public static String getQRCode(String ticket, String savePath) {
 		String filePath = null;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=TICKET";
 		requestUrl = requestUrl.replace("TICKET", CommonUtil.urlEncodeUTF8(ticket));
 		try {
@@ -347,10 +347,10 @@ public class AdvancedUtil {
 			if (!savePath.endsWith("/")) {
 				savePath += "/";
 			}
-			// ½«ticket×÷ÎªÎÄ¼şÃû
+			// å°†ticketä½œä¸ºæ–‡ä»¶å
 			filePath = savePath + ticket + ".jpg";
 
-			// ½«Î¢ĞÅ·şÎñÆ÷·µ»ØµÄÊäÈëÁ÷Ğ´ÈëÎÄ¼ş
+			// å°†å¾®ä¿¡æœåŠ¡å™¨è¿”å›çš„è¾“å…¥æµå†™å…¥æ–‡ä»¶
 			BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
 			FileOutputStream fos = new FileOutputStream(new File(filePath));
 			byte[] buf = new byte[8096];
@@ -361,59 +361,59 @@ public class AdvancedUtil {
 			bis.close();
 
 			conn.disconnect();
-			log.info("¸ù¾İticket»»È¡¶şÎ¬Âë³É¹¦£¬filePath=" + filePath);
+			log.info("æ ¹æ®ticketæ¢å–äºŒç»´ç æˆåŠŸï¼ŒfilePath=" + filePath);
 		} catch (Exception e) {
 			filePath = null;
-			log.error("¸ù¾İticket»»È¡¶şÎ¬ÂëÊ§°Ü£º{}", e);
+			log.error("æ ¹æ®ticketæ¢å–äºŒç»´ç å¤±è´¥ï¼š{}", e);
 		}
 		return filePath;
 	}
 
 	/**
-	 * »ñÈ¡ÓÃ»§ĞÅÏ¢
+	 * è·å–ç”¨æˆ·ä¿¡æ¯
 	 * 
-	 * @param accessToken ½Ó¿Ú·ÃÎÊÆ¾Ö¤
-	 * @param openId ÓÃ»§±êÊ¶
+	 * @param accessToken æ¥å£è®¿é—®å‡­è¯
+	 * @param openId ç”¨æˆ·æ ‡è¯†
 	 * @return WeixinUserInfo
 	 */
 	public static WeixinUserInfo getUserInfo(String accessToken, String openId) {
 		WeixinUserInfo weixinUserInfo = null;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken).replace("OPENID", openId);
-		// »ñÈ¡ÓÃ»§ĞÅÏ¢
+		// è·å–ç”¨æˆ·ä¿¡æ¯
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "GET", null);
 
 		if (null != jsonObject) {
 			try {
 				weixinUserInfo = new WeixinUserInfo();
-				// ÓÃ»§µÄ±êÊ¶
+				// ç”¨æˆ·çš„æ ‡è¯†
 				weixinUserInfo.setOpenId(jsonObject.getString("openid"));
-				// ¹Ø×¢×´Ì¬£¨1ÊÇ¹Ø×¢£¬0ÊÇÎ´¹Ø×¢£©£¬Î´¹Ø×¢Ê±»ñÈ¡²»µ½ÆäÓàĞÅÏ¢
+				// å…³æ³¨çŠ¶æ€ï¼ˆ1æ˜¯å…³æ³¨ï¼Œ0æ˜¯æœªå…³æ³¨ï¼‰ï¼Œæœªå…³æ³¨æ—¶è·å–ä¸åˆ°å…¶ä½™ä¿¡æ¯
 				weixinUserInfo.setSubscribe(jsonObject.getInt("subscribe"));
-				// ÓÃ»§¹Ø×¢Ê±¼ä
+				// ç”¨æˆ·å…³æ³¨æ—¶é—´
 				weixinUserInfo.setSubscribeTime(jsonObject.getString("subscribe_time"));
-				// êÇ³Æ
+				// æ˜µç§°
 				weixinUserInfo.setNickname(jsonObject.getString("nickname"));
-				// ÓÃ»§µÄĞÔ±ğ£¨1ÊÇÄĞĞÔ£¬2ÊÇÅ®ĞÔ£¬0ÊÇÎ´Öª£©
+				// ç”¨æˆ·çš„æ€§åˆ«ï¼ˆ1æ˜¯ç”·æ€§ï¼Œ2æ˜¯å¥³æ€§ï¼Œ0æ˜¯æœªçŸ¥ï¼‰
 				weixinUserInfo.setSex(jsonObject.getInt("sex"));
-				// ÓÃ»§ËùÔÚ¹ú¼Ò
+				// ç”¨æˆ·æ‰€åœ¨å›½å®¶
 				weixinUserInfo.setCountry(jsonObject.getString("country"));
-				// ÓÃ»§ËùÔÚÊ¡·İ
+				// ç”¨æˆ·æ‰€åœ¨çœä»½
 				weixinUserInfo.setProvince(jsonObject.getString("province"));
-				// ÓÃ»§ËùÔÚ³ÇÊĞ
+				// ç”¨æˆ·æ‰€åœ¨åŸå¸‚
 				weixinUserInfo.setCity(jsonObject.getString("city"));
-				// ÓÃ»§µÄÓïÑÔ£¬¼òÌåÖĞÎÄÎªzh_CN
+				// ç”¨æˆ·çš„è¯­è¨€ï¼Œç®€ä½“ä¸­æ–‡ä¸ºzh_CN
 				weixinUserInfo.setLanguage(jsonObject.getString("language"));
-				// ÓÃ»§Í·Ïñ
+				// ç”¨æˆ·å¤´åƒ
 				weixinUserInfo.setHeadImgUrl(jsonObject.getString("headimgurl"));
 			} catch (Exception e) {
 				if (0 == weixinUserInfo.getSubscribe()) {
-					log.error("ÓÃ»§{}ÒÑÈ¡Ïû¹Ø×¢", weixinUserInfo.getOpenId());
+					log.error("ç”¨æˆ·{}å·²å–æ¶ˆå…³æ³¨", weixinUserInfo.getOpenId());
 				} else {
 					int errorCode = jsonObject.getInt("errcode");
 					String errorMsg = jsonObject.getString("errmsg");
-					log.error("»ñÈ¡ÓÃ»§ĞÅÏ¢Ê§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+					log.error("è·å–ç”¨æˆ·ä¿¡æ¯å¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 				}
 			}
 		}
@@ -421,10 +421,10 @@ public class AdvancedUtil {
 	}
 
 	/**
-	 * »ñÈ¡¹Ø×¢ÕßÁĞ±í
+	 * è·å–å…³æ³¨è€…åˆ—è¡¨
 	 * 
-	 * @param accessToken µ÷ÓÃ½Ó¿ÚÆ¾Ö¤
-	 * @param nextOpenId µÚÒ»¸öÀ­È¡µÄopenId£¬²»ÌîÄ¬ÈÏ´ÓÍ·¿ªÊ¼À­È¡
+	 * @param accessToken è°ƒç”¨æ¥å£å‡­è¯
+	 * @param nextOpenId ç¬¬ä¸€ä¸ªæ‹‰å–çš„openIdï¼Œä¸å¡«é»˜è®¤ä»å¤´å¼€å§‹æ‹‰å–
 	 * @return WeixinUserList
 	 */
 	@SuppressWarnings( { "unchecked", "deprecation" })
@@ -434,12 +434,12 @@ public class AdvancedUtil {
 		if (null == nextOpenId)
 			nextOpenId = "";
 
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&next_openid=NEXT_OPENID";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken).replace("NEXT_OPENID", nextOpenId);
-		// »ñÈ¡¹Ø×¢ÕßÁĞ±í
+		// è·å–å…³æ³¨è€…åˆ—è¡¨
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "GET", null);
-		// Èç¹ûÇëÇó³É¹¦
+		// å¦‚æœè¯·æ±‚æˆåŠŸ
 		if (null != jsonObject) {
 			try {
 				weixinUserList = new WeixinUserList();
@@ -452,24 +452,24 @@ public class AdvancedUtil {
 				weixinUserList = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("»ñÈ¡¹Ø×¢ÕßÁĞ±íÊ§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("è·å–å…³æ³¨è€…åˆ—è¡¨å¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 			}
 		}
 		return weixinUserList;
 	}
 
 	/**
-	 * ²éÑ¯·Ö×é
+	 * æŸ¥è¯¢åˆ†ç»„
 	 * 
-	 * @param accessToken µ÷ÓÃ½Ó¿ÚÆ¾Ö¤
+	 * @param accessToken è°ƒç”¨æ¥å£å‡­è¯
 	 */
 	@SuppressWarnings( { "unchecked", "deprecation" })
 	public static List<WeixinGroup> getGroups(String accessToken) {
 		List<WeixinGroup> weixinGroupList = null;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/cgi-bin/groups/get?access_token=ACCESS_TOKEN";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken);
-		// ²éÑ¯·Ö×é
+		// æŸ¥è¯¢åˆ†ç»„
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "GET", null);
 
 		if (null != jsonObject) {
@@ -479,27 +479,27 @@ public class AdvancedUtil {
 				weixinGroupList = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("²éÑ¯·Ö×éÊ§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("æŸ¥è¯¢åˆ†ç»„å¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 			}
 		}
 		return weixinGroupList;
 	}
 
 	/**
-	 * ´´½¨·Ö×é
+	 * åˆ›å»ºåˆ†ç»„
 	 * 
-	 * @param accessToken ½Ó¿Ú·ÃÎÊÆ¾Ö¤
-	 * @param groupName ·Ö×éÃû³Æ
+	 * @param accessToken æ¥å£è®¿é—®å‡­è¯
+	 * @param groupName åˆ†ç»„åç§°
 	 * @return
 	 */
 	public static WeixinGroup createGroup(String accessToken, String groupName) {
 		WeixinGroup weixinGroup = null;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/cgi-bin/groups/create?access_token=ACCESS_TOKEN";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken);
-		// ĞèÒªÌá½»µÄjsonÊı¾İ
+		// éœ€è¦æäº¤çš„jsonæ•°æ®
 		String jsonData = "{\"group\" : {\"name\" : \"%s\"}}";
-		// ´´½¨·Ö×é
+		// åˆ›å»ºåˆ†ç»„
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "POST", String.format(jsonData, groupName));
 
 		if (null != jsonObject) {
@@ -511,28 +511,28 @@ public class AdvancedUtil {
 				weixinGroup = null;
 				int errorCode = jsonObject.getInt("errcode");
 				String errorMsg = jsonObject.getString("errmsg");
-				log.error("´´½¨·Ö×éÊ§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("åˆ›å»ºåˆ†ç»„å¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 			}
 		}
 		return weixinGroup;
 	}
 
 	/**
-	 * ĞŞ¸Ä·Ö×éÃû
+	 * ä¿®æ”¹åˆ†ç»„å
 	 * 
-	 * @param accessToken ½Ó¿Ú·ÃÎÊÆ¾Ö¤
-	 * @param groupId ·Ö×éid
-	 * @param groupName ĞŞ¸ÄºóµÄ·Ö×éÃû
+	 * @param accessToken æ¥å£è®¿é—®å‡­è¯
+	 * @param groupId åˆ†ç»„id
+	 * @param groupName ä¿®æ”¹åçš„åˆ†ç»„å
 	 * @return true | false
 	 */
 	public static boolean updateGroup(String accessToken, int groupId, String groupName) {
 		boolean result = false;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/cgi-bin/groups/update?access_token=ACCESS_TOKEN";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken);
-		// ĞèÒªÌá½»µÄjsonÊı¾İ
+		// éœ€è¦æäº¤çš„jsonæ•°æ®
 		String jsonData = "{\"group\": {\"id\": %d, \"name\": \"%s\"}}";
-		// ĞŞ¸Ä·Ö×éÃû
+		// ä¿®æ”¹åˆ†ç»„å
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "POST", String.format(jsonData, groupId, groupName));
 
 		if (null != jsonObject) {
@@ -540,30 +540,30 @@ public class AdvancedUtil {
 			String errorMsg = jsonObject.getString("errmsg");
 			if (0 == errorCode) {
 				result = true;
-				log.info("ĞŞ¸Ä·Ö×éÃû³É¹¦ errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.info("ä¿®æ”¹åˆ†ç»„åæˆåŠŸ errcode:{} errmsg:{}", errorCode, errorMsg);
 			} else {
-				log.error("ĞŞ¸Ä·Ö×éÃûÊ§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("ä¿®æ”¹åˆ†ç»„åå¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 			}
 		}
 		return result;
 	}
 
 	/**
-	 * ÒÆ¶¯ÓÃ»§·Ö×é
+	 * ç§»åŠ¨ç”¨æˆ·åˆ†ç»„
 	 * 
-	 * @param accessToken ½Ó¿Ú·ÃÎÊÆ¾Ö¤
-	 * @param openId ÓÃ»§±êÊ¶
-	 * @param groupId ·Ö×éid
+	 * @param accessToken æ¥å£è®¿é—®å‡­è¯
+	 * @param openId ç”¨æˆ·æ ‡è¯†
+	 * @param groupId åˆ†ç»„id
 	 * @return true | false
 	 */
 	public static boolean updateMemberGroup(String accessToken, String openId, int groupId) {
 		boolean result = false;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "https://api.weixin.qq.com/cgi-bin/groups/members/update?access_token=ACCESS_TOKEN";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken);
-		// ĞèÒªÌá½»µÄjsonÊı¾İ
+		// éœ€è¦æäº¤çš„jsonæ•°æ®
 		String jsonData = "{\"openid\":\"%s\",\"to_groupid\":%d}";
-		// ÒÆ¶¯ÓÃ»§·Ö×é
+		// ç§»åŠ¨ç”¨æˆ·åˆ†ç»„
 		JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "POST", String.format(jsonData, openId, groupId));
 
 		if (null != jsonObject) {
@@ -571,28 +571,28 @@ public class AdvancedUtil {
 			String errorMsg = jsonObject.getString("errmsg");
 			if (0 == errorCode) {
 				result = true;
-				log.info("ÒÆ¶¯ÓÃ»§·Ö×é³É¹¦ errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.info("ç§»åŠ¨ç”¨æˆ·åˆ†ç»„æˆåŠŸ errcode:{} errmsg:{}", errorCode, errorMsg);
 			} else {
-				log.error("ÒÆ¶¯ÓÃ»§·Ö×éÊ§°Ü errcode:{} errmsg:{}", errorCode, errorMsg);
+				log.error("ç§»åŠ¨ç”¨æˆ·åˆ†ç»„å¤±è´¥ errcode:{} errmsg:{}", errorCode, errorMsg);
 			}
 		}
 		return result;
 	}
 
 	/**
-	 * ÉÏ´«Ã½ÌåÎÄ¼ş
+	 * ä¸Šä¼ åª’ä½“æ–‡ä»¶
 	 * 
-	 * @param accessToken ½Ó¿Ú·ÃÎÊÆ¾Ö¤
-	 * @param type Ã½ÌåÎÄ¼şÀàĞÍ£¨image¡¢voice¡¢videoºÍthumb£©
-	 * @param mediaFileUrl Ã½ÌåÎÄ¼şµÄurl
+	 * @param accessToken æ¥å£è®¿é—®å‡­è¯
+	 * @param type åª’ä½“æ–‡ä»¶ç±»å‹ï¼ˆimageã€voiceã€videoå’Œthumbï¼‰
+	 * @param mediaFileUrl åª’ä½“æ–‡ä»¶çš„url
 	 */
 	public static WeixinMedia uploadMedia(String accessToken, String type, String mediaFileUrl) {
 		WeixinMedia weixinMedia = null;
-		// Æ´×°ÇëÇóµØÖ·
+		// æ‹¼è£…è¯·æ±‚åœ°å€
 		String uploadMediaUrl = "http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE";
 		uploadMediaUrl = uploadMediaUrl.replace("ACCESS_TOKEN", accessToken).replace("TYPE", type);
 
-		// ¶¨ÒåÊı¾İ·Ö¸ô·û
+		// å®šä¹‰æ•°æ®åˆ†éš”ç¬¦
 		String boundary = "------------7da2e536604c8";
 		try {
 			URL uploadUrl = new URL(uploadMediaUrl);
@@ -600,9 +600,9 @@ public class AdvancedUtil {
 			uploadConn.setDoOutput(true);
 			uploadConn.setDoInput(true);
 			uploadConn.setRequestMethod("POST");
-			// ÉèÖÃÇëÇóÍ·Content-Type
+			// è®¾ç½®è¯·æ±‚å¤´Content-Type
 			uploadConn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
-			// »ñÈ¡Ã½ÌåÎÄ¼şÉÏ´«µÄÊä³öÁ÷£¨ÍùÎ¢ĞÅ·şÎñÆ÷Ğ´Êı¾İ£©
+			// è·å–åª’ä½“æ–‡ä»¶ä¸Šä¼ çš„è¾“å‡ºæµï¼ˆå¾€å¾®ä¿¡æœåŠ¡å™¨å†™æ•°æ®ï¼‰
 			OutputStream outputStream = uploadConn.getOutputStream();
 
 			URL mediaUrl = new URL(mediaFileUrl);
@@ -610,30 +610,30 @@ public class AdvancedUtil {
 			meidaConn.setDoOutput(true);
 			meidaConn.setRequestMethod("GET");
 
-			// ´ÓÇëÇóÍ·ÖĞ»ñÈ¡ÄÚÈİÀàĞÍ
+			// ä»è¯·æ±‚å¤´ä¸­è·å–å†…å®¹ç±»å‹
 			String contentType = meidaConn.getHeaderField("Content-Type");
-			// ¸ù¾İÄÚÈİÀàĞÍÅĞ¶ÏÎÄ¼şÀ©Õ¹Ãû
+			// æ ¹æ®å†…å®¹ç±»å‹åˆ¤æ–­æ–‡ä»¶æ‰©å±•å
 			String fileExt = CommonUtil.getFileExt(contentType);
-			// ÇëÇóÌå¿ªÊ¼
+			// è¯·æ±‚ä½“å¼€å§‹
 			outputStream.write(("--" + boundary + "\r\n").getBytes());
 			outputStream.write(String.format("Content-Disposition: form-data; name=\"media\"; filename=\"file1%s\"\r\n", fileExt).getBytes());
 			outputStream.write(String.format("Content-Type: %s\r\n\r\n", contentType).getBytes());
 
-			// »ñÈ¡Ã½ÌåÎÄ¼şµÄÊäÈëÁ÷£¨¶ÁÈ¡ÎÄ¼ş£©
+			// è·å–åª’ä½“æ–‡ä»¶çš„è¾“å…¥æµï¼ˆè¯»å–æ–‡ä»¶ï¼‰
 			BufferedInputStream bis = new BufferedInputStream(meidaConn.getInputStream());
 			byte[] buf = new byte[8096];
 			int size = 0;
 			while ((size = bis.read(buf)) != -1) {
-				// ½«Ã½ÌåÎÄ¼şĞ´µ½Êä³öÁ÷£¨ÍùÎ¢ĞÅ·şÎñÆ÷Ğ´Êı¾İ£©
+				// å°†åª’ä½“æ–‡ä»¶å†™åˆ°è¾“å‡ºæµï¼ˆå¾€å¾®ä¿¡æœåŠ¡å™¨å†™æ•°æ®ï¼‰
 				outputStream.write(buf, 0, size);
 			}
-			// ÇëÇóÌå½áÊø
+			// è¯·æ±‚ä½“ç»“æŸ
 			outputStream.write(("\r\n--" + boundary + "--\r\n").getBytes());
 			outputStream.close();
 			bis.close();
 			meidaConn.disconnect();
 
-			// »ñÈ¡Ã½ÌåÎÄ¼şÉÏ´«µÄÊäÈëÁ÷£¨´ÓÎ¢ĞÅ·şÎñÆ÷¶ÁÊı¾İ£©
+			// è·å–åª’ä½“æ–‡ä»¶ä¸Šä¼ çš„è¾“å…¥æµï¼ˆä»å¾®ä¿¡æœåŠ¡å™¨è¯»æ•°æ®ï¼‰
 			InputStream inputStream = uploadConn.getInputStream();
 			InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");
 			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -644,16 +644,16 @@ public class AdvancedUtil {
 			}
 			bufferedReader.close();
 			inputStreamReader.close();
-			// ÊÍ·Å×ÊÔ´
+			// é‡Šæ”¾èµ„æº
 			inputStream.close();
 			inputStream = null;
 			uploadConn.disconnect();
 
-			// Ê¹ÓÃJSON-lib½âÎö·µ»Ø½á¹û
+			// ä½¿ç”¨JSON-libè§£æè¿”å›ç»“æœ
 			JSONObject jsonObject = JSONObject.fromObject(buffer.toString());
 			weixinMedia = new WeixinMedia();
 			weixinMedia.setType(jsonObject.getString("type"));
-			// typeµÈÓÚthumbÊ±µÄ·µ»Ø½á¹ûºÍÆäËüÀàĞÍ²»Ò»Ñù
+			// typeç­‰äºthumbæ—¶çš„è¿”å›ç»“æœå’Œå…¶å®ƒç±»å‹ä¸ä¸€æ ·
 			if ("thumb".equals(type))
 				weixinMedia.setMediaId(jsonObject.getString("thumb_media_id"));
 			else
@@ -661,22 +661,22 @@ public class AdvancedUtil {
 			weixinMedia.setCreatedAt(jsonObject.getInt("created_at"));
 		} catch (Exception e) {
 			weixinMedia = null;
-			log.error("ÉÏ´«Ã½ÌåÎÄ¼şÊ§°Ü£º{}", e);
+			log.error("ä¸Šä¼ åª’ä½“æ–‡ä»¶å¤±è´¥ï¼š{}", e);
 		}
 		return weixinMedia;
 	}
 
 	/**
-	 * ÏÂÔØÃ½ÌåÎÄ¼ş
+	 * ä¸‹è½½åª’ä½“æ–‡ä»¶
 	 * 
-	 * @param accessToken ½Ó¿Ú·ÃÎÊÆ¾Ö¤
-	 * @param mediaId Ã½ÌåÎÄ¼ş±êÊ¶
-	 * @param savePath ÎÄ¼şÔÚ·şÎñÆ÷ÉÏµÄ´æ´¢Â·¾¶
+	 * @param accessToken æ¥å£è®¿é—®å‡­è¯
+	 * @param mediaId åª’ä½“æ–‡ä»¶æ ‡è¯†
+	 * @param savePath æ–‡ä»¶åœ¨æœåŠ¡å™¨ä¸Šçš„å­˜å‚¨è·¯å¾„
 	 * @return
 	 */
 	public static String getMedia(String accessToken, String mediaId, String savePath) {
 		String filePath = null;
-		// Æ´½ÓÇëÇóµØÖ·
+		// æ‹¼æ¥è¯·æ±‚åœ°å€
 		String requestUrl = "http://file.api.weixin.qq.com/cgi-bin/media/get?access_token=ACCESS_TOKEN&media_id=MEDIA_ID";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken).replace("MEDIA_ID", mediaId);
 		System.out.println(requestUrl);
@@ -689,9 +689,9 @@ public class AdvancedUtil {
 			if (!savePath.endsWith("/")) {
 				savePath += "/";
 			}
-			// ¸ù¾İÄÚÈİÀàĞÍ»ñÈ¡À©Õ¹Ãû
+			// æ ¹æ®å†…å®¹ç±»å‹è·å–æ‰©å±•å
 			String fileExt = CommonUtil.getFileExt(conn.getHeaderField("Content-Type"));
-			// ½«mediaId×÷ÎªÎÄ¼şÃû
+			// å°†mediaIdä½œä¸ºæ–‡ä»¶å
 			filePath = savePath + mediaId + fileExt;
 
 			BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
@@ -704,115 +704,115 @@ public class AdvancedUtil {
 			bis.close();
 
 			conn.disconnect();
-			log.info("ÏÂÔØÃ½ÌåÎÄ¼ş³É¹¦£¬filePath=" + filePath);
+			log.info("ä¸‹è½½åª’ä½“æ–‡ä»¶æˆåŠŸï¼ŒfilePath=" + filePath);
 		} catch (Exception e) {
 			filePath = null;
-			log.error("ÏÂÔØÃ½ÌåÎÄ¼şÊ§°Ü£º{}", e);
+			log.error("ä¸‹è½½åª’ä½“æ–‡ä»¶å¤±è´¥ï¼š{}", e);
 		}
 		return filePath;
 	}
 
 	public static void main(String args[]) {
-		// »ñÈ¡½Ó¿Ú·ÃÎÊÆ¾Ö¤
+		// è·å–æ¥å£è®¿é—®å‡­è¯
 		String accessToken = CommonUtil.getToken("APPID", "APPSECRET").getAccessToken();
 
 		/**
-		 * ·¢ËÍ¿Í·şÏûÏ¢£¨ÎÄ±¾ÏûÏ¢£©
+		 * å‘é€å®¢æœæ¶ˆæ¯ï¼ˆæ–‡æœ¬æ¶ˆæ¯ï¼‰
 		 */
-		// ×é×°ÎÄ±¾¿Í·şÏûÏ¢
-		String jsonTextMsg = makeTextCustomMessage("oEdzejiHCDqafJbz4WNJtWTMbDcE", "µã»÷²é¿´<a href=\"http://blog.csdn.net/lyq8479\">Áø·åµÄ²©¿Í</a>");
-		// ·¢ËÍ¿Í·şÏûÏ¢
+		// ç»„è£…æ–‡æœ¬å®¢æœæ¶ˆæ¯
+		String jsonTextMsg = makeTextCustomMessage("oEdzejiHCDqafJbz4WNJtWTMbDcE", "ç‚¹å‡»æŸ¥çœ‹<a href=\"http://blog.csdn.net/lyq8479\">æŸ³å³°çš„åšå®¢</a>");
+		// å‘é€å®¢æœæ¶ˆæ¯
 		sendCustomMessage(accessToken, jsonTextMsg);
 
 		/**
-		 * ·¢ËÍ¿Í·şÏûÏ¢£¨Í¼ÎÄÏûÏ¢£©
+		 * å‘é€å®¢æœæ¶ˆæ¯ï¼ˆå›¾æ–‡æ¶ˆæ¯ï¼‰
 		 */
 		Article article1 = new Article();
-		article1.setTitle("Î¢ĞÅÉÏÒ²ÄÜ¶·µØÖ÷");
+		article1.setTitle("å¾®ä¿¡ä¸Šä¹Ÿèƒ½æ–—åœ°ä¸»");
 		article1.setDescription("");
 		article1.setPicUrl("http://www.egouji.com/xiaoq/game/doudizhu_big.png");
 		article1.setUrl("http://resource.duopao.com/duopao/games/small_games/weixingame/Doudizhu/doudizhu.htm");
 		Article article2 = new Article();
-		article2.setTitle("°ÁÆøĞÛÓ¥\n80ºó²»µÃ²»ÍæµÄ¾­µäÓÎÏ·");
+		article2.setTitle("å‚²æ°”é›„é¹°\n80åä¸å¾—ä¸ç©çš„ç»å…¸æ¸¸æˆ");
 		article2.setDescription("");
 		article2.setPicUrl("http://www.egouji.com/xiaoq/game/aoqixiongying.png");
 		article2.setUrl("http://resource.duopao.com/duopao/games/small_games/weixingame/Plane/aoqixiongying.html");
 		List<Article> list = new ArrayList<Article>();
 		list.add(article1);
 		list.add(article2);
-		// ×é×°Í¼ÎÄ¿Í·şÏûÏ¢
+		// ç»„è£…å›¾æ–‡å®¢æœæ¶ˆæ¯
 		String jsonNewsMsg = makeNewsCustomMessage("oEdzejiHCDqafJbz4WNJtWTMbDcE", list);
-		// ·¢ËÍ¿Í·şÏûÏ¢
+		// å‘é€å®¢æœæ¶ˆæ¯
 		sendCustomMessage(accessToken, jsonNewsMsg);
 
 		/**
-		 * ´´½¨ÁÙÊ±¶şÎ¬Âë
+		 * åˆ›å»ºä¸´æ—¶äºŒç»´ç 
 		 */
 		WeixinQRCode weixinQRCode = createTemporaryQRCode(accessToken, 900, 111111);
-		// ÁÙÊ±¶şÎ¬ÂëµÄticket
+		// ä¸´æ—¶äºŒç»´ç çš„ticket
 		System.out.println(weixinQRCode.getTicket());
-		// ÁÙÊ±¶şÎ¬ÂëµÄÓĞĞ§Ê±¼ä
+		// ä¸´æ—¶äºŒç»´ç çš„æœ‰æ•ˆæ—¶é—´
 		System.out.println(weixinQRCode.getExpireSeconds());
 
 		/**
-		 * ¸ù¾İticket»»È¡¶şÎ¬Âë
+		 * æ ¹æ®ticketæ¢å–äºŒç»´ç 
 		 */
 		String ticket = "gQEg7zoAAAAAAAAAASxodHRwOi8vd2VpeGluLnFxLmNvbS9xL2lIVVJ3VmJsTzFsQ0ZuQ0Y1bG5WAAIEW35+UgMEAAAAAA==";
 		String savePath = "G:/download";
-		// ¸ù¾İticket»»È¡¶şÎ¬Âë
+		// æ ¹æ®ticketæ¢å–äºŒç»´ç 
 		getQRCode(ticket, savePath);
 
 		/**
-		 * »ñÈ¡ÓÃ»§ĞÅÏ¢
+		 * è·å–ç”¨æˆ·ä¿¡æ¯
 		 */
 		WeixinUserInfo user = getUserInfo(accessToken, "oEdzejiHCDqafJbz4WNJtWTMbDcE");
-		System.out.println("OpenID£º" + user.getOpenId());
-		System.out.println("¹Ø×¢×´Ì¬£º" + user.getSubscribe());
-		System.out.println("¹Ø×¢Ê±¼ä£º" + user.getSubscribeTime());
-		System.out.println("êÇ³Æ£º" + user.getNickname());
-		System.out.println("ĞÔ±ğ£º" + user.getSex());
-		System.out.println("¹ú¼Ò£º" + user.getCountry());
-		System.out.println("Ê¡·İ£º" + user.getProvince());
-		System.out.println("³ÇÊĞ£º" + user.getCity());
-		System.out.println("ÓïÑÔ£º" + user.getLanguage());
-		System.out.println("Í·Ïñ£º" + user.getHeadImgUrl());
+		System.out.println("OpenIDï¼š" + user.getOpenId());
+		System.out.println("å…³æ³¨çŠ¶æ€ï¼š" + user.getSubscribe());
+		System.out.println("å…³æ³¨æ—¶é—´ï¼š" + user.getSubscribeTime());
+		System.out.println("æ˜µç§°ï¼š" + user.getNickname());
+		System.out.println("æ€§åˆ«ï¼š" + user.getSex());
+		System.out.println("å›½å®¶ï¼š" + user.getCountry());
+		System.out.println("çœä»½ï¼š" + user.getProvince());
+		System.out.println("åŸå¸‚ï¼š" + user.getCity());
+		System.out.println("è¯­è¨€ï¼š" + user.getLanguage());
+		System.out.println("å¤´åƒï¼š" + user.getHeadImgUrl());
 
 		/**
-		 * »ñÈ¡¹Ø×¢ÕßÁĞ±í
+		 * è·å–å…³æ³¨è€…åˆ—è¡¨
 		 */
 		WeixinUserList weixinUserList = getUserList(accessToken, "");
-		System.out.println("×Ü¹Ø×¢ÓÃ»§Êı£º" + weixinUserList.getTotal());
-		System.out.println("±¾´Î»ñÈ¡ÓÃ»§Êı£º" + weixinUserList.getCount());
-		System.out.println("OpenIDÁĞ±í£º" + weixinUserList.getOpenIdList().toString());
-		System.out.println("next_openid£º" + weixinUserList.getNextOpenId());
+		System.out.println("æ€»å…³æ³¨ç”¨æˆ·æ•°ï¼š" + weixinUserList.getTotal());
+		System.out.println("æœ¬æ¬¡è·å–ç”¨æˆ·æ•°ï¼š" + weixinUserList.getCount());
+		System.out.println("OpenIDåˆ—è¡¨ï¼š" + weixinUserList.getOpenIdList().toString());
+		System.out.println("next_openidï¼š" + weixinUserList.getNextOpenId());
 
 		/**
-		 * ²éÑ¯·Ö×é
+		 * æŸ¥è¯¢åˆ†ç»„
 		 */
 		List<WeixinGroup> groupList = getGroups(accessToken);
-		// Ñ­»·Êä³ö¸÷·Ö×éĞÅÏ¢
+		// å¾ªç¯è¾“å‡ºå„åˆ†ç»„ä¿¡æ¯
 		for (WeixinGroup group : groupList) {
-			System.out.println(String.format("ID£º%d Ãû³Æ£º%s ÓÃ»§Êı£º%d", group.getId(), group.getName(), group.getCount()));
+			System.out.println(String.format("IDï¼š%d åç§°ï¼š%s ç”¨æˆ·æ•°ï¼š%d", group.getId(), group.getName(), group.getCount()));
 		}
 
 		/**
-		 * ´´½¨·Ö×é
+		 * åˆ›å»ºåˆ†ç»„
 		 */
-		WeixinGroup group = createGroup(accessToken, "¹«Ë¾Ô±¹¤");
-		System.out.println(String.format("³É¹¦´´½¨·Ö×é£º%s id£º%d", group.getName(), group.getId()));
+		WeixinGroup group = createGroup(accessToken, "å…¬å¸å‘˜å·¥");
+		System.out.println(String.format("æˆåŠŸåˆ›å»ºåˆ†ç»„ï¼š%s idï¼š%d", group.getName(), group.getId()));
 
 		/**
-		 * ĞŞ¸Ä·Ö×éÃû
+		 * ä¿®æ”¹åˆ†ç»„å
 		 */
-		updateGroup(accessToken, 100, "Í¬ÊÂ");
+		updateGroup(accessToken, 100, "åŒäº‹");
 
 		/**
-		 * ÒÆ¶¯ÓÃ»§·Ö×é
+		 * ç§»åŠ¨ç”¨æˆ·åˆ†ç»„
 		 */
 		updateMemberGroup(accessToken, "oEdzejiHCDqafJbz4WNJtWTMbDcE", 100);
 
 		/**
-		 * ÉÏ´«¶àÃ½ÌåÎÄ¼ş
+		 * ä¸Šä¼ å¤šåª’ä½“æ–‡ä»¶
 		 */
 		WeixinMedia weixinMedia = uploadMedia(accessToken, "voice", "http://localhost:8080/weixinmpapi/test.mp3");
 		System.out.println(weixinMedia.getMediaId());
@@ -820,7 +820,7 @@ public class AdvancedUtil {
 		System.out.println(weixinMedia.getCreatedAt());
 
 		/**
-		 * ÏÂÔØ¶àÃ½ÌåÎÄ¼ş
+		 * ä¸‹è½½å¤šåª’ä½“æ–‡ä»¶
 		 */
 		getMedia(accessToken, "N7xWhOGYSLWUMPzVcGnxKFbhXeD_lLT5sXxyxDGEsCzWIB2CcUijSeQOYjWLMpcn", "G:/download");
 	}

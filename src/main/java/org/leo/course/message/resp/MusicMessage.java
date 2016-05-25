@@ -1,13 +1,13 @@
-package org.leo.course.message.resp;
+ï»¿package org.leo.course.message.resp;
 
 /**
- * ÒôÀÖÏûÏ¢
+ * éŸ³ä¹æ¶ˆæ¯
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class MusicMessage extends BaseMessage {
-	// ÒôÀÖ
+	// éŸ³ä¹
 	private Music Music;
 
 	public Music getMusic() {

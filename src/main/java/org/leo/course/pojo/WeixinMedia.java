@@ -1,17 +1,17 @@
-package org.leo.course.pojo;
+ï»¿package org.leo.course.pojo;
 
 /**
- * Ã½ÌåÎÄ¼şĞÅÏ¢
+ * åª’ä½“æ–‡ä»¶ä¿¡æ¯
  * 
  * @author leo
  * @date 2015-11-09
  */
 public class WeixinMedia {
-	// Ã½ÌåÎÄ¼şÀàĞÍ
+	// åª’ä½“æ–‡ä»¶ç±»å‹
 	private String type;
-	// Ã½ÌåÎÄ¼ş±êÊ¶»òËõÂÔÍ¼µÄÃ½ÌåÎÄ¼ş±êÊ¶
+	// åª’ä½“æ–‡ä»¶æ ‡è¯†æˆ–ç¼©ç•¥å›¾çš„åª’ä½“æ–‡ä»¶æ ‡è¯†
 	private String mediaId;
-	// Ã½ÌåÎÄ¼şÉÏ´«µÄÊ±¼ä
+	// åª’ä½“æ–‡ä»¶ä¸Šä¼ çš„æ—¶é—´
 	private int createdAt;
 
 	public String getType() {

@@ -1,13 +1,13 @@
-package org.leo.course.message.resp;
+﻿package org.leo.course.message.resp;
 
 /**
- * ͼƬmodel
+ * 图片model
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class Image {
-	// ý���ļ�id
+	// 媒体文件id
 	private String MediaId;
 
 	public String getMediaId() {

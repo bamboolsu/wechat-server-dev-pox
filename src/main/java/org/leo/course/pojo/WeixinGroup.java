@@ -1,17 +1,17 @@
-package org.leo.course.pojo;
+ï»¿package org.leo.course.pojo;
 
 /**
- * ¹«ÖÚÕËºÅ·Ö×éĞÅÏ¢
+ * å…¬ä¼—è´¦å·åˆ†ç»„ä¿¡æ¯
  * 
  * @author leo
  * @date 2015-11-09
  */
 public class WeixinGroup {
-	// ·Ö×éid
+	// åˆ†ç»„id
 	private int id;
-	// ·Ö×éÃû³Æ
+	// åˆ†ç»„åç§°
 	private String name;
-	// ·Ö×éÄÚµÄÓÃ»§Êı
+	// åˆ†ç»„å†…çš„ç”¨æˆ·æ•°
 	private int count;
 
 	public int getId() {

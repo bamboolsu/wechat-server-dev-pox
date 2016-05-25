@@ -1,17 +1,17 @@
-package org.leo.course.message.resp;
+ï»¿package org.leo.course.message.resp;
 
 import java.util.List;
 
 /**
- * ÎÄ±¾ÏûÏ¢
+ * æ–‡æœ¬æ¶ˆæ¯
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class NewsMessage extends BaseMessage {
-	// Í¼ÎÄÏûÏ¢¸öÊı£¬ÏŞÖÆÎª10ÌõÒÔÄÚ
+	// å›¾æ–‡æ¶ˆæ¯ä¸ªæ•°ï¼Œé™åˆ¶ä¸º10æ¡ä»¥å†…
 	private int ArticleCount;
-	// ¶àÌõÍ¼ÎÄÏûÏ¢ĞÅÏ¢£¬Ä¬ÈÏµÚÒ»¸öitemÎª´óÍ¼
+	// å¤šæ¡å›¾æ–‡æ¶ˆæ¯ä¿¡æ¯ï¼Œé»˜è®¤ç¬¬ä¸€ä¸ªitemä¸ºå¤§å›¾
 	private List<Article> Articles;
 
 	public int getArticleCount() {

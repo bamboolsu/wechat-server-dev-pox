@@ -1,13 +1,13 @@
-package org.leo.course.message.event;
+ï»¿package org.leo.course.message.event;
 
 /**
- * ×Ô¶¨Òå²Ëµ¥ÊÂ¼ş
+ * è‡ªå®šä¹‰èœå•äº‹ä»¶
  * 
  * @author leo
  * @date 2015-11-04
  */
 public class MenuEvent extends BaseEvent {
-	// ÊÂ¼şKEYÖµ£¬Óë×Ô¶¨Òå²Ëµ¥½Ó¿ÚÖĞKEYÖµ¶ÔÓ¦
+	// äº‹ä»¶KEYå€¼ï¼Œä¸è‡ªå®šä¹‰èœå•æ¥å£ä¸­KEYå€¼å¯¹åº”
 	private String EventKey;
 
 	public String getEventKey() {

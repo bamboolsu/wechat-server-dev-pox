@@ -1,13 +1,13 @@
-package org.leo.course.message.resp;
+锘縫ackage org.leo.course.message.resp;
 
 /**
- * 视频消息
+ * 瑙嗛娑堟伅
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class VideoMessage extends BaseMessage {
-	// 视频
+	// 瑙嗛
 	private Video Video;
 
 	public Video getVideo() {

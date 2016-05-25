@@ -1,21 +1,21 @@
-package org.leo.course.message.event;
+ï»¿package org.leo.course.message.event;
 
 /**
- * ÊÂ¼ş»ùÀà
+ * äº‹ä»¶åŸºç±»
  * 
  * @author leo
  * @date 2015-11-02
  */
 public class BaseEvent {
-	// ¿ª·¢ÕßÎ¢ĞÅºÅ
+	// å¼€å‘è€…å¾®ä¿¡å·
 	private String ToUserName;
-	// ·¢ËÍ·½ÕÊºÅ£¨Ò»¸öOpenID£©
+	// å‘é€æ–¹å¸å·ï¼ˆä¸€ä¸ªOpenIDï¼‰
 	private String FromUserName;
-	// ÏûÏ¢´´½¨Ê±¼ä £¨ÕûĞÍ£©
+	// æ¶ˆæ¯åˆ›å»ºæ—¶é—´ ï¼ˆæ•´å‹ï¼‰
 	private long CreateTime;
-	// ÏûÏ¢ÀàĞÍ
+	// æ¶ˆæ¯ç±»å‹
 	private String MsgType;
-	// ÊÂ¼şÀàĞÍ
+	// äº‹ä»¶ç±»å‹
 	private String Event;
 
 	public String getToUserName() {

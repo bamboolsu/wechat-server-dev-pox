@@ -1,13 +1,13 @@
-package org.leo.course.message.req;
+﻿package org.leo.course.message.req;
 
 /**
- * ͼƬ��Ϣ
+ * 图片消息
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class ImageMessage extends BaseMessage {
-	// ͼƬ����
+	// 图片链接
 	private String PicUrl;
 
 	public String getPicUrl() {

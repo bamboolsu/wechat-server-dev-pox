@@ -1,13 +1,13 @@
-package org.leo.course.message.resp;
+ï»¿package org.leo.course.message.resp;
 
 /**
- * ÓïÒôÏûÏ¢
+ * è¯­éŸ³æ¶ˆæ¯
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class VoiceMessage extends BaseMessage {
-	// ÓïÒô
+	// è¯­éŸ³
 	private Voice Voice;
 
 	public Voice getVoice() {

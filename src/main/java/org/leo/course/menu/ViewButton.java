@@ -1,7 +1,7 @@
-package org.leo.course.menu;
+﻿package org.leo.course.menu;
 
 /**
- * view���͵İ�ť
+ * view类型的按钮
  * 
  * @author liuyq
  * @date 2015-10-14

@@ -1,15 +1,15 @@
-package org.leo.course.message.resp;
+锘縫ackage org.leo.course.message.resp;
 
 /**
- * 视频model
+ * 瑙嗛model
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class Video {
-	// 媒体文件id
+	// 濯掍綋鏂囦欢id
 	private String MediaId;
-	// 缩略图的媒体id
+	// 缂╃暐鍥剧殑濯掍綋id
 	private String ThumbMediaId;
 
 	public String getMediaId() {

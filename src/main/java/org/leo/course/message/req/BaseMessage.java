@@ -1,21 +1,21 @@
-package org.leo.course.message.req;
+ï»¿package org.leo.course.message.req;
 
 /**
- * ÇëÇóÏûÏ¢»ùÀà£¨ÆÕÍ¨ÓÃ»§ -> ¹«ÖÚÕÊºÅ£©
+ * è¯·æ±‚æ¶ˆæ¯åŸºç±»ï¼ˆæ™®é€šç”¨æˆ· -> å…¬ä¼—å¸å·ï¼‰
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class BaseMessage {
-	// ¿ª·¢ÕßÎ¢ĞÅºÅ
+	// å¼€å‘è€…å¾®ä¿¡å·
 	private String ToUserName;
-	// ·¢ËÍ·½ÕÊºÅ£¨Ò»¸öOpenID£©
+	// å‘é€æ–¹å¸å·ï¼ˆä¸€ä¸ªOpenIDï¼‰
 	private String FromUserName;
-	// ÏûÏ¢´´½¨Ê±¼ä £¨ÕûĞÍ£©
+	// æ¶ˆæ¯åˆ›å»ºæ—¶é—´ ï¼ˆæ•´å‹ï¼‰
 	private long CreateTime;
-	// ÏûÏ¢ÀàĞÍ
+	// æ¶ˆæ¯ç±»å‹
 	private String MsgType;
-	// ÏûÏ¢id£¬64Î»ÕûĞÍ
+	// æ¶ˆæ¯idï¼Œ64ä½æ•´å‹
 	private long MsgId;
 
 	public String getToUserName() {

@@ -1,13 +1,13 @@
-package org.leo.course.message.resp;
+ï»¿package org.leo.course.message.resp;
 
 /**
- * ÎÄ±¾ÏûÏ¢
+ * æ–‡æœ¬æ¶ˆæ¯
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class TextMessage extends BaseMessage {
-	// »Ø¸´µÄÏûÏ¢ÄÚÈİ
+	// å›å¤çš„æ¶ˆæ¯å†…å®¹
 	private String Content;
 
 	public String getContent() {

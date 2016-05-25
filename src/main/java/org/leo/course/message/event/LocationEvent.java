@@ -1,17 +1,17 @@
-package org.leo.course.message.event;
+锘縫ackage org.leo.course.message.event;
 
 /**
- * 上报地理位置事件
+ * 涓婃姤鍦扮悊浣嶇疆浜嬩欢
  * 
  * @author leo
  * @date 2015-11-02
  */
 public class LocationEvent extends BaseEvent {
-	// 地理位置纬度
+	// 鍦扮悊浣嶇疆绾害
 	private String Latitude;
-	// 地理位置经度
+	// 鍦扮悊浣嶇疆缁忓害
 	private String Longitude;
-	// 地理位置精度
+	// 鍦扮悊浣嶇疆绮惧害
 	private String Precision;
 
 	public String getLatitude() {

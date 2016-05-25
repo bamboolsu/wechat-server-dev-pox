@@ -1,7 +1,7 @@
-package org.leo.course.message.event;
+锘縫ackage org.leo.course.message.event;
 
 /**
- * 关注/取消关注事件
+ * 鍏虫敞/鍙栨秷鍏虫敞浜嬩欢
  * 
  * @author leo
  * @date 2015-11-04

@@ -1,4 +1,4 @@
-package org.leo.course.servlet;
+ï»¿package org.leo.course.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +10,7 @@ import org.leo.course.service.CoreService;
 import org.leo.course.util.SignUtil;
 
 /**
- * ÇëÇó´¦ÀíµÄºËĞÄÀà
+ * è¯·æ±‚å¤„ç†çš„æ ¸å¿ƒç±»
  * 
  * @author leo
  * @date 2015-09-29
@@ -19,16 +19,16 @@ public class CoreServlet extends HttpServlet {
 	private static final long serialVersionUID = 4440739483644821986L;
 
 	/**
-	 * ÇëÇóĞ£Ñé£¨È·ÈÏÇëÇóÀ´×ÔÎ¢ĞÅ·şÎñÆ÷£©
+	 * è¯·æ±‚æ ¡éªŒï¼ˆç¡®è®¤è¯·æ±‚æ¥è‡ªå¾®ä¿¡æœåŠ¡å™¨ï¼‰
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Î¢ĞÅ¼ÓÃÜÇ©Ãû
+		// å¾®ä¿¡åŠ å¯†ç­¾å
 		String signature = request.getParameter("signature");
-		// Ê±¼ä´Á
+		// æ—¶é—´æˆ³
 		String timestamp = request.getParameter("timestamp");
-		// Ëæ»úÊı
+		// éšæœºæ•°
 		String nonce = request.getParameter("nonce");
-		// Ëæ»ú×Ö·û´®
+		// éšæœºå­—ç¬¦ä¸²
 		String echostr = request.getParameter("echostr");
 		
 
@@ -41,7 +41,7 @@ public class CoreServlet extends HttpServlet {
 			out.close();
 			out = null;
 		}
-		// ÇëÇóĞ£Ñé£¬ÈôĞ£Ñé³É¹¦ÔòÔ­Ñù·µ»Øechostr£¬±íÊ¾½ÓÈë³É¹¦£¬·ñÔò½ÓÈëÊ§°Ü
+		// è¯·æ±‚æ ¡éªŒï¼Œè‹¥æ ¡éªŒæˆåŠŸåˆ™åŸæ ·è¿”å›echostrï¼Œè¡¨ç¤ºæ¥å…¥æˆåŠŸï¼Œå¦åˆ™æ¥å…¥å¤±è´¥
 		if (SignUtil.checkSignature(signature, timestamp, nonce)) {
 			out.print(echostr);
 		}
@@ -50,15 +50,15 @@ public class CoreServlet extends HttpServlet {
 	}
 
 	/**
-	 * ÇëÇóĞ£ÑéÓë´¦Àí
+	 * è¯·æ±‚æ ¡éªŒä¸å¤„ç†
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ½«ÇëÇó¡¢ÏìÓ¦µÄ±àÂë¾ùÉèÖÃÎªUTF-8£¨·ÀÖ¹ÖĞÎÄÂÒÂë£©
+		// å°†è¯·æ±‚ã€å“åº”çš„ç¼–ç å‡è®¾ç½®ä¸ºUTF-8ï¼ˆé˜²æ­¢ä¸­æ–‡ä¹±ç ï¼‰
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		System.out.println(" leosu  receive dopost" );
 
-		// ½ÓÊÕ²ÎÊıÎ¢ĞÅ¼ÓÃÜÇ©Ãû¡¢ Ê±¼ä´Á¡¢Ëæ»úÊı
+		// æ¥æ”¶å‚æ•°å¾®ä¿¡åŠ å¯†ç­¾åã€ æ—¶é—´æˆ³ã€éšæœºæ•°
 		String signature = request.getParameter("signature");
 		String timestamp = request.getParameter("timestamp");
 		String nonce = request.getParameter("nonce");
@@ -71,9 +71,10 @@ public class CoreServlet extends HttpServlet {
 			out.close();
 			out = null;
 		}
-		// ÇëÇóĞ£Ñé
+		System.out.println(" leosu  XXXXXXXXXXXXXXXXXXXXXXXxx ");
+		// è¯·æ±‚æ ¡éªŒ
 		if (SignUtil.checkSignature(signature, timestamp, nonce)) {
-			// µ÷ÓÃºËĞÄ·şÎñÀà½ÓÊÕ´¦ÀíÇëÇó
+			// è°ƒç”¨æ ¸å¿ƒæœåŠ¡ç±»æ¥æ”¶å¤„ç†è¯·æ±‚
 			String respXml = CoreService.processRequest(request);
 			out.print(respXml);
 		}

@@ -1,13 +1,13 @@
-package org.leo.course.message.resp;
+﻿package org.leo.course.message.resp;
 
 /**
- * ͼƬ��Ϣ
+ * 图片消息
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class ImageMessage extends BaseMessage {
-	// ͼƬ
+	// 图片
 	private Image Image;
 
 	public Image getImage() {

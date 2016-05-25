@@ -1,19 +1,19 @@
-package org.leo.course.message.resp;
+ï»¿package org.leo.course.message.resp;
 
 /**
- * ÏûÏ¢»ùÀà£¨¹«ÖÚÕÊºÅ -> ÆÕÍ¨ÓÃ»§£©
+ * æ¶ˆæ¯åŸºç±»ï¼ˆå…¬ä¼—å¸å· -> æ™®é€šç”¨æˆ·ï¼‰
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class BaseMessage {
-	// ½ÓÊÕ·½ÕÊºÅ£¨ÊÕµ½µÄOpenID£©
+	// æ¥æ”¶æ–¹å¸å·ï¼ˆæ”¶åˆ°çš„OpenIDï¼‰
 	private String ToUserName;
-	// ¿ª·¢ÕßÎ¢ĞÅºÅ
+	// å¼€å‘è€…å¾®ä¿¡å·
 	private String FromUserName;
-	// ÏûÏ¢´´½¨Ê±¼ä £¨ÕûĞÍ£©
+	// æ¶ˆæ¯åˆ›å»ºæ—¶é—´ ï¼ˆæ•´å‹ï¼‰
 	private long CreateTime;
-	// ÏûÏ¢ÀàĞÍ
+	// æ¶ˆæ¯ç±»å‹
 	private String MsgType;
 
 	public String getToUserName() {

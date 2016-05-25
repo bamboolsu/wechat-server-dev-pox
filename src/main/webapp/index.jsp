@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="gb2312"%>
-<%@ page import="org.leo.course.pojo.SNSUserInfo;"%>
+<%@ page import="org.leo.course.pojo.SNSUserInfo"%>
 <html>
 <head>
 	<title>OAuth2.0อ๘าณสฺศจ</title>

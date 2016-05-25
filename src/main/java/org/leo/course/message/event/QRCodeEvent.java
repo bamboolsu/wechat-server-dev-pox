@@ -1,15 +1,15 @@
-package org.leo.course.message.event;
+ï»¿package org.leo.course.message.event;
 
 /**
- * É¨Ãè´ø²ÎÊı¶şÎ¬ÂëÊÂ¼ş
+ * æ‰«æå¸¦å‚æ•°äºŒç»´ç äº‹ä»¶
  * 
  * @author leo
  * @date 2015-11-04
  */
 public class QRCodeEvent extends BaseEvent {
-	// ÊÂ¼şKEYÖµ
+	// äº‹ä»¶KEYå€¼
 	private String EventKey;
-	// ÓÃÓÚ»»È¡¶şÎ¬ÂëÍ¼Æ¬
+	// ç”¨äºæ¢å–äºŒç»´ç å›¾ç‰‡
 	private String Ticket;
 
 	public String getEventKey() {

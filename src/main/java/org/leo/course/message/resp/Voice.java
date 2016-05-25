@@ -1,13 +1,13 @@
-package org.leo.course.message.resp;
+ï»¿package org.leo.course.message.resp;
 
 /**
- * ÓïÒômodel
+ * è¯­éŸ³model
  * 
  * @author leo
  * @date 2015-09-11
  */
 public class Voice {
-	// Ã½ÌåÎÄ¼şid
+	// åª’ä½“æ–‡ä»¶id
 	private String MediaId;
 
 	public String getMediaId() {

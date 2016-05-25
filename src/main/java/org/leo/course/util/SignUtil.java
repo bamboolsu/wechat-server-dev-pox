@@ -1,51 +1,51 @@
-package org.leo.course.util;
+ï»¿package org.leo.course.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 /**
- * ÇëÇóĞ£Ñé¹¤¾ßÀà
+ * è¯·æ±‚æ ¡éªŒå·¥å…·ç±»
  * 
  * @author leo
  * @date 2015-09-01
  */
 public class SignUtil {
-	// Óë¿ª·¢Ä£Ê½½Ó¿ÚÅäÖÃĞÅÏ¢ÖĞµÄToken±£³ÖÒ»ÖÂ
+	// ä¸å¼€å‘æ¨¡å¼æ¥å£é…ç½®ä¿¡æ¯ä¸­çš„Tokenä¿æŒä¸€è‡´
 	private static String token = "bamboolsutest";
 
 	/**
-	 * Ğ£ÑéÇ©Ãû
+	 * æ ¡éªŒç­¾å
 	 * 
-	 * @param signature Î¢ĞÅ¼ÓÃÜÇ©Ãû
-	 * @param timestamp Ê±¼ä´Á
-	 * @param nonce Ëæ»úÊı
+	 * @param signature å¾®ä¿¡åŠ å¯†ç­¾å
+	 * @param timestamp æ—¶é—´æˆ³
+	 * @param nonce éšæœºæ•°
 	 * @return
 	 */
 	public static boolean checkSignature(String signature, String timestamp, String nonce) {
-		// ¶Ôtoken¡¢timestampºÍnonce°´×ÖµäÅÅĞò
+		// å¯¹tokenã€timestampå’ŒnonceæŒ‰å­—å…¸æ’åº
 		String[] paramArr = new String[] { token, timestamp, nonce };
 		Arrays.sort(paramArr);
 
-		// ½«ÅÅĞòºóµÄ½á¹ûÆ´½Ó³ÉÒ»¸ö×Ö·û´®
+		// å°†æ’åºåçš„ç»“æœæ‹¼æ¥æˆä¸€ä¸ªå­—ç¬¦ä¸²
 		String content = paramArr[0].concat(paramArr[1]).concat(paramArr[2]);
 
 		String ciphertext = null;
 		try {
 			MessageDigest md = MessageDigest.getInstance("SHA-1");
-			// ¶Ô½ÓºóµÄ×Ö·û´®½øĞĞsha1¼ÓÃÜ
+			// å¯¹æ¥åçš„å­—ç¬¦ä¸²è¿›è¡Œsha1åŠ å¯†
 			byte[] digest = md.digest(content.toString().getBytes());
 			ciphertext = byteToStr(digest);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
 		
-		// ½«sha1¼ÓÃÜºóµÄ×Ö·û´®Óësignature½øĞĞ¶Ô±È
+		// å°†sha1åŠ å¯†åçš„å­—ç¬¦ä¸²ä¸signatureè¿›è¡Œå¯¹æ¯”
 		return ciphertext != null ? ciphertext.equals(signature.toUpperCase()) : false;
 	}
 
 	/**
-	 * ½«×Ö½ÚÊı×é×ª»»ÎªÊ®Áù½øÖÆ×Ö·û´®
+	 * å°†å­—èŠ‚æ•°ç»„è½¬æ¢ä¸ºåå…­è¿›åˆ¶å­—ç¬¦ä¸²
 	 * 
 	 * @param byteArray
 	 * @return
@@ -59,7 +59,7 @@ public class SignUtil {
 	}
 
 	/**
-	 * ½«×Ö½Ú×ª»»ÎªÊ®Áù½øÖÆ×Ö·û´®
+	 * å°†å­—èŠ‚è½¬æ¢ä¸ºåå…­è¿›åˆ¶å­—ç¬¦ä¸²
 	 * 
 	 * @param mByte
 	 * @return

@@ -1,4 +1,4 @@
-package org.leo.course.service;
+ï»¿package org.leo.course.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ºËĞÄ·şÎñÀà
+ * æ ¸å¿ƒæœåŠ¡ç±»
  * 
  * @author leo
  * @date 2015-09-29
@@ -23,71 +23,78 @@ import org.slf4j.LoggerFactory;
 public class CoreService {
 	private static Logger log = LoggerFactory.getLogger(MenuUtil.class);
 	/**
-	 * ´¦ÀíÎ¢ĞÅ·¢À´µÄÇëÇó
+	 * å¤„ç†å¾®ä¿¡å‘æ¥çš„è¯·æ±‚
 	 * 
 	 * @param request
 	 * @return xml
 	 */
 	public static String processRequest(HttpServletRequest request) {
-		// xml¸ñÊ½µÄÏûÏ¢Êı¾İ
+		// xmlæ ¼å¼çš„æ¶ˆæ¯æ•°æ®
 		String respXml = null;
-		// Ä¬ÈÏ·µ»ØµÄÎÄ±¾ÏûÏ¢ÄÚÈİ
-		String respContent = "Welcome to MDH. »¶Ó­À´µ½ÂòµÂºÃ¡£";
+		// é»˜è®¤è¿”å›çš„æ–‡æœ¬æ¶ˆæ¯å†…å®¹
+		String respContent = "Welcome to MDH. æ¬¢è¿æ¥åˆ°ä¹°å¾·å¥½ã€‚";
 		try {
-			// µ÷ÓÃparseXml·½·¨½âÎöÇëÇóÏûÏ¢
+			// è°ƒç”¨parseXmlæ–¹æ³•è§£æè¯·æ±‚æ¶ˆæ¯
 			Map<String, String> requestMap = MessageUtil.parseXml(request);
-			// ·¢ËÍ·½ÕÊºÅ
+			// å‘é€æ–¹å¸å·
 			String fromUserName = requestMap.get("FromUserName");
-			// ¿ª·¢ÕßÎ¢ĞÅºÅ
+			// å¼€å‘è€…å¾®ä¿¡å·
 			String toUserName = requestMap.get("ToUserName");
-			// ÏûÏ¢ÀàĞÍ
+			// æ¶ˆæ¯ç±»å‹
 			String msgType = requestMap.get("MsgType");
-			System.out.println(" leosu  receive msgtype is£º" + msgType);
-			log.warn(" leosu  receive msgtype is£º" + msgType);
+			System.out.println(" leosu  receive msgtype isï¼š" + msgType);
+			log.warn(" leosu  receive msgtype isï¼š" + msgType);
 
-			// »Ø¸´ÎÄ±¾ÏûÏ¢
+			// å›å¤æ–‡æœ¬æ¶ˆæ¯
 			TextMessage textMessage = new TextMessage();
 			textMessage.setToUserName(fromUserName);
 			textMessage.setFromUserName(toUserName);
 			textMessage.setCreateTime(new Date().getTime());
 			textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
 
-			// ÎÄ±¾ÏûÏ¢
+			// æ–‡æœ¬æ¶ˆæ¯
 			if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {
-				respContent = "Äú·¢ËÍµÄÊÇÎÄ±¾ÏûÏ¢£¡";
-				System.out.println(" leosu  send msg is£º" + respContent);
+				respContent = "æ‚¨å‘é€çš„æ˜¯æ–‡æœ¬æ¶ˆæ¯ï¼";
+				System.out.println(" leosu  send msg isï¼š" + respContent);
 			}
-			// Í¼Æ¬ÏûÏ¢
+			// å›¾ç‰‡æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {
-				respContent = "Äú·¢ËÍµÄÊÇÍ¼Æ¬ÏûÏ¢£¡";
+				respContent = "æ‚¨å‘é€çš„æ˜¯å›¾ç‰‡æ¶ˆæ¯ï¼";
 			}
-			// ÓïÒôÏûÏ¢
+			// è¯­éŸ³æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VOICE)) {
-				respContent = "Äú·¢ËÍµÄÊÇÓïÒôÏûÏ¢£¡";
+				respContent = "æ‚¨å‘é€çš„æ˜¯è¯­éŸ³æ¶ˆæ¯ï¼";
 			}
-			// ÊÓÆµÏûÏ¢
+			// è§†é¢‘æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VIDEO)) {
-				respContent = "Äú·¢ËÍµÄÊÇÊÓÆµÏûÏ¢£¡";
+				respContent = "æ‚¨å‘é€çš„æ˜¯è§†é¢‘æ¶ˆæ¯ï¼";
 			}
-			// µØÀíÎ»ÖÃÏûÏ¢
+			// åœ°ç†ä½ç½®æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LOCATION)) {
-				respContent = "Äú·¢ËÍµÄÊÇµØÀíÎ»ÖÃÏûÏ¢£¡";
+				respContent = "æ‚¨å‘é€çš„æ˜¯åœ°ç†ä½ç½®æ¶ˆæ¯ï¼";
 			}
-			// Á´½ÓÏûÏ¢
+			// é“¾æ¥æ¶ˆæ¯
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LINK)) {
-				respContent = "Äú·¢ËÍµÄÊÇÁ´½ÓÏûÏ¢£¡";
+				respContent = "æ‚¨å‘é€çš„æ˜¯é“¾æ¥æ¶ˆæ¯ï¼";
 			}
-			// ÊÂ¼şÍÆËÍ
+			// äº‹ä»¶æ¨é€
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
-				// ÊÂ¼şÀàĞÍ
+				// äº‹ä»¶ç±»å‹
 				String eventType = requestMap.get("Event");
-				// ¶©ÔÄ
+				// è®¢é˜…
 				if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
-					respContent = ("ÄúºÃ£¬»¶Ó­À´µ½ÂòµÂºÃ£¡");
+					respContent = ("\"ç»ˆäºç­‰åˆ°ä½ ï¼Œè¿˜å¥½æˆ‘æ²¡æ”¾å¼ƒ\""
+							+ "\næ„Ÿæ©æ‚¨å…³æ³¨ä¹°å¾·å¥½"
+							+ "\nä»æ­¤æ‚¨çš„ç”Ÿæ´»å’Œæ­£å“å¾·è´§ä¹‹é—´"
+							+ "\nåªéš”ç€ä¸€ä¸ªä¹°å¾·å¥½çš„è·ç¦»"
+							+ "\næˆ‘ä»¬ç²¾é€‰å°†å‡çº§æ‚¨ç”Ÿæ´»å“è´¨çš„å¾·å›½å¥½ç‰©"
+							+ "\nè¿åŒä¼˜è´¨æœåŠ¡ä¸€èµ·æ‰“åŒ…é€åˆ°æ‚¨æ‰‹ä¸Š"
+							+ "\nwww.maidehao.com"
+							+ "\nçœŸå¾·ä¸ä¸€æ ·ï¼Œä½ æ¥å°±çŸ¥é“ï¼");
 				}
-				// È¡Ïû¶©ÔÄ
+				// å–æ¶ˆè®¢é˜…
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {
-					// TODO Ôİ²»×ö´¦Àí
+					// TODO æš‚ä¸åšå¤„ç†
 				}
 				//EVENT_TYPE_SCAN
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_SCAN)) {
@@ -97,20 +104,20 @@ public class CoreService {
 				else if (eventType.equals("welcom")) {
 					respContent = ("Thanks for you MDH.");
 				}
-				// ×Ô¶¨Òå²Ëµ¥µã»÷ÊÂ¼ş
+				// è‡ªå®šä¹‰èœå•ç‚¹å‡»äº‹ä»¶
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
-					// ÊÂ¼şKEYÖµ£¬Óë´´½¨²Ëµ¥Ê±µÄkeyÖµ¶ÔÓ¦
+					// äº‹ä»¶KEYå€¼ï¼Œä¸åˆ›å»ºèœå•æ—¶çš„keyå€¼å¯¹åº”
 					String eventKey = requestMap.get("EventKey");
-					// ¸ù¾İkeyÖµÅĞ¶ÏÓÃ»§µã»÷µÄ°´Å¥
-					if (eventKey.equals("connectKF")) {
+					// æ ¹æ®keyå€¼åˆ¤æ–­ç”¨æˆ·ç‚¹å‡»çš„æŒ‰é’®
+					if (eventKey.equals("membercenter")) {
 						Article article = new Article();
-						article.setTitle("ÂòµÂºÃ");
-						article.setDescription("ÂòµÂºÃ¿ç¾³¹ºÎïÍøÕ¾£¬¡£\n\nÖ÷Òª¾­ÓªµÂ¹úµÄ Ä¸Ó¤£¬ µçÆ÷£¬ ³ø¾ß£¬ ÎÄ¾ßµÈ¡£\n\n »¶Ó­İ°ÁÙ");
+						article.setTitle("ä¹°å¾·å¥½");
+						article.setDescription("ä¹°å¾·å¥½è·¨å¢ƒè´­ç‰©ç½‘ç«™ï¼Œã€‚\n\nä¸»è¦ç»è¥å¾·å›½çš„ æ¯å©´ï¼Œ ç”µå™¨ï¼Œ å¨å…·ï¼Œ æ–‡å…·ç­‰ã€‚\n\n æ¬¢è¿è…ä¸´");
 						article.setPicUrl("");
 						article.setUrl("http://www.maidehao.com");
 						List<Article> articleList = new ArrayList<Article>();
 						articleList.add(article);
-						// ´´½¨Í¼ÎÄÏûÏ¢
+						// åˆ›å»ºå›¾æ–‡æ¶ˆæ¯
 						NewsMessage newsMessage = new NewsMessage();
 						newsMessage.setToUserName(fromUserName);
 						newsMessage.setFromUserName(toUserName);
@@ -120,14 +127,18 @@ public class CoreService {
 						newsMessage.setArticles(articleList);
 						respXml = MessageUtil.messageToXml(newsMessage);
 						return respXml;
-					} else if (eventKey.equals("membercenter")) {
-						respContent = ("¹Ù·½Î¢ĞÅºÅ: maidehao01 \n\n Ã½ÌåºÏ×÷:  pr@maidehao.com  \n\n  ÉÌÎñºÏ×÷:  bd@maidehao.com \n\n ¿Í·şµç»°:  400-801-6708¡£\n\n ¹Ù·½ÉÌ³Ç:  http://www.maidehao.com");
+					} else if (eventKey.equals("connectKF")) {
+						respContent = ("å®˜æ–¹å¾®ä¿¡å·: maidehao01"
+								+ "\nåª’ä½“åˆä½œ: pr@maidehao.com"
+								+ "\nå•†åŠ¡åˆä½œ: bd@maidehao.com"
+								+ "\nå®¢æœç”µè¯: 400-801-6708"
+								+ "\nå®˜æ–¹å•†åŸ: http://www.maidehao.com");
 					}
 				}
 			}
-			// ÉèÖÃÎÄ±¾ÏûÏ¢µÄÄÚÈİ
+			// è®¾ç½®æ–‡æœ¬æ¶ˆæ¯çš„å†…å®¹
 			textMessage.setContent(respContent);
-			// ½«ÎÄ±¾ÏûÏ¢¶ÔÏó×ª»»³Éxml
+			// å°†æ–‡æœ¬æ¶ˆæ¯å¯¹è±¡è½¬æ¢æˆxml
 			respXml = MessageUtil.messageToXml(textMessage);
 		} catch (Exception e) {
 			e.printStackTrace();
