@@ -22,7 +22,7 @@
 	
 <span>
 <%
-String rediecturi = java.net.URLEncoder.encode(WechatInfo.REDIRECTURIOLD_C, "utf-8");
+String rediecturi = java.net.URLEncoder.encode(WechatInfo.REDIRECTURIOLD_CJ, "utf-8");
 System.out.println(" leosu  appid " +  WechatInfo.APPID);
 
 String url = WechatInfo.WECHATQRCONNECT + "?appid=" + WechatInfo.APPID

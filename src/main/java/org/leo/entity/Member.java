@@ -5,42 +5,16 @@
  */
 package org.leo.entity;
 
-import java.lang.reflect.InvocationTargetException;
-import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
-import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
 
 //import org.leo.util.JsonUtils;
 
@@ -94,11 +68,11 @@ public class Member extends BaseEntity<Long> {
 	/** 昵称 */
 	private String province;
 
-	/** 最后创建日期 */
-	private Date create_date;
-	
-	/** 最后修改日期 */
-	private Date modify_date;
+//	/** 最后创建日期 */
+//	private Date create_date;
+//	
+//	/** 最后修改日期 */
+//	private Date modify_date;
 
 	/** 姓名 */
 	private String name;
@@ -126,9 +100,10 @@ public class Member extends BaseEntity<Long> {
 	 * 
 	 * @return 用户名
 	 */
-	@NotEmpty(groups = Save.class)
-	@Pattern(regexp = "^[0-9a-zA-Z_\\u4e00-\\u9fa5]+$")
-	@Column(nullable = false, updatable = false, unique = true)
+	//@NotEmpty(groups = Save.class)
+	//@Pattern(regexp = "^[0-9a-zA-Z_\\u4e00-\\u9fa5]+$")
+	//@Column(nullable = false, updatable = false, unique = true)
+	@Column
 	public String getUsername() {
 		return username;
 	}
@@ -148,9 +123,10 @@ public class Member extends BaseEntity<Long> {
 	 * 
 	 * @return E-mail
 	 */
-	@NotEmpty
-	@Email
-	@Length(max = 200)
+//	@NotEmpty
+//	@Email
+//	@Length(max = 200)
+	@Column
 	public String getEmail() {
 		return email;
 	}
@@ -170,7 +146,8 @@ public class Member extends BaseEntity<Long> {
 	 * 
 	 * @return 昵称
 	 */
-	@Length(max = 200)
+//	@Length(max = 200)
+	@Column
 	public String getProvince() {
 		return province;
 	}
@@ -185,50 +162,14 @@ public class Member extends BaseEntity<Long> {
 		this.province = province;
 	}
 
-	/**
-	 * 获取最后创建日期
-	 * 
-	 * @return 最后创建日期
-	 */
-	public Date getCreateDate() {
-		return create_date;
-	}
-
-	/**
-	 * 设置最后创建日期
-	 * 
-	 * @param loginDate
-	 *            最后创建日期
-	 */
-	public void setCreateDate(Date create_date) {
-		this.create_date = create_date;
-	}
-
-	/**
-	 * 获取最后修改日期
-	 * 
-	 * @return 最后登录日期
-	 */
-	public Date getModifyDate() {
-		return modify_date;
-	}
-
-	/**
-	 * 设置最后修改日期
-	 * 
-	 * @param loginDate
-	 *            最后登录日期
-	 */
-	public void setModifyDate(Date modify_date) {
-		this.modify_date = modify_date;
-	}
 	
 	/**
 	 * 获取姓名
 	 * 
 	 * @return 姓名
 	 */
-	@Length(max = 200)
+//	@Length(max = 200)
+	@Column
 	public String getName() {
 		return name;
 	}
@@ -248,6 +189,7 @@ public class Member extends BaseEntity<Long> {
 	 * 
 	 * @return 性别
 	 */
+	@Column
 	public Member.Gender getGender() {
 		return gender;
 	}
@@ -267,7 +209,8 @@ public class Member extends BaseEntity<Long> {
 	 * 
 	 * @return 地址
 	 */
-	@Length(max = 200)
+//	@Length(max = 200)
+	@Column
 	public String getAddress() {
 		return address;
 	}
@@ -287,7 +230,8 @@ public class Member extends BaseEntity<Long> {
 	 * 
 	 * @return 邮编
 	 */
-	@Length(max = 200)
+//	@Length(max = 200)
+	@Column
 	public String getCity() {
 		return city;
 	}
@@ -307,7 +251,8 @@ public class Member extends BaseEntity<Long> {
 	 * 
 	 * @return 手机
 	 */
-	@Length(max = 200)
+//	@Length(max = 200)
+	@Column
 	public String getMobile() {
 		return mobile;
 	}
@@ -327,7 +272,8 @@ public class Member extends BaseEntity<Long> {
 	 * 
 	 * @return openID
 	 */
-	@Column(updatable = false)
+//	@Column(updatable = false)
+	@Column
 	public String getOpenId() {
 		return openId;
 	}
@@ -376,7 +322,8 @@ public class Member extends BaseEntity<Long> {
 	public void preUpdate() {
 		setEmail(StringUtils.lowerCase(getEmail()));
 	}
-
+	
+	@Column
 	public String getUnionId() {
 		return unionId;
 	}

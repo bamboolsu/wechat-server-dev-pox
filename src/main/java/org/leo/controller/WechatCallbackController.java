@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.leo.entity.Member;
 import org.leo.entity.WechatInfo;
@@ -87,6 +88,8 @@ public class WechatCallbackController extends BaseController {
 			request.setAttribute("code", code);
 			request.setAttribute("state", state);
 			request.setAttribute("member", member);
+			HttpSession session = request.getSession();
+			session .setAttribute("member", member);
 			request.getRequestDispatcher("/WEB-INF/jsp/loginSuccess.jsp").forward(request, response);
 		} catch (Exception e1) {
 			e1.printStackTrace();

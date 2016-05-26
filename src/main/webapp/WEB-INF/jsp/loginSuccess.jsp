@@ -13,7 +13,14 @@
 <h1>code is:   ${code}</h1>
 
 <h1>state is: ${state}</h1>
+<%  Member tempMember =(Member)  session.getAttribute("member"); %>
 
+
+	<h1>
+		Member.OPENID =
+		<%=tempMember.getOpenId()%>
+	</h1>
+	
 	<h1>
 		WechatInfo.nickname =
 		<%=WechatInfo.nickname%>
