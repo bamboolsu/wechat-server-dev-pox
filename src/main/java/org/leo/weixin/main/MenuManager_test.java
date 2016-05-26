@@ -1,4 +1,4 @@
-﻿package org.leo.weixin.main;
+package org.leo.weixin.main;
 
 import org.leo.course.menu.Button;
 import org.leo.course.menu.ClickButton;
@@ -17,8 +17,8 @@ import org.slf4j.LoggerFactory;
  * @author leo
  * @date 2015-10-17
  */
-public class MenuManager {
-	private static Logger log = LoggerFactory.getLogger(MenuManager.class);
+public class MenuManager_test {
+	private static Logger log = LoggerFactory.getLogger(MenuManager_test.class);
 
 	/**
 	 * 定义菜单结构
@@ -65,15 +65,12 @@ public class MenuManager {
 	}
 
 	public static void main(String[] args) {
-		// 第三方用户唯一凭证  （买德好官方）
-		String appId = "wxe71e2c3a1dbe7740";
-		// 第三方用户唯一凭证密钥 （买德好官方）
-		String appSecret = "0e967a0dcc14d651ce4bf9979e1d8594";
+
 
 		// 第三方用户唯一凭证 （测试号）
-		//String appId = "wx0d84b978f8a520b4";
+		String appId = "wx0d84b978f8a520b4";
 		// 第三方用户唯一凭证密钥（测试号）
-		//String appSecret = "84fc4469f117524cd748ec5e84848b10";
+		String appSecret = "84fc4469f117524cd748ec5e84848b10";
 		// 调用接口获取凭证
 		Token token = CommonUtil.getToken(appId, appSecret);
 		System.out.println(" leosu  get token is：" + token.getAccessToken());

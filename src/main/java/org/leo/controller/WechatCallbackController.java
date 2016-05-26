@@ -1,4 +1,4 @@
-package org.leo.servlet;
+﻿package org.leo.controller;
 
 import java.io.IOException;
 
@@ -18,22 +18,28 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.annotation.Resource;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
-//@Controller("shopOrderController")
-//@RequestMapping("/order")
-@WebServlet("/wechatCallback")
-public class WechatCallback extends HttpServlet {
-
-/*	@Resource(name = "memberServiceImpl")
+@Controller("wechatCallbackController")
+@RequestMapping("/")
+public class WechatCallbackController extends BaseController {
+	
+	@Resource(name = "memberServiceImpl")
 	private MemberService memberService;
-*/	
+	
 	/**
 	 * 微信平台回调的函数；
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@RequestMapping(value = "/wechatCallbackController", method = RequestMethod.GET)
+	public void
+	doGet(HttpServletRequest request, HttpServletResponse response) {
 		WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext((ServletContext) request.getServletContext());
-		//MemberService memberService = (MemberService) context.getBean("memberServiceImpl");
+		MemberService memberService = (MemberService) context.getBean("memberServiceImpl");
 		String code = request.getParameter("code");
 		String state = request.getParameter("state");
 		System.out.println("here we will doGet code parameter. leosu");
@@ -60,7 +66,7 @@ public class WechatCallback extends HttpServlet {
 			}
 			
 			//生成或者 查询 member 
-/*			Member member;
+			Member member;
 			if (WechatInfo.UNIONID != null) {
 				member = memberService.findByUnionId(WechatInfo.UNIONID);
 				if (member == null) {
@@ -73,7 +79,7 @@ public class WechatCallback extends HttpServlet {
 				}
 			} else {
 				System.out.println("lsu: we didn't get the openid and unionid. ");
-			}*/
+			}
 			
 			
 
@@ -84,10 +90,12 @@ public class WechatCallback extends HttpServlet {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
+		
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@RequestMapping(value = "/wechatCallback", method = RequestMethod.POST)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
 	}
 }
