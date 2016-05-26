@@ -11,8 +11,8 @@
 	<context:property-placeholder location="classpath*:/jshop.properties" ignore-resource-not-found="true" ignore-unresolvable="true" />
 
 	<context:component-scan base-package="org.leo">
-		<!-- <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" /> -->
-		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+		<!-- <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" /> 
+		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />   -->
 	</context:component-scan>
 
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
@@ -140,6 +140,8 @@
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
+	
+
 
 	<!-- <bean id="sessionFactory" factory-bean="entityManagerFactory" factory-method="getSessionFactory" /> -->
 </beans>

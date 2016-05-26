@@ -14,10 +14,6 @@ import org.leo.service.impl.AccessTokenImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-
-import net.sf.ehcache.search.expression.And;
 
 
 @Controller("wechatCallbackController")
