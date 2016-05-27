@@ -43,7 +43,7 @@ public class MenuManager {
 		//btn3.setKey("connectKF");		
 		
 		ViewButton btn31 = new ViewButton();
-		btn31.setName("內部測試");
+		btn31.setName("临时測試");
 		btn31.setType("view");
 		btn31.setUrl("http://15r075i779.imwork.net/wechat-server-dev-pox/index-test.jsp");
 		
@@ -52,9 +52,14 @@ public class MenuManager {
 		btn32.setType("click");
 		btn32.setKey("connectKF");	
 		
+		ViewButton btn33 = new ViewButton();
+		btn33.setName("内部測試");
+		btn33.setType("view");
+		btn33.setUrl("http://mbackendpre.maidehao.com");
+		
 		ComplexButton mainBtn3 = new ComplexButton();
 		mainBtn3.setName("关于我门");
-		mainBtn3.setSub_button(new Button[] { btn31, btn32});
+		mainBtn3.setSub_button(new Button[] { btn31, btn32, btn33});
 
 
 		

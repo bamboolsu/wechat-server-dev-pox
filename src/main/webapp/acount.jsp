@@ -251,7 +251,18 @@
         text-align:center
     }
 </style>
+
 <body>
+
+
+<%  Member tempMember =(Member)  session.getAttribute("member"); %>
+
+
+	<h1>
+		Member.OPENID =
+		<%=tempMember.getOpenId()%>
+	</h1>
+
     <div class="header">
 
         <div class="container blue">

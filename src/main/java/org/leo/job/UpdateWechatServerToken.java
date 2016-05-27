@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Lazy(false)
 public class UpdateWechatServerToken {  
 	
-      @Scheduled(cron="5 * * *  *  * ?")   //每5秒执行一次  
+      @Scheduled(cron="5 * *  *  * ?")   //每5秒执行一次  
       public void myTest(){  
             System.out.println("lsu:   begin myTest; 进入测试");  
       }  

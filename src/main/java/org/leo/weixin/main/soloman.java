@@ -26,54 +26,101 @@ public class soloman {
 	 * @return
 	 */
 	private static Menu getMenu() {
-
-		ViewButton btn1 = new ViewButton();
-		btn1.setName("买德好");
-		btn1.setType("view");
-		btn1.setUrl("http://www.maidehao.com");
-
-		ClickButton btn2 = new ClickButton();
-		btn2.setName("个人中心");
-		btn2.setType("click");
-		btn2.setKey("membercenter");
 		
-		//ClickButton btn3 = new ClickButton();
-		//btn3.setName("联系我们");
-		//btn3.setType("click");
-		//btn3.setKey("connectKF");		
+		ViewButton btn11 = new ViewButton();
+		btn11.setName("加盟合作");
+		btn11.setType("view");
+		btn11.setUrl("http://www.solargrid.com.cn/FrontNews/news_detail/id/301/sort_id/5");
+
+		ViewButton btn12 = new ViewButton();
+		btn12.setName("光伏政策");
+		btn12.setType("view");
+		btn12.setUrl("http://www.solargrid.com.cn/FrontNews/news_list/sort_id/20.html");
+		
+		ViewButton btn13 = new ViewButton();
+		btn13.setName("所罗门学院");
+		btn13.setType("view");
+		btn13.setUrl("http://www.solargrid.com.cn/FrontNews/news_detail/id/210/sort_id/2");
+		
+		ViewButton btn14 = new ViewButton();
+		btn14.setName("关于我们");
+		btn14.setType("view");
+		btn14.setUrl("http://www.solargrid.com.cn/FrontNews/news_detail/id/218/sort_id/7");
+		
+		ComplexButton mainBtn1 = new ComplexButton();
+		mainBtn1.setName("所罗门");
+		mainBtn1.setSub_button(new Button[] { btn11, btn12, btn13, btn14});
+		
+		
+		
+		ViewButton btn21 = new ViewButton();
+		btn21.setName("微电宝");
+		btn21.setType("view");
+		btn21.setUrl("http://www.solargrid.com.cn");
+
+		ViewButton btn22 = new ViewButton();
+		btn22.setName("电站风采");
+		btn22.setType("view");
+		btn22.setUrl("http://www.solargrid.com.cn");
+		
+		ViewButton btn23 = new ViewButton();
+		btn23.setName("建站流程");
+		btn23.setType("view");
+		btn23.setUrl("http://www.solargrid.com.cn");
+				
+		ComplexButton mainBtn2 = new ComplexButton();
+		mainBtn2.setName("光伏电站");
+		mainBtn2.setSub_button(new Button[] { btn21, btn22, btn23});	
+		
 		
 		ViewButton btn31 = new ViewButton();
-		btn31.setName("內部測試");
+		btn31.setName("优惠活动");
 		btn31.setType("view");
-		btn31.setUrl("http://15r075i779.imwork.net/wechat-server-dev-pox/index.jsp");
+		btn31.setUrl("http://www.solargrid.com.cn");
+
+		ViewButton btn32 = new ViewButton();
+		btn32.setName("成为会员");
+		btn32.setType("view");
+		btn32.setUrl("http://www.solargrid.com.cn");
 		
-		ClickButton btn32 = new ClickButton();
-		btn32.setName("联系我们");
-		btn32.setType("click");
-		btn32.setKey("connectKF");	
+		ViewButton btn33 = new ViewButton();
+		btn33.setName("我想投资");
+		btn33.setType("view");
+		btn33.setUrl("http://www.solargrid.com.cn");
+		
+		ViewButton btn34 = new ViewButton();
+		btn34.setName("我有屋顶");
+		btn34.setType("view");
+		btn34.setUrl("http://www.solargrid.com.cn");
+		
+		ViewButton btn35 = new ViewButton();
+		btn35.setName("內部測試");
+		btn35.setType("view");
+		btn35.setUrl("http://15r075i779.imwork.net/wechat-server-dev-pox/index-test.jsp");
 		
 		ComplexButton mainBtn3 = new ComplexButton();
-		mainBtn3.setName("关于我门");
-		mainBtn3.setSub_button(new Button[] { btn31, btn32});
-
+		mainBtn3.setName("我想");
+		mainBtn3.setSub_button(new Button[] { btn31, btn32, btn33, btn34, btn35});	
+		
+		/* only creat 3 level menu */
+		ViewButton btn4 = new ViewButton();
+		btn4.setName("买德好");
+		btn4.setType("view");
+		btn4.setUrl("http://www.maidehao.com");	
 
 		
 		Menu menu = new Menu();
-		menu.setButton(new Button[] { btn1, btn2, mainBtn3 });
+		menu.setButton(new Button[] { mainBtn1, mainBtn2, mainBtn3 });
 		
 		return menu;
 	}
 
 	public static void main(String[] args) {
-		// 第三方用户唯一凭证  （买德好官方）
-		String appId = "wxe71e2c3a1dbe7740";
-		// 第三方用户唯一凭证密钥 （买德好官方）
-		String appSecret = "0e967a0dcc14d651ce4bf9979e1d8594";
+		// 第三方用户唯一凭证  
+		String appId = "wxbbaf255da7c36932";
+		// 第三方用户唯一凭证密钥 
+		String appSecret = "cd3a75c437a978a6845cde07f3c3d542";
 
-		// 第三方用户唯一凭证 （测试号）
-		//String appId = "wx0d84b978f8a520b4";
-		// 第三方用户唯一凭证密钥（测试号）
-		//String appSecret = "84fc4469f117524cd748ec5e84848b10";
 		// 调用接口获取凭证
 		Token token = CommonUtil.getToken(appId, appSecret);
 		System.out.println(" leosu  get token is：" + token.getAccessToken());

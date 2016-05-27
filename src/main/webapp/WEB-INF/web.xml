@@ -17,6 +17,21 @@
 		<url-pattern>/coreServlet</url-pattern>
 	</servlet-mapping>
 
+
+	<servlet>
+		<servlet-name>coreServlet_solar</servlet-name>
+		<servlet-class>
+			org.leo.course.servlet.CoreServlet_solar
+		</servlet-class>
+	</servlet>
+	<!-- /coreServlet用于指定该Servlet的访问路径 -->
+	<servlet-mapping>
+		<servlet-name>coreServlet_solar</servlet-name>
+		<url-pattern>/coreServlet_solar</url-pattern>
+	</servlet-mapping>
+
+
+
 	<servlet>
 		<servlet-name>oauthServlet</servlet-name>
 		<servlet-class>
