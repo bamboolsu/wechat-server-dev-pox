@@ -16,7 +16,11 @@ import org.leo.course.util.SignUtil;
  * @date 2015-09-29
  */
 public class CoreServlet extends HttpServlet {
-	private static final long serialVersionUID = 4440739483644821986L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 请求校验（确认请求来自微信服务器）

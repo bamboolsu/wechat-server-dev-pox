@@ -101,7 +101,7 @@ public class CoreService {
 					respContent = ("You are scanning MDH.");
 				}
 				//myself define welcome, 
-				else if (eventType.equals("welcom")) {
+				else if (eventType.equals("welcome")) {
 					respContent = ("Thanks for you MDH.");
 				}
 				// 自定义菜单点击事件

@@ -22,12 +22,13 @@ public class WechatInfo {
 	public static final String STATE = "3d6be0a4035d839573b04816624a4leo";
 
 	
+	public static final String REDIRECTBASEURL = "http://15r075i779.imwork.net/wechat-server-dev-pox/";
 	//"http%3A%2F%2Fmaidehao.com%3A8080%2FwechatCallback"
 	//public static final String REDIRECTURIOLD = "http://wxdev.maidehao.com/wechatlogin-pox/wechatCallback";
-	public static final String REDIRECTURIOLD = "http://15r075i779.imwork.net/wechat-server-dev-pox/wechatCallback";
-	public static final String REDIRECTURIOLD_C = "http://15r075i779.imwork.net/wechat-server-dev-pox/wechatCallbackController.jhtml";
-	public static final String REDIRECTURIOLD_CJ = "http://15r075i779.imwork.net/wechat-server-dev-pox/wechatCallbackController.jhtml";
-	public static final String REDIRECTURIOLD8 = "http://15r075i779.imwork.net/wechat-server-dev-pox/wechatCallbacktttt";
+	public static final String REDIRECTURIOLD = REDIRECTBASEURL + "wechatCallback";
+	public static final String REDIRECTURIOLD_C = REDIRECTBASEURL + "wechatCallbackController.jhtml";
+	public static final String REDIRECTURIOLD_CJ = REDIRECTBASEURL + "wechatCallbackController.jhtml";
+	public static final String REDIRECTURIOLD8 = REDIRECTBASEURL + "wechatCallbacktttt";
 	//public static final String REDIRECTURI = "http%3A%2F%2Fwxdev.maidehao.com%2Fwechatlogin-pox%2FwechatCallback";
 
 	

@@ -87,7 +87,9 @@ public class WechatCallbackController extends BaseController {
 			HttpSession session = request.getSession();
 			session .setAttribute("member", member);
 			//request.getRequestDispatcher("/WEB-INF/jsp/loginSuccess.jsp").forward(request, response);
-			request.getRequestDispatcher("/acount.jsp").forward(request, response);
+			//request.getRequestDispatcher("/member_base.jsp").forward(request, response);  //success
+			//request.getRequestDispatcher("http://15r075i779.imwork.net/shop-mobile/success.html").forward(request, response);  //failed
+			request.getRequestDispatcher("success.html").forward(request, response);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

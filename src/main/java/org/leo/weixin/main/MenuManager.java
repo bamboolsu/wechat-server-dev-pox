@@ -43,9 +43,9 @@ public class MenuManager {
 		//btn3.setKey("connectKF");		
 		
 		ViewButton btn31 = new ViewButton();
-		btn31.setName("临时測試");
+		btn31.setName("店铺测试");
 		btn31.setType("view");
-		btn31.setUrl("http://15r075i779.imwork.net/wechat-server-dev-pox/index-test.jsp");
+		btn31.setUrl("http://mp.weixin.qq.com/bizmall/mallshelf?id=&t=mall/list&biz=MzI4MTE4MDMwMQ==&shelf_id=1&showwxpaytitle=1#wechat_redirect");
 		
 		ClickButton btn32 = new ClickButton();
 		btn32.setName("联系我们");
@@ -53,9 +53,9 @@ public class MenuManager {
 		btn32.setKey("connectKF");	
 		
 		ViewButton btn33 = new ViewButton();
-		btn33.setName("内部測試");
+		btn33.setName("内部测试");
 		btn33.setType("view");
-		btn33.setUrl("http://mbackendpre.maidehao.com");
+		btn33.setUrl("http://m.maidehao.com/before_index.html");
 		
 		ComplexButton mainBtn3 = new ComplexButton();
 		mainBtn3.setName("关于我门");

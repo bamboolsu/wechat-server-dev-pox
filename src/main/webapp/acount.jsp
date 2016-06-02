@@ -163,7 +163,7 @@
     }
     .content {
         width:100%;
-        min-width:1200px;
+        min-width:120px;
         height:1060px;
         background-color:#fff;      
     }
@@ -264,7 +264,6 @@
 	</h1>
 
     <div class="header">
-
         <div class="container blue">
             <div class="title">支付宝即时到账(create_direct_pay_by_user)</div>
         </div>
