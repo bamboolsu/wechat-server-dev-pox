@@ -14,6 +14,10 @@ public class ConfConstant {
 
 	public static final String SHOWQRCODE = "https://mp.weixin.qq.com/cgi-bin/showqrcode?";
 	
+	//http请求方式: POST
+	public static final String BATCHGET_MATERIAL = "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=";
+	
+	//买德号账号；
 	public static final String APPID = "wxe71e2c3a1dbe7740";
 	public static final String APPSECRET = "0e967a0dcc14d651ce4bf9979e1d8594";
 	public static Integer RESULT = 0;

@@ -33,20 +33,25 @@ public class MenuManager {
 		btn1.setUrl("http://www.maidehao.com");
 
 		ClickButton btn2 = new ClickButton();
+		btn2.setName("找小德去");
+		btn2.setType("click");
+		btn2.setKey("findlittlede");
+
+/*		ClickButton btn2 = new ClickButton();
 		btn2.setName("个人中心");
 		btn2.setType("click");
-		btn2.setKey("membercenter");
+		btn2.setKey("membercenter");*/
 		
 		//ClickButton btn3 = new ClickButton();
 		//btn3.setName("联系我们");
 		//btn3.setType("click");
 		//btn3.setKey("connectKF");		
 		
-		ViewButton btn31 = new ViewButton();
+/*		ViewButton btn31 = new ViewButton();
 		btn31.setName("店铺测试");
 		btn31.setType("view");
 		btn31.setUrl("http://mp.weixin.qq.com/bizmall/mallshelf?id=&t=mall/list&biz=MzI4MTE4MDMwMQ==&shelf_id=1&showwxpaytitle=1#wechat_redirect");
-		
+*/		
 		ClickButton btn32 = new ClickButton();
 		btn32.setName("联系我们");
 		btn32.setType("click");
@@ -59,7 +64,7 @@ public class MenuManager {
 		
 		ComplexButton mainBtn3 = new ComplexButton();
 		mainBtn3.setName("关于我门");
-		mainBtn3.setSub_button(new Button[] { btn31, btn32, btn33});
+		mainBtn3.setSub_button(new Button[] {  btn32, btn33});
 
 
 		
