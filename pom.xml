@@ -590,7 +590,6 @@
 			<artifactId>poi</artifactId>
 			<version>3.11</version>
 		</dependency>
-		<!-- ����jar -->
 		<dependency>
 			<groupId>emayclient</groupId>
 			<artifactId>emayclient</artifactId>
@@ -605,6 +604,8 @@
 			<groupId>QRCode</groupId>
 			<artifactId>QRCode</artifactId>
 			<version>20160315</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/QRCode.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>taobao-sdk-java</groupId>
