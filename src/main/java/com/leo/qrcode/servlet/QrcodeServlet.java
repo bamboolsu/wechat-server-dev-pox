@@ -77,9 +77,13 @@ public class QrcodeServlet extends HttpServlet {
 			System.out.println("leo ticket is: \n" + qrcodeTicket.getTicket());	
 			System.out.println("leo url is: \n" + qrcodeTicket.getUrl());	
 			
-			
+			String qrcodeurl = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket="+qrcodeTicket.getTicket();
 			//request.getRequestDispatcher("/WEB-INF/jsp/loginSuccess.jsp").forward(request, response);
 			//request.getRequestDispatcher(qrcodeTicket.getUrl()).forward(request, response);
+			
+			System.out.println("leo qrcodeurl is: \n" + qrcodeurl);
+			response.sendRedirect(qrcodeurl);
+			
 
 		} catch (Exception e1) {
 			e1.printStackTrace();

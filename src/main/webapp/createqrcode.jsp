@@ -23,7 +23,7 @@
 	</tr>
 	<tr>
 		<td>action_info：</td>
-		<td><input type="text" name="scene_str" value="welcome"/>　 welcome　为　scene_str　的值</td>
+		<td><input type="text" name="scene_str" value="welcome1000"/>　 welcome100　为　scene_str　的值</td>
 	</tr>
 
 	<tr>
