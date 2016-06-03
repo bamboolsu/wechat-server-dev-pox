@@ -42,8 +42,7 @@ public class CoreService {
 			String toUserName = requestMap.get("ToUserName");
 			// 消息类型
 			String msgType = requestMap.get("MsgType");
-			System.out.println(" leosu  receive msgtype is：" + msgType);
-			log.warn(" leosu  receive msgtype is：" + msgType);
+			System.out.println("leosu:   CoreServlet  receive msgtype is：" + msgType);
 
 			// 回复文本消息
 			TextMessage textMessage = new TextMessage();
@@ -81,6 +80,10 @@ public class CoreService {
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
 				// 事件类型
 				String eventType = requestMap.get("Event");
+				System.out.println("leosu:   CoreServlet  receive eventType is：" + eventType);
+				
+
+				
 				// 订阅
 				if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
 					respContent = ("\"终于等到你，还好我没放弃\""
@@ -91,6 +94,15 @@ public class CoreService {
 							+ "\n连同优质服务一起打包送到您手上"
 							+ "\nwww.maidehao.com"
 							+ "\n真德不一样，你来就知道！");
+					String eventKey = requestMap.get("EventKey");
+					System.out.println("leosu:   CoreServlet  receive eventKey is：" + eventKey);
+					if (eventKey.equals("qrscene_webcome4")) {
+						respContent = ("场景值是： "
+								+ eventKey);
+					} else if (eventKey.equals("qrscene_webcome")) {
+						respContent = ("场景值是： "
+								+ eventKey);
+					}
 				}
 				// 取消订阅
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {
@@ -98,7 +110,15 @@ public class CoreService {
 				}
 				//EVENT_TYPE_SCAN
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_SCAN)) {
-					respContent = ("You are scanning MDH.");
+					String eventKey = requestMap.get("EventKey");
+					System.out.println("leosu:   CoreServlet  receive eventKey is：" + eventKey);
+					if (eventKey.equals("webcome4")) {
+						respContent = ("场景值是： "
+								+ eventKey);
+					} else if (eventKey.equals("webcome")) {
+						respContent = ("场景值是： "
+								+ eventKey);
+					}
 				}
 				//myself define welcome, 
 				else if (eventType.equals("welcome")) {

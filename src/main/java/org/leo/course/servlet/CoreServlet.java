@@ -35,7 +35,7 @@ public class CoreServlet extends HttpServlet {
 		// 随机字符串
 		String echostr = request.getParameter("echostr");
 		
-
+		System.out.println("leosu:   CoreServlet  receive doGet; ");
 
 		PrintWriter out = response.getWriter();
 		System.out.println(" leosu  we get timestamp is: " + timestamp);
@@ -75,7 +75,7 @@ public class CoreServlet extends HttpServlet {
 			out.close();
 			out = null;
 		}
-		System.out.println(" leosu  XXXXXXXXXXXXXXXXXXXXXXXxx ");
+		System.out.println("leosu:   CoreServlet  receive doPost; ");
 		// 请求校验
 		if (SignUtil.checkSignature(signature, timestamp, nonce)) {
 			// 调用核心服务类接收处理请求
