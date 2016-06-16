@@ -6,38 +6,39 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>微信支付</title>
+<title>成为会员</title>
 </head>
 
 
 
 
 
-<!-- 
-<body onload="javascript: document.forms[0].submit();">
- -->
-<body >
 
-<li>
+<body onload="javascript: document.forms[0].submit();">
+ 
+<!-- <body >
+ -->
+
 	
-<span>
+
 <%
-String rediecturi = java.net.URLEncoder.encode(WechatInfo.REDIRECTURIOLD_CJ, "utf-8");
+String rediecturi = java.net.URLEncoder.encode(WechatInfo.REDIRECTURIOLD_C_ONLINE + "?url=/member_base.jsp", "utf-8");
 System.out.println(" leosu  appid " +  WechatInfo.APPID);
 
-String url = WechatInfo.WECHATQRCONNECT + "?appid=" + WechatInfo.APPID
+String url = WechatInfo.WECHATQRCONNECT + "?appid=" + WechatInfo.APPIDSOLORMAN
              + "&redirect_uri=" + rediecturi
              + "&response_type=code&scope=snsapi_base"
              + "&state=" + WechatInfo.STATE
              + "#wechat_redirect";
 %>
-<a href=<%=url%> > 微信登陆</a>
+<%-- <a href=<%=url%> > 微信登陆</a>
 
 
 
 </span>
 </li>
 
+<li> --%>
 <li>
 	<form action=<%=url%>  method="post"  >
 	test 
@@ -46,22 +47,6 @@ String url = WechatInfo.WECHATQRCONNECT + "?appid=" + WechatInfo.APPID
 	</form>
 </li>
 
-
-<li>
-<span>
-leo test
-REDIECTURI IS: <%=rediecturi%>
-</span>
-</li>
-
-<li>
-<span>
-<%=url%>
-
-<!--  a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxd5766a6d882dab7e&redirect_uri=https%3A%2F%2Fmaidehao.com%2Fwechatcallback&response_type=code&scope=snsapi_login&state=3d6be0a4035d839573b04816624a415e#wechat_redirect"> 微信登陆</a -->
-
-</span>
-</li>
 
 </body>
 </html>

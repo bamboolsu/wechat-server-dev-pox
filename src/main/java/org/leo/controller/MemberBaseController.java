@@ -25,8 +25,7 @@ public class MemberBaseController extends BaseController {
 	 * 登录提交
 	 */
 	@RequestMapping(value = "/submit", method = RequestMethod.POST)
-	public @ResponseBody
-	void submit(String openid, String unionid, String name, String mobile,
+	public 	void submit(String openid, String unionid, String name, String mobile,
 			String email, String province, String city, String address,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 
@@ -57,6 +56,31 @@ public class MemberBaseController extends BaseController {
 		member.setCity(city);
 		member.setAddress(address);
 		memberService.update(member);
+		
+		try {
+			request.getRequestDispatcher("/success.html").forward(request, response);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}		
+		return ;
+	}
+	
+	
+	/**
+	 * 登录提交
+	 */
+	@RequestMapping(value = "/submit", method = RequestMethod.GET)
+	public 	void submitGET(String openid, String unionid, String name, String mobile,
+			String email, String province, String city, String address,
+			HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+
+
+		
+		try {
+			request.getRequestDispatcher("/success.html").forward(request, response);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}		
 		return ;
 	}
 }

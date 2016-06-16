@@ -13,22 +13,26 @@ public class WechatInfo {
 	//三方网站登录 public static final String WECHATQRCONNECT = "https://open.weixin.qq.com/connect/qrconnect";
 	//微信公众号 微信浏览器内登录
 	public static final String WECHATQRCONNECT = "https://open.weixin.qq.com/connect/oauth2/authorize";
-	//public static final String APPID = "wxe71e2c3a1dbe7740"; //买德好账号
-	//public static final String SECRET = "0e967a0dcc14d651ce4bf9979e1d8594";  //买德好账号
-	public static final String APPID = "wx0d84b978f8a520b4";  //测试帐号
-	public static final String SECRET = "84fc4469f117524cd748ec5e84848b10";  //测试帐号
-
+	public static final String APPID = "wxe71e2c3a1dbe7740"; //买德好账号
+	public static final String SECRET = "0e967a0dcc14d651ce4bf9979e1d8594";  //买德好账号
+	//public static final String APPID = "wx0d84b978f8a520b4";  //测试帐号
+	//public static final String SECRET = "84fc4469f117524cd748ec5e84848b10";  //测试帐号
+	
+	public static final String APPIDSOLORMAN = "wxbbaf255da7c36932";  //solor帐号
+	public static final String SECRETSOLORMAN = "7b7461e14a1975a5c1bfd680a12b37ab";  //solor帐号
+	
+	
 	//重定向后会带上state参数，开发者可以填写a-zA-Z0-9的参数值，最多128字节
 	public static final String STATE = "3d6be0a4035d839573b04816624a4leo";
 
 	
 	public static final String REDIRECTBASEURL = "http://15r075i779.imwork.net/wechat-server-dev-pox/";
+	public static final String REDIRECTBASEURL_ONLINE = "http://wechat.maidehao.com/";
 	//"http%3A%2F%2Fmaidehao.com%3A8080%2FwechatCallback"
 	//public static final String REDIRECTURIOLD = "http://wxdev.maidehao.com/wechatlogin-pox/wechatCallback";
 	public static final String REDIRECTURIOLD = REDIRECTBASEURL + "wechatCallback";
 	public static final String REDIRECTURIOLD_C = REDIRECTBASEURL + "wechatCallbackController.jhtml";
-	public static final String REDIRECTURIOLD_CJ = REDIRECTBASEURL + "wechatCallbackController.jhtml";
-	public static final String REDIRECTURIOLD8 = REDIRECTBASEURL + "wechatCallbacktttt";
+	public static final String REDIRECTURIOLD_C_ONLINE = REDIRECTBASEURL_ONLINE + "wechatCallbackController.jhtml";
 	//public static final String REDIRECTURI = "http%3A%2F%2Fwxdev.maidehao.com%2Fwechatlogin-pox%2FwechatCallback";
 
 	

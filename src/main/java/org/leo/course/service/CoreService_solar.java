@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.solr.common.params.CommonParams.EchoParamStyle;
 import org.leo.course.message.resp.Article;
 import org.leo.course.message.resp.NewsMessage;
 import org.leo.course.message.resp.TextMessage;
@@ -87,8 +88,8 @@ public class CoreService_solar {
 							+ "\n感恩您关注所罗门能源科技"
 							+ "\n从此您的生活和新能源之间"
 							+ "\n只隔着一个屋顶的距离"
-							+ "\n我们精选将升级您生活品质的清洁能源"
-							+ "\n连同优质服务一起打包送到您手上"
+							+ "\n清洁能源升级您生活品质"
+							+ "\n优质服务一起打包送到您手上"
 							+ "\nhttp://www.solargrid.com.cn/"
 							+ "\n真的不一样，你来就知道！");
 				}
@@ -132,7 +133,17 @@ public class CoreService_solar {
 								+ "\n媒体合作: pr@maidehao.com"
 								+ "\n商务合作: bd@maidehao.com"
 								+ "\n客服电话: 400-801-6708"
-								+ "\n官方商城: http://www.maidehao.com");
+								+ "\n官方网站: http://www.maidehao.com");
+					}
+					else {
+						respContent = ("信息完善中......"
+								+ "\n ............. "
+								+ "\n电话: 0571-5626 5338"
+								+ "\n电话：400-856-5338"
+								+ "\n传真：0571-5626 5339 "
+								+ "\n地址：浙江省杭州市滨江区六和路368号海创基地"
+								+ "\nE-mail: office@solargrid.com.cn"
+								+ "\n官方网站: http://www.maidehao.com");
 					}
 				}
 			}

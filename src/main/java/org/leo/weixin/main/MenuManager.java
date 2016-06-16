@@ -30,7 +30,7 @@ public class MenuManager {
 		ViewButton btn1 = new ViewButton();
 		btn1.setName("买德好");
 		btn1.setType("view");
-		btn1.setUrl("http://www.maidehao.com");
+		btn1.setUrl("http://m.maidehao.com/");
 
 		ClickButton btn2 = new ClickButton();
 		btn2.setName("找小德去");
@@ -60,11 +60,18 @@ public class MenuManager {
 		ViewButton btn33 = new ViewButton();
 		btn33.setName("内部测试");
 		btn33.setType("view");
-		btn33.setUrl("http://m.maidehao.com/before_index.html");
+		btn33.setUrl("http://m.maidehao.com/");
+		//btn33.setUrl("http://m.maidehao.com/before_index.html");
+		
+		ViewButton btn34 = new ViewButton();
+		btn34.setName("testting");
+		btn34.setType("view");
+		btn34.setUrl("http://15r075i779.imwork.net/test_mobile/");
+		//btn34.setUrl("http://15r075i779.imwork.net/test_mobile/before_index.html");
 		
 		ComplexButton mainBtn3 = new ComplexButton();
-		mainBtn3.setName("关于我门");
-		mainBtn3.setSub_button(new Button[] {  btn32, btn33});
+		mainBtn3.setName("关于我们");
+		mainBtn3.setSub_button(new Button[] {btn32, btn34} );
 
 
 		

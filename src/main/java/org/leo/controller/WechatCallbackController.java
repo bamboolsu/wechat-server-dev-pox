@@ -31,8 +31,10 @@ public class WechatCallbackController extends BaseController {
 	doGet(HttpServletRequest request, HttpServletResponse response) {
 		//WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext((ServletContext) request.getServletContext());
 		//MemberService memberService = (MemberService) context.getBean("memberServiceImpl");
+		//request.setCharacterEncoding("UTF-8");
 		String code = request.getParameter("code");
 		String state = request.getParameter("state");
+		String redirectUrl = request.getParameter("url");
 		System.out.println("here we will doGet code parameter. leosu");
 		System.out.println("code is:" + code + ";    state is:" + state);
 		
@@ -81,15 +83,12 @@ public class WechatCallbackController extends BaseController {
 
 
 			//设置返回的code 与 state ， 用于成功后访问；
-			request.setAttribute("code", code);
-			request.setAttribute("state", state);
+/*			request.setAttribute("code", code);
+			request.setAttribute("state", state);*/
 			request.setAttribute("member", member);
 			HttpSession session = request.getSession();
-			session .setAttribute("member", member);
-			//request.getRequestDispatcher("/WEB-INF/jsp/loginSuccess.jsp").forward(request, response);
-			//request.getRequestDispatcher("/member_base.jsp").forward(request, response);  //success
-			//request.getRequestDispatcher("http://15r075i779.imwork.net/shop-mobile/success.html").forward(request, response);  //failed
-			request.getRequestDispatcher("success.html").forward(request, response);
+			session.setAttribute("member", member);
+			request.getRequestDispatcher(redirectUrl).forward(request, response);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

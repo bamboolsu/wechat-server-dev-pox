@@ -1,23 +1,9 @@
-<%
-/* *
- *功能：支付宝即时到账交易接口调试入口页面
- *版本：3.4
- *日期：2016-03-08
- *说明：
- *以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
- **********************************************
- */
-%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ page import="org.leo.entity.Member"%>
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>支付宝即时到账交易接口</title>
-</head>
 
 <style>
     html,body {
@@ -46,109 +32,7 @@
     .blue {
         background-color:#0ae
     }
-    .qrcode {
-        width:1200px;
-        margin:0 auto;
-        height:30px;
-        background-color:#242736
-    }
-    .littlecode {
-        width:16px;
-        height:16px;
-        margin-top:6px;
-        cursor:pointer;
-        float:right
-    }
-    .showqrs {
-        top:30px;
-        position:absolute;
-        width:100px;
-        margin-left:-65px;
-        height:160px;
-        display:none
-    }
-    .shtoparrow {
-        width:0;
-        height:0;
-        margin-left:65px;
-        border-left:8px solid transparent;
-        border-right:8px solid transparent;
-        border-bottom:8px solid #e7e8eb;
-        margin-bottom:0;
-        font-size:0;
-        line-height:0
-    }
-    .guanzhuqr {
-        text-align:center;
-        background-color:#e7e8eb;
-        border:1px solid #e7e8eb
-    }
-    .guanzhuqr img {
-        margin-top:10px;
-        width:80px
-    }
-    .shmsg {
-        margin-left:10px;
-        width:80px;
-        height:16px;
-        line-height:16px;
-        font-size:12px;
-        color:#242323;
-        text-align:center
-    }
-    .nav {
-        width:1200px;
-        margin:0 auto;
-        height:70px;
-    }
-    .open,.logo {
-        display:block;
-        float:left;
-        height:40px;
-        width:85px;
-        margin-top:20px
-    }
-    .divier {
-        display:block;
-        float:left;
-        margin-left:20px;
-        margin-right:20px;
-        margin-top:23px;
-        width:1px;
-        height:24px;
-        background-color:#d3d3d3
-    }
-    .open {
-        line-height:30px;
-        font-size:20px;
-        text-decoration:none;
-        color:#1a1a1a
-    }
-    .navbar {
-        float:right;
-        width:200px;
-        height:40px;
-        margin-top:15px;
-        list-style:none
-    }
-    .navbar li {
-        float:left;
-        width:100px;
-        height:40px
-    }
-    .navbar li a {
-        display:inline-block;
-        width:100px;
-        height:40px;
-        line-height:40px;
-        font-size:16px;
-        color:#1a1a1a;
-        text-decoration:none;
-        text-align:center
-    }
-    .navbar li a:hover {
-        color:#00AAEE
-    }
+
     .title {
         /*width:1200px;
         margin:0 auto;
@@ -158,84 +42,84 @@
         
         width:600px;
         height:80px;
-        margin:0 auto;
+        margin:5 auto;
         font-size:20px
         color:#FFF
     }
+    
+    
+    
     .content {
         width:100%;
         min-width:120px;
-        height:1060px;
+        height:1325px;
         background-color:#fff;      
     }
     .alipayform {
-        width:800px;
-        margin:0 auto;
-        height:1000px;
-        border:1px solid #0ae
+        /*width:750px;*/
+        width:100%;
+        margin:4 auto;
+        height:1325px;
+        border:3px solid #0ae
     }
     .element {
-        width:600px;
-        height:80px;
-        margin-left:100px;
-        font-size:20px
+        width:800px;
+        height:140px;
+        margin-left:1px;
+        font-size:36px
     }
     .element-less {
-        width:600px;
-        height:40px;
+        width:850px;
+        height:140px;
         margin-left:100px;
-        font-size:20px
+        font-size:36px
     }
     .etitle,.einput {
         float:left;
-        height:26px
+        height:140px
     }
     .etitle {
-        width:150px;
-        line-height:26px;
+        width:200px;
+        line-height:140px;
         text-align:right
     }
     .einput {
-        width:200px;
-        margin-left:20px
+        width:550px;
+        margin-left:40px
     }
     .einput input {
-        width:398px;
-        height:24px;
+    	margin-top:10px;
+        width:550px;
+        height:100px;
         border:1px solid #0ae;
-        font-size:16px
+        font-size:36px
     }
-    .mark {
-        margin-top: 10px;
-        width:500px;
-        height:30px;
-        margin-left:80px;
-        line-height:30px;
-        font-size:12px;
-        color:#999
-    }
+
+
     .legend {
-        margin-left:100px;
-        font-size:24px
+        margin-left:350px;
+        font-size:44px
     }
     .alisubmit {
-        width:400px;
-        height:40px;
+        width:250px;
+        height:80px;
         border:0;
         background-color:#0ae;
-        font-size:16px;
+        font-size:44px;
         color:#FFF;
         cursor:pointer;
-        margin-left:170px
+        margin-left:450px
     }
+    
+    
     .footer {
         width:100%;
-        height:120px;
+        height:180px;
         background-color:#242735
     }
     .footer-sub a,span {
         color:#808080;
-        font-size:12px;
+        font-size:24px;
         text-decoration:none
     }
     .footer-sub a:hover {
@@ -246,71 +130,80 @@
     }
     .footer-sub {
         padding-top:40px;
-        height:20px;
+        height:28px;
         width:600px;
         margin:0 auto;
         text-align:center
     }
 </style>
 
+
+<head>
+    <meta charset="UTF-8">
+	<title>成为会员</title>
+</head>
+
+
+
+
 <body>
 
+<%Member tempMember =(Member)  session.getAttribute("member");%>
 
-<%  Member tempMember =(Member)  session.getAttribute("member"); %>
+<!-- 	<h1> -->
+<!-- 		Member.OPENID = -->
+<%-- 		<%=tempMember.getOpenId()%> --%>
+<!-- 	</h1> -->
 
-
-	<h1>
-		Member.OPENID =
-		<%=tempMember.getOpenId()%>
-	</h1>
-
-    <div class="header">
+<!--     <div class="header">
         <div class="container blue">
             <div class="title">支付宝即时到账(create_direct_pay_by_user)</div>
         </div>
-    </div>
+    </div> -->
     <div class="content">
-        <form action="/wechat-server-dev-pox/solar/memberbase/submit.jhtml" class="alipayform" method="POST" target="_blank">
+       <!--  <form action="/wechat-server-dev-pox/solar/memberbase/submit.jhtml" class="alipayform" method="POST"> -->
+        <form action="./solar/memberbase/submit.jhtml" class="alipayform" method="POST">
         
             <div class="element-less" style="margin-top:60px;">
-                <div class="legend">我的基本信息 </div>
-            </div>
+                <div class="legend">我的基本信息 
+                </div>
+           	</div>
   
-              <div class="element-less">
+ <%--            <div class="element-less">
                 <div class="etitle">openid:</div>
-                <div class="einput"><input type="text" name="openid" id="openid"><%=tempMember.getOpenId()%></div>
+                <div class="einput"><input type="text" name="openid" id="openid" value=<%=tempMember.getOpenId()%> ></div>
                 <br>
             </div>
             <div class="element-less">
                 <div class="etitle">unionid:</div>
-                <div class="einput"><input type="text" name="unionid" id=""unionid""><%=tempMember.getUnionId()%></div>
+                <div class="einput"><input type="text" name="unionid" id="unionid" value=<%=tempMember.getUnionId()%>></div>
                 <br>
-            </div>
+            </div> --%>
                       
             <div class="element-less">
                 <div class="etitle">姓名:</div>
-                <div class="einput"><input type="text" name="name" id="name"><%=tempMember.getName()%></div>
+                <div class="einput"><input type="text" name="name" id="name" value=<%=tempMember.getName()%> ></div>
                 <br>
             </div>
             <div class="element-less">
                 <div class="etitle">手机:</div>
-                <div class="einput"><input type="text" name="mobile" id="mobile"><%=tempMember.getMobile()%></div>
+                <div class="einput"><input type="text" name="mobile" id="mobile" value=<%=tempMember.getMobile()%> ></div>
                 <br>
             </div>
             <div class="element-less">
                 <div class="etitle">邮箱:</div>
-                <div class="einput"><input type="text" name="email" id="email"><%=tempMember.getEmail()%></div>
+                <div class="einput"><input type="text" name="email" id="email" value=<%=tempMember.getEmail()%> ></div>
                 <br>
             </div>      
             <div class="element-less">
                 <div class="etitle">省份:</div>
-                <div class="einput"><input type="text" name="province" id="province"><%=tempMember.getProvince()%></div>
+                <div class="einput"><input type="text" name="province" id="province" value=<%=tempMember.getProvince()%> ></div>
                 <br>
             </div>   
             
             <div class="element-less">
                 <div class="etitle">城市:</div>
-                <div class="einput"><input type="text" name="city" id="city"><%=tempMember.getCity()%></div>
+                <div class="einput"><input type="text" name="city" id="city" value=<%=tempMember.getCity()%> ></div>
                 <br>
             </div>   
                  
@@ -320,57 +213,23 @@
             </div>            
             
             <div class="element">
-                <input type="submit" class="alisubmit" value ="确认支付">
+                <input type="submit" class="alisubmit" value ="确 认 提 交">
             </div>
         </form>
     </div>
+    
+    
     <div class="footer">
         <p class="footer-sub">
-            <a href="http://ab.alipay.com/i/index.htm" target="_blank">关于</a><span>|</span>
-            <a href="https://e.alipay.com/index.htm" target="_blank">商家中心</a>
+            <a href="http://www.solargrid.com.cn/index.htm" target="_blank">关于</a><span>|</span>
+            <a href="http://www.solargrid.com.cn/index.htm" target="_blank">所罗门</a>
             <br>
             <span>所罗门版权所有</span>
             <span class="footer-date">2004-2016</span>
-            <span><a href="http://fun.alipay.com/certificate/jyxkz.htm" target="_blank">ICP证：沪B2-20150087</a></span>
-        </p>
-
-           
+            <span><a href="http://www.solargrid.com.cn" target="_blank">ICP证号：浙ICP备15002232号</a></span>
+        </p>           
     </div>
+    
 </body>
-<script>
-
-        var even = document.getElementById("licode");   
-        var showqrs = document.getElementById("showqrs");
-         even.onmouseover = function(){
-            showqrs.style.display = "block"; 
-         }
-         even.onmouseleave = function(){
-            showqrs.style.display = "none";
-         }
-         
-         var out_trade_no = document.getElementById("out_trade_no");
-
-         //设定时间格式化函数
-         Date.prototype.format = function (format) {
-               var args = {
-                   "M+": this.getMonth() + 1,
-                   "d+": this.getDate(),
-                   "h+": this.getHours(),
-                   "m+": this.getMinutes(),
-                   "s+": this.getSeconds(),
-               };
-               if (/(y+)/.test(format))
-                   format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-               for (var i in args) {
-                   var n = args[i];
-                   if (new RegExp("(" + i + ")").test(format))
-                       format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? n : ("00" + n).substr(("" + n).length));
-               }
-               return format;
-           };
-           
-         out_trade_no.value = 'test'+ new Date().format("yyyyMMddhhmmss");
- 
-</script>
 
 </html>

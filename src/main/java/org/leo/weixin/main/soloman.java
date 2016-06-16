@@ -27,90 +27,90 @@ public class soloman {
 	 */
 	private static Menu getMenu() {
 		
-		ViewButton btn11 = new ViewButton();
-		btn11.setName("加盟合作");
-		btn11.setType("view");
-		btn11.setUrl("http://www.solargrid.com.cn/FrontNews/news_detail/id/301/sort_id/5");
+		//所罗门：  关于我们， 加盟合作，所罗门学院
+		ClickButton btn11 = new ClickButton();
+		btn11.setName("关于我们");
+		btn11.setType("click");
+		btn11.setKey("aboutus");
 
-		ViewButton btn12 = new ViewButton();
-		btn12.setName("光伏政策");
-		btn12.setType("view");
-		btn12.setUrl("http://www.solargrid.com.cn/FrontNews/news_list/sort_id/20.html");
+		ClickButton btn12 = new ClickButton();
+		btn12.setName("加盟合作");
+		btn12.setType("click");
+		btn12.setKey("joinus");
 		
-		ViewButton btn13 = new ViewButton();
+		ClickButton btn13 = new ClickButton();
 		btn13.setName("所罗门学院");
-		btn13.setType("view");
-		btn13.setUrl("http://www.solargrid.com.cn/FrontNews/news_detail/id/210/sort_id/2");
-		
-		ViewButton btn14 = new ViewButton();
-		btn14.setName("关于我们");
-		btn14.setType("view");
-		btn14.setUrl("http://www.solargrid.com.cn/FrontNews/news_detail/id/218/sort_id/7");
+		btn13.setType("click");
+		btn13.setKey("solorschool");
 		
 		ComplexButton mainBtn1 = new ComplexButton();
 		mainBtn1.setName("所罗门");
-		mainBtn1.setSub_button(new Button[] { btn11, btn12, btn13, btn14});
+		mainBtn1.setSub_button(new Button[] { btn11, btn12, btn13});
 		
 		
-		
-		ViewButton btn21 = new ViewButton();
+		//光伏电站：    微电宝， 电站风采，建站流程；光伏电站
+		ClickButton btn21 = new ClickButton();
 		btn21.setName("微电宝");
-		btn21.setType("view");
-		btn21.setUrl("http://www.solargrid.com.cn");
+		btn21.setType("click");
+		btn21.setKey("wedianbao");
 
-		ViewButton btn22 = new ViewButton();
+		ClickButton btn22 = new ClickButton();
 		btn22.setName("电站风采");
-		btn22.setType("view");
-		btn22.setUrl("http://www.solargrid.com.cn");
+		btn22.setType("click");
+		btn22.setKey("dianzhan");
 		
-		ViewButton btn23 = new ViewButton();
+		ClickButton btn23 = new ClickButton();
 		btn23.setName("建站流程");
-		btn23.setType("view");
-		btn23.setUrl("http://www.solargrid.com.cn");
+		btn23.setType("click");
+		btn23.setKey("buildprocess");
+		
+		ClickButton btn24 = new ClickButton();
+		btn24.setName("光伏电站");
+		btn24.setType("click");
+		btn24.setKey("guangfudianzhan");
 				
 		ComplexButton mainBtn2 = new ComplexButton();
 		mainBtn2.setName("光伏电站");
-		mainBtn2.setSub_button(new Button[] { btn21, btn22, btn23});	
+		mainBtn2.setSub_button(new Button[] { btn21, btn22, btn23, btn24});	
 		
 		
-		ViewButton btn31 = new ViewButton();
+		//我想：     成为会员；投资电站；提供屋顶
+/*		ViewButton btn31 = new ViewButton();
 		btn31.setName("优惠活动");
 		btn31.setType("view");
 		btn31.setUrl("http://www.solargrid.com.cn");
-
+*/
 		ViewButton btn32 = new ViewButton();
 		btn32.setName("成为会员");
 		btn32.setType("view");
-		btn32.setUrl("http://www.solargrid.com.cn");
+		btn32.setUrl("http://wechat.maidehao.com/wechat_login_basemember.jsp");
 		
 		ViewButton btn33 = new ViewButton();
-		btn33.setName("我想投资");
+		btn33.setName("投资电站");
 		btn33.setType("view");
-		btn33.setUrl("http://www.solargrid.com.cn");
+		//btn33.setUrl("http://wechat.maidehao.com/wechat_login_investment.jsp");
+		btn33.setUrl("http://wechat.maidehao.com/wechat_login_basemember.jsp");
 		
 		ViewButton btn34 = new ViewButton();
-		btn34.setName("我有屋顶");
+		btn34.setName("提供屋顶");
 		btn34.setType("view");
-		btn34.setUrl("http://www.solargrid.com.cn");
-		
-		ViewButton btn35 = new ViewButton();
-		btn35.setName("內部測試");
-		btn35.setType("view");
-		btn35.setUrl("http://15r075i779.imwork.net/wechat-server-dev-pox/index-test.jsp");
-		
+		//btn34.setUrl("http://wechat.maidehao.com/wechat_login_housetop.jsp");
+		btn34.setUrl("http://wechat.maidehao.com/wechat_login_basemember.jsp");
+				
 		ComplexButton mainBtn3 = new ComplexButton();
 		mainBtn3.setName("我想");
-		mainBtn3.setSub_button(new Button[] { btn31, btn32, btn33, btn34, btn35});	
+		mainBtn3.setSub_button(new Button[] {btn32, btn33, btn34});	
+				
 		
 		/* only creat 3 level menu */
-		ViewButton btn4 = new ViewButton();
+/*		ViewButton btn4 = new ViewButton();
 		btn4.setName("买德好");
 		btn4.setType("view");
-		btn4.setUrl("http://www.maidehao.com");	
+		btn4.setUrl("http://www.maidehao.com");	*/
 
 		
 		Menu menu = new Menu();
-		menu.setButton(new Button[] { mainBtn1, mainBtn2, mainBtn3 });
+		menu.setButton(new Button[] {mainBtn3, mainBtn2, mainBtn1 });
 		
 		return menu;
 	}
@@ -119,7 +119,7 @@ public class soloman {
 		// 第三方用户唯一凭证  
 		String appId = "wxbbaf255da7c36932";
 		// 第三方用户唯一凭证密钥 
-		String appSecret = "cd3a75c437a978a6845cde07f3c3d542";
+		String appSecret = "7b7461e14a1975a5c1bfd680a12b37ab";
 
 		// 调用接口获取凭证
 		Token token = CommonUtil.getToken(appId, appSecret);

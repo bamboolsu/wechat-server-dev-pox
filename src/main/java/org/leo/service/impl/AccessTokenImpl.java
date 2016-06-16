@@ -31,8 +31,8 @@ public class AccessTokenImpl implements AccessToken {
 	public void getAccessToken(String code, String state) throws Exception {		
 		//访问微信， 得到access token；
 		//https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
-		String parameter = "appid=" + WechatInfo.APPID
-				     + "&secret=" + WechatInfo.SECRET
+		String parameter = "appid=" + WechatInfo.APPIDSOLORMAN
+				     + "&secret=" + WechatInfo.SECRETSOLORMAN
 				     + "&code=" + code
 				     + "&grant_type=authorization_code";
 		String returnJson = HttpUtil.doPostStr(WechatInfo.ACCESSTOKENURI, parameter);
