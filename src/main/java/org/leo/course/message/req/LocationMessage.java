@@ -1,4 +1,4 @@
-﻿package org.leo.course.message.req;
+package org.leo.course.message.req;
 
 /**
  * 地理位置消息

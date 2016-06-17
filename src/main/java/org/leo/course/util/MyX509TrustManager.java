@@ -1,7 +1,8 @@
-﻿package org.leo.course.util;
+package org.leo.course.util;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+
 import javax.net.ssl.X509TrustManager;
 
 /**

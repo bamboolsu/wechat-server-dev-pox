@@ -1,4 +1,4 @@
-﻿package org.leo.course.util;
+package org.leo.course.util;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -14,10 +14,6 @@ import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONException;
-import net.sf.json.JSONObject;
-
 import org.leo.course.message.resp.Article;
 import org.leo.course.message.resp.Music;
 import org.leo.course.pojo.SNSUserInfo;
@@ -29,6 +25,10 @@ import org.leo.course.pojo.WeixinUserInfo;
 import org.leo.course.pojo.WeixinUserList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONException;
+import net.sf.json.JSONObject;
 
 /**
  * 高级接口工具类

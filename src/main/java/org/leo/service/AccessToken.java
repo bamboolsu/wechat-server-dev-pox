@@ -1,4 +1,4 @@
-﻿package org.leo.service;
+package org.leo.service;
 
 public interface AccessToken {
 

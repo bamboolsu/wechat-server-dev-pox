@@ -1,4 +1,4 @@
-﻿package org.leo.course.util;
+package org.leo.course.util;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -13,12 +13,12 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 
-import net.sf.json.JSONException;
-import net.sf.json.JSONObject;
-
 import org.leo.course.pojo.Token;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.sf.json.JSONException;
+import net.sf.json.JSONObject;
 
 /**
  * 通用工具类

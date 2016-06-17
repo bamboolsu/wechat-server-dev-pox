@@ -1,4 +1,4 @@
-﻿package org.leo.course.message.event;
+package org.leo.course.message.event;
 
 /**
  * 上报地理位置事件

@@ -1,4 +1,4 @@
-﻿package org.leo.course.message.event;
+package org.leo.course.message.event;
 
 /**
  * 事件基类

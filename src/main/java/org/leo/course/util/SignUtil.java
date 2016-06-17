@@ -1,4 +1,4 @@
-﻿package org.leo.course.util;
+package org.leo.course.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

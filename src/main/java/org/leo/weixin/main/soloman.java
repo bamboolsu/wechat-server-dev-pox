@@ -36,24 +36,31 @@ public class soloman {
 		ClickButton btn12 = new ClickButton();
 		btn12.setName("加盟合作");
 		btn12.setType("click");
-		btn12.setKey("joinus");
 		
+		//暂时屏蔽  18130632592
 		ClickButton btn13 = new ClickButton();
 		btn13.setName("所罗门学院");
 		btn13.setType("click");
 		btn13.setKey("solorschool");
 		
+		ClickButton btn14 = new ClickButton();
+		btn14.setName("联系我们");
+		btn14.setType("click");
+		btn14.setKey("connectUS");
+		
 		ComplexButton mainBtn1 = new ComplexButton();
 		mainBtn1.setName("所罗门");
-		mainBtn1.setSub_button(new Button[] { btn11, btn12, btn13});
+		mainBtn1.setSub_button(new Button[] { btn11, btn12, btn14});
 		
 		
 		//光伏电站：    微电宝， 电站风采，建站流程；光伏电站
+		//暂时不使用
 		ClickButton btn21 = new ClickButton();
 		btn21.setName("微电宝");
 		btn21.setType("click");
 		btn21.setKey("wedianbao");
 
+		//先屏蔽这个子菜单， 未来要展示一些示范电站
 		ClickButton btn22 = new ClickButton();
 		btn22.setName("电站风采");
 		btn22.setType("click");
@@ -71,7 +78,7 @@ public class soloman {
 				
 		ComplexButton mainBtn2 = new ComplexButton();
 		mainBtn2.setName("光伏电站");
-		mainBtn2.setSub_button(new Button[] { btn21, btn22, btn23, btn24});	
+		mainBtn2.setSub_button(new Button[] {btn23});	
 		
 		
 		//我想：     成为会员；投资电站；提供屋顶

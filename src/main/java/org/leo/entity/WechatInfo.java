@@ -1,4 +1,4 @@
-﻿package org.leo.entity;
+package org.leo.entity;
 
 /**
  * @ClassName: wechatinfo

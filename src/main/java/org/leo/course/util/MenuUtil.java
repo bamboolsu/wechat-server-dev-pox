@@ -1,9 +1,10 @@
-﻿package org.leo.course.util;
+package org.leo.course.util;
 
-import net.sf.json.JSONObject;
 import org.leo.course.menu.Menu;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import net.sf.json.JSONObject;
 
 /**
  * 自定义菜单工具类

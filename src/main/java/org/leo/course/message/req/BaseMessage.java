@@ -1,4 +1,4 @@
-﻿package org.leo.course.message.req;
+package org.leo.course.message.req;
 
 /**
  * 请求消息基类（普通用户 -> 公众帐号）

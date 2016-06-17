@@ -1,4 +1,4 @@
-﻿package org.leo.course.pojo;
+package org.leo.course.pojo;
 
 /**
  * 公众账号分组信息

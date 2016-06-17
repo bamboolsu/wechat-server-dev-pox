@@ -1,4 +1,4 @@
-﻿package org.leo.course.pojo;
+package org.leo.course.pojo;
 
 /**
  * 网页授权信息

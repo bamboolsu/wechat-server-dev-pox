@@ -1,4 +1,4 @@
-﻿package org.leo.course.pojo;
+package org.leo.course.pojo;
 
 /**
  * 微信用户的基本信息

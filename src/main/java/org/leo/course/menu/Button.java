@@ -1,4 +1,4 @@
-﻿package org.leo.course.menu;
+package org.leo.course.menu;
 
 /**
  * 按钮的基类

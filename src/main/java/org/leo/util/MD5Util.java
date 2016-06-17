@@ -1,4 +1,4 @@
-﻿package org.leo.util;
+package org.leo.util;
 
 import java.security.MessageDigest;
 

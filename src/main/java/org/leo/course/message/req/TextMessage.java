@@ -1,4 +1,4 @@
-﻿package org.leo.course.message.req;
+package org.leo.course.message.req;
 
 /**
  * 文本消息

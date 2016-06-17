@@ -1,4 +1,4 @@
-﻿package org.leo.util;
+package org.leo.util;
 
 import java.util.Iterator;
 import java.util.Map;

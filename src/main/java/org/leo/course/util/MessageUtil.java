@@ -1,11 +1,13 @@
-﻿package org.leo.course.util;
+package org.leo.course.util;
 
 import java.io.InputStream;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
@@ -16,6 +18,7 @@ import org.leo.course.message.resp.NewsMessage;
 import org.leo.course.message.resp.TextMessage;
 import org.leo.course.message.resp.VideoMessage;
 import org.leo.course.message.resp.VoiceMessage;
+
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.QuickWriter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;

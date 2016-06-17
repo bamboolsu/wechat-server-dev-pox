@@ -1,4 +1,4 @@
-﻿package org.leo.course.message.event;
+package org.leo.course.message.event;
 
 /**
  * 自定义菜单事件

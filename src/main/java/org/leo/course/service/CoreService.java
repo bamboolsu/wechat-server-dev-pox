@@ -1,11 +1,11 @@
-﻿package org.leo.course.service;
+package org.leo.course.service;
 
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.leo.course.message.resp.Article;
@@ -21,7 +21,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.leo.qrcode.util.ConfConstant;
-import com.leo.qrcode.util.HttpUtil;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;

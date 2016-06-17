@@ -1,4 +1,4 @@
-﻿package org.leo.weixin.main;
+package org.leo.weixin.main;
 
 import org.leo.course.menu.Button;
 import org.leo.course.menu.ClickButton;

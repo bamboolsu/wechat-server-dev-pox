@@ -1,4 +1,4 @@
-﻿package org.leo.course.menu;
+package org.leo.course.menu;
 
 /**
  * view类型的按钮

@@ -1,4 +1,4 @@
-﻿package org.leo.course.message.event;
+package org.leo.course.message.event;
 
 /**
  * 扫描带参数二维码事件

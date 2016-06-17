@@ -1,4 +1,4 @@
-﻿package org.leo.course.menu;
+package org.leo.course.menu;
 
 /**
  * 复合类型的按钮

@@ -1,4 +1,4 @@
-﻿package org.leo.course.menu;
+package org.leo.course.menu;
 
 /**
  * 菜单

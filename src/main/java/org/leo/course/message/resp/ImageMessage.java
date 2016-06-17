@@ -1,4 +1,4 @@
-﻿package org.leo.course.message.resp;
+package org.leo.course.message.resp;
 
 /**
  * 图片消息
