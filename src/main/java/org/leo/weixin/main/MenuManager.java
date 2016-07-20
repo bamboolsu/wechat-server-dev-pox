@@ -67,11 +67,12 @@ public class MenuManager {
 		btn34.setName("testting");
 		btn34.setType("view");
 		btn34.setUrl("http://15r075i779.imwork.net/test_mobile/");
+		
 		//btn34.setUrl("http://15r075i779.imwork.net/test_mobile/before_index.html");
 		
 		ComplexButton mainBtn3 = new ComplexButton();
 		mainBtn3.setName("关于我们");
-		mainBtn3.setSub_button(new Button[] {btn32, btn34} );
+		mainBtn3.setSub_button(new Button[] {btn32} );
 
 
 		

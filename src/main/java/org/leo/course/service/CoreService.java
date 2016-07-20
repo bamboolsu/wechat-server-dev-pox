@@ -64,28 +64,84 @@ public class CoreService {
 
 			// 文本消息
 			if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)) {
-				respContent = "您发送的是文本消息！";
+				String recvContent = requestMap.get("Content");
+				if (recvContent.contains("碧然德") || recvContent.contains("滤水壶") || recvContent.contains("水壶")
+						|| recvContent.toLowerCase().contains("brita".toLowerCase())
+						|| recvContent.contains("滤水") || recvContent.contains("滤芯")
+						|| recvContent.toLowerCase().contains("shuihu".toLowerCase())
+						|| recvContent.toLowerCase().contains("lvxin".toLowerCase())
+						|| recvContent.toLowerCase().contains("lvshui".toLowerCase())
+						){
+					//图文消息
+					Article article = new Article();
+					article.setTitle("Brita碧然德 MARELLA 滤水壶使用说明");
+					article.setDescription("本小编昨天夜观天象，掐指一算，算到了一位对生活很讲究的人类，今天要来看这份brita滤水壶的说明书了。早就准备好啦，跟着小编的节奏黑喂狗~ \n");
+					article.setPicUrl("http://mmbiz.qpic.cn/mmbiz/7nxEoPnEmicMcficetA2yfCzzC6NWZetmsR8abWsulrkWY4No84kT5LiclkwSoXiaceqtKRKDHicPOkju5dQrUQc0Hg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1");
+					article.setUrl("https://mp.weixin.qq.com/s?__biz=MzI4MTE4MDMwMQ==&mid=502644080&idx=1&sn=b954600c9caa596295a01f68059e61cd&scene=0&previewkey=vK8YmSUaFyGUu4xgidgCdcNS9bJajjJKzz%2F0By7ITJA%3D&key=77421cf58af4a653a626824ea53029e7763cce15e90ea7b70af3f9466f64ab4b32d5f2832a44ded83f9d53ab56b3ffe6&ascene=0&uin=MTg2MTU3MDgwMQ%3D%3D&devicetype=iMac+MacBookAir7%2C1+OSX+OSX+10.11.3+build(15D21)&version=11020201&pass_ticket=t6fZ5QvGIBuMRHskITNZ11QnCuL5QX9GGM%2BYa3t7jMTtQ1%2BXw9bMLc0EBm%2FdVXEO");
+					List<Article> articleList = new ArrayList<Article>();
+					articleList.add(article);
+					// 创建图文消息
+					NewsMessage newsMessage = new NewsMessage();
+					newsMessage.setToUserName(fromUserName);
+					newsMessage.setFromUserName(toUserName);
+					newsMessage.setCreateTime(new Date().getTime());
+					newsMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
+					newsMessage.setArticleCount(articleList.size());
+					newsMessage.setArticles(articleList);
+					respXml = MessageUtil.messageToXml(newsMessage);
+					return respXml;
+				} else if (recvContent.contains("博世") || recvContent.contains("厨师机") || recvContent.contains("料理机")
+						|| recvContent.toLowerCase().contains("boshi".toLowerCase())
+						|| recvContent.contains("搅拌机") || recvContent.contains("4405")
+						|| recvContent.toLowerCase().contains("bosch".toLowerCase())
+						|| recvContent.toLowerCase().contains("chushiji".toLowerCase())
+						|| recvContent.toLowerCase().contains("liaoliji".toLowerCase())
+						|| recvContent.toLowerCase().contains("jiaobanji".toLowerCase())
+						){
+					//图文消息
+					Article article = new Article();
+					article.setTitle("Bosch博世MUM4405厨师机使用说明必看");
+					article.setDescription("现在在家自己动手做蛋糕、甜点、面食的吃货们越来越多了，根据自己的口味来随心调整，爱加什么料就加什么料，简直就跟一次充满惊喜的探险一样！但俗话说的好，吃东西五分钟，做东西两小时，一想起要抡着胳膊打蛋、揉面团、打奶油，退堂的小鼓就咚咚咚响起来了。所以，吃货们，还不快掌声欢迎你们的福音—— \n");
+					article.setPicUrl("http://mmbiz.qpic.cn/mmbiz/7nxEoPnEmicPdUpH83QwaZ6hhXueCe7OgsDolKy8bSvqcEmyfKuB9ibvLZrdPSpiaqSfO0NbtVDSaU8fNMRwWF6dQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1");
+					article.setUrl("http://mp.weixin.qq.com/s?__biz=MzI4MTE4MDMwMQ==&tempkey=W4ZL5JvNm%2BJxqzRy9eeq%2FmJKnCB0uaAyOxA%2Bz%2FsEt4p4zomDfDvkKqQG2nFgQFK%2FfSGIY531zW0r65vcbhVa%2FhulqM8tGMUQMTOOzXsVuezKkYiLsgkKDbS3GAwh3t%2BZv9CaBcWGTknrj%2BJa8eKaAQ%3D%3D&#rd");
+					List<Article> articleList = new ArrayList<Article>();
+					articleList.add(article);
+					// 创建图文消息
+					NewsMessage newsMessage = new NewsMessage();
+					newsMessage.setToUserName(fromUserName);
+					newsMessage.setFromUserName(toUserName);
+					newsMessage.setCreateTime(new Date().getTime());
+					newsMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
+					newsMessage.setArticleCount(articleList.size());
+					newsMessage.setArticles(articleList);
+					respXml = MessageUtil.messageToXml(newsMessage);
+					return respXml;
+				} 
+
+				respContent = "小德推测您在找水壶,料理机等的说明书\n" 
+						+ "找水壶， 请输入：\n碧然德，滤水壶，滤芯，水壶等关键字\n\n"
+						+ "找料理机， 请输入：\n博世，厨师机，料理机，搅拌机，bosch，4405等关键字";
 				System.out.println(" leosu  send msg is：" + respContent);
 			}
 			// 图片消息
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_IMAGE)) {
-				respContent = "您发送的是图片消息！";
+				respContent = "您发送的是图片消息！\n抱歉，图片我们暂时无法识别，\n还是来文字咨询吧";
 			}
 			// 语音消息
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VOICE)) {
-				respContent = "您发送的是语音消息！";
+				respContent = "您发送的是语音消息！\n抱歉，语音我们暂时无法识别，\n还是来文字咨询吧";
 			}
 			// 视频消息
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_VIDEO)) {
-				respContent = "您发送的是视频消息！";
+				respContent = "您发送的是视频消息！\n抱歉，视频我们暂时无法识别，\n还是来文字咨询吧";
 			}
 			// 地理位置消息
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LOCATION)) {
-				respContent = "您发送的是地理位置消息！";
+				respContent = "您发送的是地理位置消息！\n抱歉，视频我们暂时无法识别，\n还是来文字咨询吧";
 			}
 			// 链接消息
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_LINK)) {
-				respContent = "您发送的是链接消息！";
+				respContent = "您发送的是链接消息！\n抱歉，视频我们暂时无法识别，\n还是来文字咨询吧";
 			}
 			// 事件推送
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
