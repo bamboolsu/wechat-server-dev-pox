@@ -1,5 +1,7 @@
 package org.leo.course.pojo;
 
+import java.util.Date;
+
 /**
  * 凭证
  * 
@@ -11,6 +13,15 @@ public class Token {
 	private String accessToken;
 	// 凭证有效期，单位：秒
 	private int expiresIn;
+	private long currentTime; 
+
+	public long getCurrentTime() {
+		return currentTime;
+	}
+
+	public void setCurrentTime(long currentTime) {
+		this.currentTime = currentTime;
+	}
 
 	public String getAccessToken() {
 		return accessToken;

@@ -13,6 +13,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.leo.course.message.resp.Article;
 import org.leo.course.message.resp.ImageMessage;
+import org.leo.course.message.resp.KfMessage;
 import org.leo.course.message.resp.MusicMessage;
 import org.leo.course.message.resp.NewsMessage;
 import org.leo.course.message.resp.TextMessage;
@@ -71,6 +72,9 @@ public class MessageUtil {
 	public static final String RESP_MESSAGE_TYPE_MUSIC = "music";
 	// 响应消息类型：图文
 	public static final String RESP_MESSAGE_TYPE_NEWS = "news";
+	
+	//transfer_customer_service
+	public static final String RESP_MESSAGE_TYPE_KF = "transfer_customer_service";
 
 	/**
 	 * 解析微信发来的请求（XML）
@@ -198,4 +202,16 @@ public class MessageUtil {
 		xstream.alias("item", new Article().getClass());
 		return xstream.toXML(newsMessage);
 	}
+	
+	/**
+	 * 图文消息对象转换成xml
+	 * 
+	 * @param newsMessage 图文消息对象
+	 * @return xml
+	 */
+	public static String messageToXml(KfMessage kfMessage) {
+		xstream.alias("xml", kfMessage.getClass());		
+		return xstream.toXML(kfMessage);
+	}
+	
 }

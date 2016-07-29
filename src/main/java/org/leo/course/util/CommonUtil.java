@@ -17,6 +17,8 @@ import org.leo.course.pojo.Token;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.mysql.fabric.xmlrpc.base.Data;
+
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
@@ -32,6 +34,9 @@ public class CommonUtil {
 	// 凭证获取（GET）
 	public final static String token_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
 
+	//token 
+	private static Token token = null;
+	
 	/**
 	 * 发送https请求
 	 * 
@@ -101,16 +106,28 @@ public class CommonUtil {
 	 * @return
 	 */
 	public static Token getToken(String appid, String appsecret) {
-		Token token = null;
+		//Token token = null;
+		if (token == null) {
+			token = new Token();
+			token.setAccessToken("");
+			token.setCurrentTime(0);
+			token.setExpiresIn(0);
+		}
+		long currentTime = System.currentTimeMillis();
+		if (token.getCurrentTime() + 3600000 - 3000 > currentTime) {
+			return token;
+		}
+				
 		String requestUrl = token_url.replace("APPID", appid).replace("APPSECRET", appsecret);
 		// 发起GET请求获取凭证
 		JSONObject jsonObject = httpsRequest(requestUrl, "GET", null);
 
 		if (null != jsonObject) {
 			try {
-				token = new Token();
+				//token = new Token();
 				token.setAccessToken(jsonObject.getString("access_token"));
 				token.setExpiresIn(jsonObject.getInt("expires_in"));
+				token.setCurrentTime(currentTime);
 			} catch (JSONException e) {
 				token = null;
 				// 获取token失败

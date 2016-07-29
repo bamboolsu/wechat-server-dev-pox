@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.leo.course.message.resp.Article;
 import org.leo.course.message.resp.Image;
 import org.leo.course.message.resp.ImageMessage;
+import org.leo.course.message.resp.KfMessage;
 import org.leo.course.message.resp.NewsMessage;
 import org.leo.course.message.resp.TextMessage;
 import org.leo.course.util.AdvancedUtil;
@@ -103,7 +104,7 @@ public class CoreService {
 					article.setTitle("Bosch博世MUM4405厨师机使用说明必看");
 					article.setDescription("现在在家自己动手做蛋糕、甜点、面食的吃货们越来越多了，根据自己的口味来随心调整，爱加什么料就加什么料，简直就跟一次充满惊喜的探险一样！但俗话说的好，吃东西五分钟，做东西两小时，一想起要抡着胳膊打蛋、揉面团、打奶油，退堂的小鼓就咚咚咚响起来了。所以，吃货们，还不快掌声欢迎你们的福音—— \n");
 					article.setPicUrl("http://mmbiz.qpic.cn/mmbiz/7nxEoPnEmicPdUpH83QwaZ6hhXueCe7OgsDolKy8bSvqcEmyfKuB9ibvLZrdPSpiaqSfO0NbtVDSaU8fNMRwWF6dQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1");
-					article.setUrl("http://mp.weixin.qq.com/s?__biz=MzI4MTE4MDMwMQ==&tempkey=W4ZL5JvNm%2BJxqzRy9eeq%2FmJKnCB0uaAyOxA%2Bz%2FsEt4p4zomDfDvkKqQG2nFgQFK%2FfSGIY531zW0r65vcbhVa%2FhulqM8tGMUQMTOOzXsVuezKkYiLsgkKDbS3GAwh3t%2BZv9CaBcWGTknrj%2BJa8eKaAQ%3D%3D&#rd");
+					article.setUrl("http://www.maidehao.com/Bosch.html");
 					List<Article> articleList = new ArrayList<Article>();
 					articleList.add(article);
 					// 创建图文消息
@@ -116,11 +117,55 @@ public class CoreService {
 					newsMessage.setArticles(articleList);
 					respXml = MessageUtil.messageToXml(newsMessage);
 					return respXml;
+				}  else if (recvContent.contains("客服") || recvContent.contains("小德") 
+						|| recvContent.toLowerCase().contains("kefu".toLowerCase())
+						|| recvContent.toLowerCase().contains("xiaode".toLowerCase())
+						){
+					// 获取接口访问凭证
+					String accessToken = CommonUtil.getToken(ConfConstant.APPID, ConfConstant.APPSECRET).getAccessToken();
+					log.info(" token  is :", accessToken);
+					
+					//得到客服 列表；
+					// 拼接请求地址
+					String requestUrl = "https://api.weixin.qq.com/cgi-bin/customservice/getkflist?access_token=ACCESS_TOKEN";
+					requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken);
+					// 发送客服消息
+					JSONObject jsonObject = CommonUtil.httpsRequest(requestUrl, "GET", null);
+					log.info(" msg content is :", jsonObject);
+					
+					
+					//添加客服列表
+					/*requestUrl = "https://api.weixin.qq.com/customservice/kfaccount/add?access_token=ACCESS_TOKEN";
+					requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken);			
+
+					Map<String,String> batchget =new HashMap<String,String>();
+					batchget.put("kf_account", "kf2002@maidehao01");		
+					batchget.put("nickname", "bamboolsu");		 					
+					JSONObject json_batchget = JSONObject.fromObject(batchget);//将java对象转换为json对象
+					String json_batchget_str = json_batchget.toString();//将json对象转换为字符串
+
+					JSONObject partlyMatrialRst = CommonUtil.httpsRequest(requestUrl, "POST", json_batchget_str);
+					log.info(" msg content is :", partlyMatrialRst);*/
+
+					//消息转发到指定客服
+					// 创建图文消息
+					KfMessage kfMessage = new KfMessage();
+					kfMessage.setToUserName(fromUserName);
+					kfMessage.setFromUserName(toUserName);
+					kfMessage.setCreateTime(new Date().getTime());
+					kfMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_KF);
+					kfMessage.setKfAccount("kf2002@maidehao01");
+					
+					respXml = MessageUtil.messageToXml(kfMessage);
+					return respXml;
 				} 
 
-				respContent = "小德推测您在找水壶,料理机等的说明书\n" 
-						+ "找水壶， 请输入：\n碧然德，滤水壶，滤芯，水壶等关键字\n\n"
-						+ "找料理机， 请输入：\n博世，厨师机，料理机，搅拌机，bosch，4405等关键字";
+				respContent = "小德推测您在找水壶,料理机等的说明书 \n" 
+						+ "找水壶，请输入： 碧然德，滤水壶，滤芯，水壶；\n\n"
+						+ "找料理机， 请输入： 博世，厨师机，料理机，搅拌机，bosch，4405；\n\n"
+						+ "找客服， 请输入： 客服， kefu， 小德， xiaode; \n\n"
+						+ "oh， 超出了我能回答的范围了！";
+						//+ "还找不到那就来找万能的小德吧，微信号maidehaokefu（买德好客服 全拼）";
 				System.out.println(" leosu  send msg is：" + respContent);
 			}
 			// 图片消息
