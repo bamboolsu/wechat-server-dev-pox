@@ -27,15 +27,37 @@ public class MenuManager {
 	 */
 	private static Menu getMenu() {
 
-		ViewButton btn1 = new ViewButton();
-		btn1.setName("买德好");
-		btn1.setType("view");
-		btn1.setUrl("http://m.maidehao.com/");
 
-		ClickButton btn2 = new ClickButton();
+		
+		ViewButton btn11 = new ViewButton();
+		btn11.setName("品牌推荐");
+		btn11.setType("view");
+		btn11.setUrl("http://m.maidehao.com/");
+		
+		ViewButton btn12 = new ViewButton();
+		btn12.setName("促销活动");
+		btn12.setType("view");
+		btn12.setUrl("http://m.maidehao.com/");
+		
+		ViewButton btn13 = new ViewButton();
+		btn13.setName("历史消息");
+		btn13.setType("view");
+		btn13.setUrl("http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzI4MTE4MDMwMQ==#wechat_webview_type=1&wechat_redirect");	
+		
+		ComplexButton mainBtn1 = new ComplexButton();
+		mainBtn1.setName("新发现");
+		mainBtn1.setSub_button(new Button[] { btn13} );
+		
+		
+		ViewButton btn2 = new ViewButton();
+		btn2.setName("BUY好货");
+		btn2.setType("view");
+		btn2.setUrl("http://maidehao.com/");
+
+		/*ClickButton btn2 = new ClickButton();
 		btn2.setName("找小德去");
 		btn2.setType("click");
-		btn2.setKey("findlittlede");
+		btn2.setKey("findlittlede");*/
 
 /*		ClickButton btn2 = new ClickButton();
 		btn2.setName("个人中心");
@@ -52,12 +74,36 @@ public class MenuManager {
 		btn31.setType("view");
 		btn31.setUrl("http://mp.weixin.qq.com/bizmall/mallshelf?id=&t=mall/list&biz=MzI4MTE4MDMwMQ==&shelf_id=1&showwxpaytitle=1#wechat_redirect");
 */		
-		ClickButton btn32 = new ClickButton();
-		btn32.setName("联系我们");
-		btn32.setType("click");
-		btn32.setKey("connectKF");	
 		
-		ViewButton btn33 = new ViewButton();
+		ClickButton btn31 = new ClickButton();
+		btn31.setName("\ue12f优惠资讯");
+		btn31.setType("click");
+		btn31.setKey("connectKF");
+		
+		ClickButton btn32 = new ClickButton();
+		btn32.setName("\ue057个人中心");
+		btn32.setType("click");
+		btn32.setKey("membercenter");
+		
+		ClickButton btn33 = new ClickButton();
+		btn33.setName("\ue009服务中心");
+		btn33.setType("click");
+		btn33.setKey("connectKF");	
+		
+		//emojo:  http://www.fuhaodq.com/biaoqingfuhao/1531.html
+		//emojo 表情大全：  http://www.oicqzone.com/tool/emoji/
+		ClickButton btn34 = new ClickButton();
+		btn34.setName("\ue03e我们的故事");
+		btn34.setType("click");
+		btn34.setKey("findlittlede");
+		
+		ViewButton btn35 = new ViewButton();
+		btn35.setName("内测-不发货");
+		btn35.setType("view");
+		btn35.setUrl("http://m.maidehao.com");	
+
+		
+		/*ViewButton btn33 = new ViewButton();
 		btn33.setName("内部测试");
 		btn33.setType("view");
 		btn33.setUrl("http://m.maidehao.com/");
@@ -66,18 +112,18 @@ public class MenuManager {
 		ViewButton btn34 = new ViewButton();
 		btn34.setName("testting");
 		btn34.setType("view");
-		btn34.setUrl("http://15r075i779.imwork.net/test_mobile/");
+		btn34.setUrl("http://15r075i779.imwork.net/test_mobile/");*/
 		
 		//btn34.setUrl("http://15r075i779.imwork.net/test_mobile/before_index.html");
 		
 		ComplexButton mainBtn3 = new ComplexButton();
-		mainBtn3.setName("关于我们");
-		mainBtn3.setSub_button(new Button[] {btn32} );
+		mainBtn3.setName("找服务");
+		mainBtn3.setSub_button(new Button[] {btn31, btn32, btn33, btn34, btn35} );
 
 
 		
 		Menu menu = new Menu();
-		menu.setButton(new Button[] { btn1, btn2, mainBtn3 });
+		menu.setButton(new Button[] { mainBtn1, btn2, mainBtn3 });
 		
 		return menu;
 	}

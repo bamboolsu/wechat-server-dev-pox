@@ -91,7 +91,7 @@ public class CoreService {
 					newsMessage.setArticles(articleList);
 					respXml = MessageUtil.messageToXml(newsMessage);
 					return respXml;
-				} else if (recvContent.contains("博世") || recvContent.contains("厨师机") || recvContent.contains("料理机")
+				} /*else if (recvContent.contains("博世") || recvContent.contains("厨师机") || recvContent.contains("料理机")
 						|| recvContent.toLowerCase().contains("boshi".toLowerCase())
 						|| recvContent.contains("搅拌机") || recvContent.contains("4405")
 						|| recvContent.toLowerCase().contains("bosch".toLowerCase())
@@ -104,7 +104,90 @@ public class CoreService {
 					article.setTitle("Bosch博世MUM4405厨师机使用说明必看");
 					article.setDescription("现在在家自己动手做蛋糕、甜点、面食的吃货们越来越多了，根据自己的口味来随心调整，爱加什么料就加什么料，简直就跟一次充满惊喜的探险一样！但俗话说的好，吃东西五分钟，做东西两小时，一想起要抡着胳膊打蛋、揉面团、打奶油，退堂的小鼓就咚咚咚响起来了。所以，吃货们，还不快掌声欢迎你们的福音—— \n");
 					article.setPicUrl("http://mmbiz.qpic.cn/mmbiz/7nxEoPnEmicPdUpH83QwaZ6hhXueCe7OgsDolKy8bSvqcEmyfKuB9ibvLZrdPSpiaqSfO0NbtVDSaU8fNMRwWF6dQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1");
-					article.setUrl("http://www.maidehao.com/Bosch.html");
+					article.setUrl("http://shuomingshu.maidehao.com/Bosch.htm");
+					List<Article> articleList = new ArrayList<Article>();
+					articleList.add(article);
+					// 创建图文消息
+					NewsMessage newsMessage = new NewsMessage();
+					newsMessage.setToUserName(fromUserName);
+					newsMessage.setFromUserName(toUserName);
+					newsMessage.setCreateTime(new Date().getTime());
+					newsMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
+					newsMessage.setArticleCount(articleList.size());
+					newsMessage.setArticles(articleList);
+					respXml = MessageUtil.messageToXml(newsMessage);
+					return respXml;
+				}*/ else if ( recvContent.contains("料理机")
+						|| recvContent.contains("搅拌机") || recvContent.contains("4405")
+						|| recvContent.toLowerCase().contains("liaoliji".toLowerCase())
+						|| recvContent.toLowerCase().contains("jiaobanji".toLowerCase())
+						){
+					//图文消息
+					Article article = new Article();
+					article.setTitle("Bosch博世MUM4405厨师机使用说明必看");
+					article.setDescription("现在在家自己动手做蛋糕、甜点、面食的吃货们越来越多了，根据自己的口味来随心调整，爱加什么料就加什么料，简直就跟一次充满惊喜的探险一样！但俗话说的好，吃东西五分钟，做东西两小时，一想起要抡着胳膊打蛋、揉面团、打奶油，退堂的小鼓就咚咚咚响起来了。所以，吃货们，还不快掌声欢迎你们的福音—— \n");
+					article.setPicUrl("http://mmbiz.qpic.cn/mmbiz/7nxEoPnEmicPdUpH83QwaZ6hhXueCe7OgsDolKy8bSvqcEmyfKuB9ibvLZrdPSpiaqSfO0NbtVDSaU8fNMRwWF6dQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1");
+					article.setUrl("http://shuomingshu.maidehao.com/Bosch.htm");
+					List<Article> articleList = new ArrayList<Article>();
+					articleList.add(article);
+					// 创建图文消息
+					NewsMessage newsMessage = new NewsMessage();
+					newsMessage.setToUserName(fromUserName);
+					newsMessage.setFromUserName(toUserName);
+					newsMessage.setCreateTime(new Date().getTime());
+					newsMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
+					newsMessage.setArticleCount(articleList.size());
+					newsMessage.setArticles(articleList);
+					respXml = MessageUtil.messageToXml(newsMessage);
+					return respXml;
+				} else if (recvContent.contains("博世") || recvContent.contains("厨师机") || recvContent.contains("4系")
+						|| recvContent.toLowerCase().contains("boshi".toLowerCase())
+						|| recvContent.toLowerCase().contains("bosch".toLowerCase())
+						|| recvContent.toLowerCase().contains("chushiji".toLowerCase()
+						)
+						){ 
+					//图文消息
+					Article article = new Article();
+					article.setTitle("Bosch博世MUM4系厨师机使用说明必看");
+					article.setDescription("为什么喜欢在厨房倒腾的吃货们 \n" 
+							+ "都需要有一台厨师机？\n" 
+							+ "因为它能帮你省时省力，事半功倍。\n" 
+							+ "我们享受每一道美食的创作过程，\n" 
+							+ "但没有人会喜欢繁杂低效率的琐碎步骤！\n" 
+							+ "和面、打蛋、切菜、榨汁、\n" 
+							+ "磨粉、打发奶油、绞肉馅··· \n" 
+							+ "想想头都要炸了，还不快全扔给 \n" 
+							+ "Bosch MUM4系家用厨师机！\n");
+					article.setPicUrl("http://shuomingshu.maidehao.com/BoschMUM4_files/640_005.jpg");
+					article.setUrl("http://shuomingshu.maidehao.com/BoschMUM4.htm");
+					List<Article> articleList = new ArrayList<Article>();
+					articleList.add(article);
+					// 创建图文消息
+					NewsMessage newsMessage = new NewsMessage();
+					newsMessage.setToUserName(fromUserName);
+					newsMessage.setFromUserName(toUserName);
+					newsMessage.setCreateTime(new Date().getTime());
+					newsMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
+					newsMessage.setArticleCount(articleList.size());
+					newsMessage.setArticles(articleList);
+					respXml = MessageUtil.messageToXml(newsMessage);
+					return respXml;
+				} else if (recvContent.contains("玻璃罐") || recvContent.contains("密封罐") 
+						|| recvContent.toLowerCase().contains("weck".toLowerCase())
+						|| recvContent.toLowerCase().contains("boliguan".toLowerCase())
+						|| recvContent.toLowerCase().contains("mifengguan".toLowerCase()
+						)
+						){ 
+					//图文消息
+					Article article = new Article();
+					article.setTitle("Weck玻璃密封罐简餐菜谱");
+					article.setDescription("Weck的玻璃密封罐 \n" 
+							+ "不仅仅只是好看那么简单。\n" 
+							+ "我们可以用它来完成 \n" 
+							+ "很多创意美食料理~\n" 
+							+ "动手做起来！\n"  );
+					article.setPicUrl("http://shuomingshu.maidehao.com/weck_files/640_002.jpg");
+					article.setUrl("http://shuomingshu.maidehao.com/weck.htm");
 					List<Article> articleList = new ArrayList<Article>();
 					articleList.add(article);
 					// 创建图文消息
@@ -162,7 +245,9 @@ public class CoreService {
 
 				respContent = "小德推测您在找水壶,料理机等的说明书 \n" 
 						+ "找水壶，请输入： 碧然德，滤水壶，滤芯，水壶；\n\n"
-						+ "找料理机， 请输入： 博世，厨师机，料理机，搅拌机，bosch，4405；\n\n"
+						+ "找料理机， 请输入： 料理机，搅拌机，4405；\n\n"
+						+ "找Bosch博世MUM4系， 请输入： 博世，厨师机，bosch，4系；\n\n"
+						+ "找weck玻璃杯子， 请输入： weck、玻璃罐、密封罐；\n\n"
 						+ "找客服， 请输入： 客服， kefu， 小德， xiaode; \n\n"
 						+ "oh， 超出了我能回答的范围了！";
 						//+ "还找不到那就来找万能的小德吧，微信号maidehaokefu（买德好客服 全拼）";

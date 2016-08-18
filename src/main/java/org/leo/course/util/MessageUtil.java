@@ -204,9 +204,9 @@ public class MessageUtil {
 	}
 	
 	/**
-	 * 图文消息对象转换成xml
+	 * 客服消息  转换成xml
 	 * 
-	 * @param newsMessage 图文消息对象
+	 * @param KfMessage 转接到客服的消息对象
 	 * @return xml
 	 */
 	public static String messageToXml(KfMessage kfMessage) {
