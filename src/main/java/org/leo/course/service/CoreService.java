@@ -249,7 +249,7 @@ public class CoreService {
 						+ "找Bosch博世MUM4系， 请输入： 博世，厨师机，bosch，4系；\n\n"
 						+ "找weck玻璃杯子， 请输入： weck、玻璃罐、密封罐；\n\n"
 						+ "找客服， 请输入： 客服， kefu， 小德， xiaode; \n\n"
-						+ "oh， 超出了我能回答的范围了！";
+						+ "oh，其它问题超出了我能回答的范围了！";
 						//+ "还找不到那就来找万能的小德吧，微信号maidehaokefu（买德好客服 全拼）";
 				System.out.println(" leosu  send msg is：" + respContent);
 			}
@@ -277,24 +277,65 @@ public class CoreService {
 			else if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
 				// 事件类型
 				String eventType = requestMap.get("Event");
+				String eventKey = requestMap.get("EventKey");
 				System.out.println("leosu:   CoreServlet  receive eventType is：" + eventType);
 				
 				// 订阅
 				if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
-					respContent = ("\"终于等到你，还好我没放弃\""
+					//新用户（没有关注过的用户）， 走这里； 此处场景值 加qrscene_
+					/*respContent = ("\"终于等到你，还好我没放弃\""
 							+ "\n感恩您关注买德好"
 							+ "\n从此您的生活和正品德货之间"
 							+ "\n只隔着一个买德好的距离"
 							+ "\n我们精选将升级您生活品质的德国好物"
 							+ "\n连同优质服务一起打包送到您手上"
 							+ "\nwww.maidehao.com"
-							+ "\n真德不一样，你来就知道！");
+							+ "\n真德不一样，你来就知道！");*/
 					
-					String eventKey = requestMap.get("EventKey");
+					
 					System.out.println("leosu:   CoreServlet  receive eventKey is：" + eventKey);
 					
-					respXml =  sendMsgArticle(requestMap);
-					return respXml;
+					if (eventKey.contains("http:")) {
+						respContent = ("场景值是： " + eventKey);
+						String url = eventKey.substring(8);
+						System.out.println("leosu:   scene's url is：" + url);
+						//图文消息
+						Article article = new Article();
+						article.setTitle("url title");
+						article.setDescription("此处是测试url， description");
+						article.setPicUrl("");
+						article.setUrl(url);
+						List<Article> articleList = new ArrayList<Article>();
+						articleList.add(article);
+						// 创建图文消息
+						NewsMessage newsMessage = new NewsMessage();
+						newsMessage.setToUserName(fromUserName);
+						newsMessage.setFromUserName(toUserName);
+						newsMessage.setCreateTime(new Date().getTime());
+						newsMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
+						newsMessage.setArticleCount(articleList.size());
+						newsMessage.setArticles(articleList);
+						respXml = MessageUtil.messageToXml(newsMessage);
+						return respXml;
+					} else {
+						//respXml =  sendMsgArticle(requestMap);
+						//return respXml;		
+						//we will send text to user
+						respContent = ("Hi，你好！\n"
+								+ "又被一个讲究生活品质的高B格人类添加了，买德好感觉无上荣幸！\n" 
+								+ "相信在这里，你也会玩得很high~\n\n"
+								+ "因为有好多牛B德货评测和诚意推荐\n"
+								+ "因为有不定期的优惠福利来哄你开心\n"
+								+ "因为你会从只会“买买买”跨越到买得“好好好”的境界\n"
+								+ "因为你的生活变得更有滋有味有态度。\n\n"
+								+ "设计师威廉•莫里斯诺说：\n"
+								+ "\"不要在家里摆放任何一件不好看又没用的东西\"\n\n"
+								+ "在这里，咱不会遇到这样的东西~\n"
+								+ "咱遇到的都是好生活。\n\n"
+								+ "[欢迎进入\"新发现\"看看历史消息，说不定能发现欣喜哦]");
+						
+					}
+
 					
 /*					if (eventKey.equals("qrscene_webcome4")) {
 						respContent = ("场景值是： "
@@ -316,11 +357,24 @@ public class CoreService {
 				}
 				//EVENT_TYPE_SCAN
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_SCAN)) {
-					String eventKey = requestMap.get("EventKey");
-					System.out.println("leosu:   CoreServlet  receive eventKey is：" + eventKey);
+					//老用户（已经关注过的用户）， 走这里； 此处场景值 是什么就是什么；
+					System.out.println("leosu: EVENT_TYPE_SCAN   CoreServlet  receive eventKey is：" + eventKey);
 					
-					respXml =  sendMsgArticle(requestMap);
-					return respXml;	
+					/*respXml =  sendMsgArticle(requestMap);
+					return respXml;*/
+					//only send text
+					respContent = ("Hi，你好！\n"
+							+ "又被一个讲究生活品质的高B格人类添加了，买德好感觉无上荣幸！\n" 
+							+ "相信在这里，你也会玩得很high~\n\n"
+							+ "因为有好多牛B德货评测和诚意推荐\n"
+							+ "因为有不定期的优惠福利来哄你开心\n"
+							+ "因为你会从只会“买买买”跨越到买得“好好好”的境界\n"
+							+ "因为你的生活变得更有滋有味有态度。\n\n"
+							+ "设计师威廉•莫里斯诺说：\n"
+							+ "\"不要在家里摆放任何一件不好看又没用的东西\"\n\n"
+							+ "在这里，咱不会遇到这样的东西~\n"
+							+ "咱遇到的都是好生活。\n\n"
+							+ "[欢迎进入\"新发现\"看看历史消息，说不定能发现欣喜哦]");
 					
 /*					if (eventKey.equals("webcome4")) {
 						respContent = ("场景值是： "
@@ -337,13 +391,15 @@ public class CoreService {
 					}*/
 				}
 				//myself define welcome,  //never will come here
-				else if (eventType.equals("welcome")) {
+				else if (eventType.equals("welcome")) {					
+					System.out.println("leosu:  eventType.equals(welcome),   eventKey is：" + eventKey);
 					respContent = ("Thanks for you MDH.");
 				}
 				// 自定义菜单点击事件
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
 					// 事件KEY值，与创建菜单时的key值对应
-					String eventKey = requestMap.get("EventKey");
+					//String eventKey = requestMap.get("EventKey");
+					System.out.println("leosu:  eventType.equals(MessageUtil.EVENT_TYPE_CLICK),   eventKey is：" + eventKey);
 					// 根据key值判断用户点击的按钮
 					
 					if (eventKey.equals("findlittlede")) {

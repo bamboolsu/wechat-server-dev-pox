@@ -52,7 +52,7 @@ public class MenuManager {
 		ViewButton btn2 = new ViewButton();
 		btn2.setName("BUY好货");
 		btn2.setType("view");
-		btn2.setUrl("http://maidehao.com/");
+		btn2.setUrl("http://m.maidehao.com/");
 
 		/*ClickButton btn2 = new ClickButton();
 		btn2.setName("找小德去");
@@ -80,10 +80,13 @@ public class MenuManager {
 		btn31.setType("click");
 		btn31.setKey("connectKF");
 		
-		ClickButton btn32 = new ClickButton();
+		ViewButton btn32 = new ViewButton();
+		//btn32.setName("\ue057个人中心");
 		btn32.setName("\ue057个人中心");
-		btn32.setType("click");
-		btn32.setKey("membercenter");
+		btn32.setType("view");
+		btn32.setUrl("http://m.maidehao.com/#/center");
+		//btn32.setUrl("http://m.maidehao.com/#/center");
+		
 		
 		ClickButton btn33 = new ClickButton();
 		btn33.setName("\ue009服务中心");
@@ -100,7 +103,7 @@ public class MenuManager {
 		ViewButton btn35 = new ViewButton();
 		btn35.setName("内测-不发货");
 		btn35.setType("view");
-		btn35.setUrl("http://m.maidehao.com");	
+		btn35.setUrl("http://mpre.maidehao.com");	
 
 		
 		/*ViewButton btn33 = new ViewButton();
@@ -118,7 +121,7 @@ public class MenuManager {
 		
 		ComplexButton mainBtn3 = new ComplexButton();
 		mainBtn3.setName("找服务");
-		mainBtn3.setSub_button(new Button[] {btn31, btn32, btn33, btn34, btn35} );
+		mainBtn3.setSub_button(new Button[] {btn31,btn32, btn33, btn34} );
 
 
 		

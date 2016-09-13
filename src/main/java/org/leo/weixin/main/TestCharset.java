@@ -14,6 +14,13 @@ public class TestCharset {
 		for (Entry<String, Charset> entry : sets) {
 			System.out.println(entry.getKey()+":"+entry.getValue());
 		}
+		
+		String recvContent = "Tet";
+		System.out.println(recvContent.toLowerCase());
+		recvContent = "中文STTTt";
+		System.out.println(recvContent.toLowerCase());
+		recvContent.toLowerCase().contains("jiaobanji".toLowerCase());
+		
 	}
 
 }
