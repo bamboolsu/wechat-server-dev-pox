@@ -49,10 +49,37 @@ public class MenuManager {
 		mainBtn1.setSub_button(new Button[] { btn13} );
 		
 		
-		ViewButton btn2 = new ViewButton();
+		
+		
+		ClickButton btn21 = new ClickButton();
+		btn21.setName("【淘宝】德国直邮电器店");
+		btn21.setType("click");
+		btn21.setKey("TBDM");	
+		
+		ClickButton btn22 = new ClickButton();
+		btn22.setName("【淘宝】德国好物市集店");
+		btn22.setType("click");
+		btn22.setKey("TBXH");
+
+		ViewButton btn23 = new ViewButton();
+		btn23.setName("下厨房店");
+		btn23.setType("view");
+		btn23.setUrl("https://www.xiachufang.com/shop/111241495/");
+		
+		ViewButton btn24 = new ViewButton();
+		btn24.setName("买德好商城-内测版");  //买德好官方商城
+		btn24.setType("view");
+		btn24.setUrl("http://m.maidehao.com");
+		
+		ComplexButton btn2 = new ComplexButton();
+		btn2.setName("BUY好货");
+		btn2.setSub_button(new Button[] { btn21, btn22, btn23, btn24} );
+		
+		
+		/*ViewButton btn2 = new ViewButton();
 		btn2.setName("BUY好货");
 		btn2.setType("view");
-		btn2.setUrl("http://m.maidehao.com/");
+		btn2.setUrl("http://m.maidehao.com/");*/
 
 		/*ClickButton btn2 = new ClickButton();
 		btn2.setName("找小德去");
@@ -101,9 +128,9 @@ public class MenuManager {
 		btn34.setKey("findlittlede");
 		
 		ViewButton btn35 = new ViewButton();
-		btn35.setName("内测-不发货");
+		btn35.setName("买德好商城");
 		btn35.setType("view");
-		btn35.setUrl("http://mpre.maidehao.com");	
+		btn35.setUrl("http://m.maidehao.com");	
 
 		
 		/*ViewButton btn33 = new ViewButton();

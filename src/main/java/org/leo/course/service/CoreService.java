@@ -317,6 +317,11 @@ public class CoreService {
 						newsMessage.setArticles(articleList);
 						respXml = MessageUtil.messageToXml(newsMessage);
 						return respXml;
+					} else if (eventKey.contains("weibo0920")) {
+						//带链接的 文字 消息
+						respContent = ("终于等到你，还好我没放弃~点击【<a href =\"http://m.maidehao.com/?vt=0.0.56#/mobile\">传送门</a>】绑定手机号，即可使用你的专属优惠券啦~！\n \n"
+								+ "领券完毕~是不是心痒痒德？戳【<a href =\"http://m.maidehao.com\">BUY好货</a>】去逛逛吧，付款时别忘了使用优惠券哦~");
+						
 					} else {
 						//respXml =  sendMsgArticle(requestMap);
 						//return respXml;		
@@ -375,6 +380,14 @@ public class CoreService {
 							+ "在这里，咱不会遇到这样的东西~\n"
 							+ "咱遇到的都是好生活。\n\n"
 							+ "[欢迎进入\"新发现\"看看历史消息，说不定能发现欣喜哦]");
+					
+					
+					if (eventKey.equals("weibo0920")) {
+						//带链接的 文字 消息
+						respContent = ("终于等到你，还好我没放弃~点击【<a href =\"http://m.maidehao.com/?vt=0.0.56#/mobile\">传送门</a>】绑定手机号，即可使用你的专属优惠券啦~！\n \n"
+								+ "领券完毕~是不是心痒痒德？戳【<a href =\"http://m.maidehao.com\">BUY好货</a>】去逛逛吧，付款时别忘了使用优惠券哦~");
+						
+					}
 					
 /*					if (eventKey.equals("webcome4")) {
 						respContent = ("场景值是： "
