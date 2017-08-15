@@ -27,7 +27,7 @@ public class MenuManager {
      */
     private static Menu getMenu() {
 
-        ViewButton btn11 = new ViewButton();
+        /*ViewButton btn11 = new ViewButton();
         btn11.setName("品牌推荐");
         btn11.setType("view");
         btn11.setUrl("http://m.maidehao.com/");
@@ -45,7 +45,7 @@ public class MenuManager {
 
         ComplexButton mainBtn1 = new ComplexButton();
         mainBtn1.setName("新发现");
-        mainBtn1.setSub_button(new Button[] { btn13 });
+        mainBtn1.setSub_button(new Button[] { btn13 });*/
 
         ClickButton btn21 = new ClickButton();
         btn21.setName("【淘宝】德国直邮电器店");
@@ -142,9 +142,36 @@ public class MenuManager {
         ComplexButton mainBtn3 = new ComplexButton();
         mainBtn3.setName("找服务");
         mainBtn3.setSub_button(new Button[] { btn31, btn32, btn33, btn34 });
+        
+        
+        
+        
+        ViewButton viewbtn1 = new ViewButton();
+        viewbtn1.setName("MDH商城"); // 买德好官方微信商城
+        viewbtn1.setType("view");
+        viewbtn1.setUrl("http://m.maidehao.com");
+        
+        ClickButton clickbtn2 = new ClickButton();
+        clickbtn2.setName("连WIFI");
+        clickbtn2.setType("click");
+        clickbtn2.setKey("connectWIFI");
+        
+        ViewButton viewbtn31 = new ViewButton();
+        viewbtn31.setName("个人中心");
+        viewbtn31.setType("view");
+        viewbtn31.setUrl("http://m.maidehao.com/#/center");
+        
+        ClickButton clickbtn32 = new ClickButton();
+        clickbtn32.setName("说明书获取");
+        clickbtn32.setType("click");
+        clickbtn32.setKey("getshuomingshu");
+        
+        ComplexButton complexBtn3 = new ComplexButton();
+        complexBtn3.setName("我的账号");
+        complexBtn3.setSub_button(new Button[] { viewbtn31, clickbtn32});
 
         Menu menu = new Menu();
-        menu.setButton(new Button[] { mainBtn1, btn2, mainBtn3 });
+        menu.setButton(new Button[] { viewbtn1, clickbtn2, complexBtn3 });
 
         return menu;
     }
